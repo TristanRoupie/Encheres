@@ -36,3 +36,9 @@ ul {
 	width: 100%;
 	height: 50px;
 }
+#bloccommerce {
+	display: flex;
+	flex-direction: row;
+	margin: 30px;
+	padding: 30px;
+}
