@@ -11,7 +11,7 @@
 		<header>
 		<nav>
 			<ul>
-				<li><a href="#">Enchères</a></li>
+				<li><a href="#">Encheres</a></li>
 				<li><a href="#">Vendre un article</a></li>
 				<li><a href="#">Mon profil</a></li>
 				<li><a href="#">Déconnexion</a></li>			
@@ -38,7 +38,10 @@
 				
 		</div>
 		<div id="vide" ></div>
-		<input type="radio" name="genre" value="homme" checked> Achats
+		<div id="conteneur">
+		<input type="radio" class="bloccommerce" name="commerce" value="achats" checked> Achats
+		<input type="radio" class="bloccommerce" name="commerce" value="ventes" checked> Ventes
+		</div>
 		</div >
 		
 
