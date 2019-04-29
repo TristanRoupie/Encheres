@@ -6,4 +6,7 @@ h1 {
 conteneur {
 	display: flex;
 	flex-direction: row;
+	display: inline-table;
+	color: blue;
+	margin: auto;
 }

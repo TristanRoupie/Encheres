@@ -15,7 +15,7 @@
 
 		<div id="conteneur">
 			<h4>Identifiant :</h4>
-			<input 
+			<input
 				type="text" 
 				name="login" 
 				size="15" />
