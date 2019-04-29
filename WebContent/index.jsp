@@ -18,6 +18,9 @@
 		</nav>
 			<h1>Liste des enchères</h1>
 		</header>
+		<div>
+		<h3>Filtres</h3>
+		</div>
 
 
 </body>
