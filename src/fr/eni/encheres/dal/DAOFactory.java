@@ -1,6 +1,4 @@
-package fr.eni.jee.dal;
-
-import fr.eni.encheres.bo.Utilisateur;
+package fr.eni.encheres.dal;
 
 
 public class DAOFactory {
@@ -10,7 +8,7 @@ public class DAOFactory {
 	}
 	
 	public static ArticleVenduDAO getArticleVenduDAO() {
-		return  new UtilisateurJdbcImpl();
+		return  new ArticleVenduDAOJdbcImpl();
 	}
 	
 
