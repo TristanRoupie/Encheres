@@ -12,7 +12,7 @@ public class Retrait {
 		super();
 		this.rue = rue;
 		this.codePostal = codePostal;
-		this.ville = ville;
+		this.ville = ville; 
 	}
 
 	public Retrait() {

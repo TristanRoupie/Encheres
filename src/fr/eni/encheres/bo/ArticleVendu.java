@@ -34,7 +34,7 @@ public class ArticleVendu {
 		this.idAcheteur = idAcheteur;
 		this.idVendeur = idVendeur;
 		this.lieuRetrait = lieuRetrait;
-		this.categorie = categorie;
+		this.categorie = categorie; 
 	}
 
 	public ArticleVendu() {

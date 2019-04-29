@@ -31,7 +31,7 @@ public class Utilisateur {
 		this.ville = ville;
 		this.motDePasse = motDePasse;
 		this.credit = credit;
-		this.administrateur = administrateur;
+		this.administrateur = administrateur; 
 	}
 
 	public Utilisateur() {
