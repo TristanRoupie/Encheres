@@ -25,9 +25,9 @@ public class Utilisateur {
 	private String nom;
 	@Column(name = "prenom", length=30, nullable=false)
 	private String prenom;
-	@Column(name = "email", length=20, nullable=false)
+	@Column(name = "email", length=50, nullable=false)
 	private String email;
-	@Column(name = "email", length=15)
+	@Column(name = "telephone", length=15)
 	private String telephone;
 	@Column(name = "rue", length=30, nullable=false)
 	private String rue;
