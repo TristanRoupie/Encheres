@@ -4,7 +4,9 @@ h1 {
 	text-transform: uppercase;
 	text-align: center;
 }
-
+h3 {
+	margin-left: 50px;
+}
 #conteneur {
 	display: flex;
 	flex-direction: row;
@@ -13,13 +15,13 @@ h1 {
 	margin: auto;
 	padding: 10px;
 	width: 100%;
-	min-height: 500px;
+	min-height: 800px;
 	background-color: grey;
 }
 #navbar {
 	
 }
-bloclogin {
+#bloclogin {
 	display: flex;
 	flex-direction: row;
 	display: inline-table;
@@ -41,4 +43,34 @@ ul {
 	flex-direction: row;
 	margin: 30px;
 	padding: 30px;
+	background-color: yellow;
+}
+#sousbloc1 {
+	flex-wrap: wrap;
+	flex-direction: column;
+	min-width: 200px;
+	background-color: green;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-right: 50px;
+	margin-left: 20px;
+}
+#sousbloc2 {
+	flex-wrap: wrap;
+	flex-direction: column;
+	min-width: 200px;
+	background-color: cyan;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+#jj {
+	width: 150px;
+}
+#bb {
+	margin-left: 50px;
+}
+.imageflottante {
+	float: left;
 }
