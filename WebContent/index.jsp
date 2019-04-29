@@ -15,10 +15,16 @@
 		
 		<div id="conteneur">
 		<h4>Identifiant :</h4>
-	<input type="text" name="login" size="8" />
+	<input type="text" name="login" size="15" />
 		<h4>Mot de passe :</h4>
-		<input type="text" name="login" size="8" />
+		<input type="text" name="login" size="15" />
+		<br>
 		</div>
+		<div>
+		<input type="submit" value="Connexion" />
+		</div>
+		
+		
 	
 	
 	
