@@ -6,4 +6,13 @@ h1 {
 conteneur {
 	display: flex;
 	flex-direction: row;
+	display: inline-table;
+	color: blue;
+	margin: auto;
+	width: 100%;
+	min-height: 500px;
+	background-color: red;
+}
+#navbar {
+	
 }
