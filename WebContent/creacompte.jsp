@@ -17,20 +17,21 @@
 			<h4>Identifiant :</h4>
 			<form action="${pageContext.request.contextPath}" method="post">
 			<input
+				class="bloclogin"
 				type="text" 
 				name="login" 
 				size="15" />
 			</form>	
 			<h4>Mot de passe :</h4>
 			<form action="${pageContext.request.contextPath}" method="post"">
-			<input 
+			<input
+				class="bloclogin" 
 				type="text" 
 				name="login"
 				size="15" />
 			</form>
-				<br>
 		</div>
-		<div>
+		<div id="conteneur">
 		<form action="${pageContext.request.contextPath}" method="get">
 			<input id
 				type="submit"
@@ -38,7 +39,7 @@
 				style="height: 100px"/>
 		</form>
 		</div>
-			<div>
+			<div id="conteneur">
 			<form action="${pageContext.request.contextPath}" method="get">
 			<input id
 				type="submit"
