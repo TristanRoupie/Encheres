@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="/css/sstyle.css">
+<title>Encheres</title>
 </head>
 <body>
-<h1> yoouhou</h1>
+	<div>
+		<h1>Eni-Enchères</h1>
+	
+	
+	
+	
+	</div>
 </body>
 </html>
