@@ -8,6 +8,7 @@ public interface UtilisateurDAO {
 	public void updateUtilisateur(Utilisateur utilisateur);
 	public void DeleteUtilisateur(Utilisateur utilisateur);
 	public Utilisateur GetUtilisateur(int noUtilisateur);
+	//TEST
 	
 
 }
