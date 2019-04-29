@@ -1,5 +1,8 @@
 package fr.eni.encheres.bo;
 
+import lombok.Data;
+
+@Data
 public class Utilisateur {
 	private int noUtilisateur;
 	private String pseudo;
@@ -12,5 +15,5 @@ public class Utilisateur {
 	private String ville;
 	private String motDePasse;
 	private int credit;
-	private String administrateur;
+	private byte administrateur; // 0 or 1 because Lombok bugs with boolean
 }
