@@ -13,7 +13,7 @@ public class ArticleVendu {
 	private Date dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	private boolean etatVente;
+	private byte etatVente; // 0 or 1 because Lombok bugs with boolean
 	private int idAcheteur;
 	private int idVendeur;
 	private Retrait lieuRetrait;
