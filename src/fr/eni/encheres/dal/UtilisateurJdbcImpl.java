@@ -3,8 +3,7 @@ package fr.eni.encheres.dal;
 import org.hibernate.Session;
 
 import fr.eni.encheres.bo.Utilisateur;
-import fr.eni.javaee.hibernate.bo.Voiture;
-import fr.eni.javaee.hibernate.dal.ConnectionProvider;
+
 
 public class UtilisateurJdbcImpl implements UtilisateurDAO {
 
