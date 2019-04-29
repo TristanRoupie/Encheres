@@ -40,10 +40,10 @@ public class Utilisateur {
 	@Column(name = "credit", length=11, nullable=false, columnDefinition = "int default 0")
 	private int credit;
 	@Column(name = "administrateur", length=1, nullable=false, columnDefinition = "int default 0")
-	private byte administrateur; // 0 or 1 because Lombok bugs with boolean
+	private int administrateur; // 0 or 1 because Lombok bugs with boolean
 
 	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, int codePostal, String ville, String motDePasse, int credit, byte administrateur) {
+			String rue, int codePostal, String ville, String motDePasse, int credit, int administrateur) {
 		super();
 		this.setNoUtilisateur(noUtilisateur);
 		this.setPseudo (pseudo);
@@ -59,14 +59,8 @@ public class Utilisateur {
 		this.setAdministrateur (administrateur);
 	}
 	
-	
-
-	
-
-
-
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, int codePostal, String ville,
-			String motDePasse, int credit, byte administrateur) {
+			String motDePasse, int credit, int administrateur) {
 		super();
 		this.setPseudo (pseudo);
 		this.setNom (nom);

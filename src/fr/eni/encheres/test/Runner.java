@@ -1,25 +1,44 @@
 package fr.eni.encheres.test;
 
-import java.util.List;
-
-import javax.persistence.Query;
-
 import org.hibernate.Session;
 import org.junit.jupiter.api.Test;
 
 import fr.eni.encheres.bo.Utilisateur;
-
-
+import fr.eni.encheres.bo.Voiture;
+import fr.eni.encheres.dal.ConnectionProvider;
+import fr.eni.encheres.dal.DAOFactory;
+import fr.eni.encheres.dal.UtilisateurDAO;
 
 class Runner {
 
-    @Test
-    void test() {
-        // Ajout
-        Utilisateur newUtilisateur = new Utilisateur());
-        
-       
-         // Suppression
+	@Test
+	void test() {
+		// Ajout
+
+//    	Voiture voitureAajoutee = new Voiture("Alfa Romeo", 7);
+//        Session session = ConnectionProvider.session;
+//        session.beginTransaction();
+//        session.save(voitureAajoutee);
+//        session.getTransaction().commit();
+
+		Utilisateur newUtilisateur = new Utilisateur("pseudo", "Roupie", "Tristan", "Tristan.roupie@gmail.com",
+				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
+
+//        Session session = ConnectionProvider.session;
+//        session.beginTransaction();
+//        session.save(newUtilisateur);
+//        session.getTransaction().commit();
+//        
+
+		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
+		utilisateurDAO.addUtilisateur(newUtilisateur);
+		System.out.println(newUtilisateur.getNoUtilisateur());
+		 newUtilisateur = new Utilisateur("pseudot", "Roupie", "Tristan", "Tristan.roupie@gmail.com",
+				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
+		utilisateurDAO.addUtilisateur(newUtilisateur);
+		System.out.println(newUtilisateur.getNoUtilisateur());
+
+		// Suppression
 //         Long id = 1L;
 //         Voiture voitureAsupprimee = (Voiture) session.get(Voiture.class, id);
 //         session.beginTransaction();
@@ -46,5 +65,5 @@ class Runner {
 //         for (Voiture v : voitures) {
 //         System.out.println(v.getModele());
 //         }
-    }
+	}
 }
