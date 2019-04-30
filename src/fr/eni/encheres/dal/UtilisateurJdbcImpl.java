@@ -35,7 +35,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public Utilisateur selectUtilisateurById(int noUtilisateur) {
+	public Utilisateur selectUtilisateurByid(int noUtilisateur) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -47,7 +47,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	}
 	
 	@Override
-	public Utilisateur selectUtilisateurByEmail(string email) {
+	public Utilisateur selectUtilisateurByEmail(String email) {
 		// TODO Auto-generated method stub
 		return null;
 	}
