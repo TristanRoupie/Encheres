@@ -74,3 +74,20 @@ ul {
 .imageflottante {
 	float: left;
 }
+#bloctotal {
+	width: 100%;
+	min-height: 300px;
+	background-color: purple;
+}
+#blochaut {
+	width: 100%;
+	background-color: pink;
+	display: flex;
+}
+#pave1 {
+	max-width: 45%;
+	background-color: green;
+}
+#pave2 {
+	background-color: white;
+}
