@@ -3,11 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"><link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Wazaaaa, tu vendras bientôt !!</h1>
+<h1>Nouvelle vente</h1>
+	<div id="conteneur">
+		<div>
+			<img src="https://dummyimage.com/200X200/000/fff" alt="image du produit">
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	</div> <!-- fin du conteneur -->
 
 </body>
 </html>
