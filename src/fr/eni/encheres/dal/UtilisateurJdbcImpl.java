@@ -7,7 +7,6 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 
 import fr.eni.encheres.bo.Utilisateur;
-import fr.eni.javaee.hibernate.bo.Voiture;
 
 
 public class UtilisateurJdbcImpl implements UtilisateurDAO {
@@ -44,24 +43,20 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public Utilisateur selectUtilisateurByPseudo(String pseudo) {
-		 Query q = session.createQuery("from Utilistaeurs");
-         List<Voiture> voitures = q.getResultList();
-         for (Voiture v : voitures) {
-         System.out.println(v.getModele());
-         }
-		return null;
+		Session session = ConnectionProvider.session;
+		Query q = session.createQuery("from Utilisateur u where u.pseudo = :pseudo")
+				.setParameter("pseudo", pseudo); 
+		Utilisateur utilisateur = (Utilisateur) q.getSingleResult();
+		return utilisateur;
 	}
-	
+
 	@Override
 	public Utilisateur selectUtilisateurByEmail(String email) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-	
 
 }
