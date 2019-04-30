@@ -2,40 +2,47 @@ package fr.eni.encheres.bo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import lombok.Data;
 
+@Entity(name = "ARTICLES_VENDUS")
+@Table(name = "ARTICLES_VENDUS")
 @Data
 public class ArticleVendu {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "no_article", length=11, nullable=false, unique=true)
 	private int noArticle;
+	@Column(name = "nom_article", length=30, nullable=false)
 	private String nomArticle;
+	@Column(name = "description", length=300, nullable=false)
 	private String description;
+	@Column(name = "date_debut_encheres", nullable=false)
 	private Date dateDebutEncheres;
+	@Column(name = "date_fin_encheres", nullable=false)
 	private Date dateFinEncheres;
+	@Column(name = "prix_initial", length=11, nullable=true )
 	private int miseAPrix;
+	@Column(name = "prix_vente", length=11, nullable=true )
 	private int prixVente;
-	private byte etatVente; // 0 or 1 because Lombok bugs with boolean
-	private int idAcheteur;
-	private int idVendeur;
-	private Retrait lieuRetrait;
-	private Categorie categorie;
+	@Column(name = "etat-vente", length=1, nullable=true )
+	private int etatVente; // 0 or 1 because Lombok bugs with boolean
+	@ManyToOne
+	private Utilisateur utilisateur;
+	
+	//@one INTEGER NOT NULL
+	//private Retrait lieuRetrait;
+	//@ManyToOne
+	//private Categorie categorie;
 
-	public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres,
-			Date dateFinEncheres, int miseAPrix, int prixVente, byte etatVente, int idAcheteur, int idVendeur,
-			Retrait lieuRetrait, Categorie categorie) {
-		super();
-		this.noArticle = noArticle;
-		this.nomArticle = nomArticle;
-		this.description = description;
-		this.dateDebutEncheres = dateDebutEncheres;
-		this.dateFinEncheres = dateFinEncheres;
-		this.miseAPrix = miseAPrix;
-		this.prixVente = prixVente;
-		this.etatVente = etatVente;
-		this.idAcheteur = idAcheteur;
-		this.idVendeur = idVendeur;
-		this.lieuRetrait = lieuRetrait;
-		this.categorie = categorie; 
-	}
+
 
 	public ArticleVendu() {
 

@@ -13,19 +13,19 @@ class Runner {
 	void test() {
 		// Ajout
 //		Utilisateur newUtilisateur = new Utilisateur("pseudo", "Roupie", "Tristan", "Tristan.roupie@gmail.com",
-//		"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
-//		
+//		"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);		
+//		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
 //		utilisateurDAO.addUtilisateur(newUtilisateur);
 //		
-//		Utilisateur newUtilisateur2 = new Utilisateur("pseudo6", "Roupie", "Tristan", "Tristan.roupie87@gmail.com",
+//	Utilisateur newUtilisateur2 = new Utilisateur("pseudo6", "Roupie", "Tristan", "Tristan.roupie87@gmail.com",
 //				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
 //		UtilisateurDAO utilisateurDAO2 = DAOFactory.getUtilisateurDAO();
 //		utilisateurDAO2.addUtilisateur(newUtilisateur2);
 //		System.out.println(newUtilisateur2.getNoUtilisateur());
 		
 		//recherche par pseudo
-		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
-		Utilisateur u = utilisateurDAO.selectUtilisateurByid(15);
+		UtilisateurDAO utilisateurDAO3 = DAOFactory.getUtilisateurDAO();
+		Utilisateur u = utilisateurDAO3.selectUtilisateurByid(15);
 		if (u==null) {
 			System.out.println("l'objet n'existe pas");
 		}else {
