@@ -32,7 +32,7 @@
 			</form>
 		</div>
 		<div id="conteneur">
-		<form action="${pageContext.request.contextPath}" method="get">
+		<form action="${pageContext.request.contextPath}/listeEncheres.jsp" method="get">
 			<input id
 				type="submit"
 				value="Connexion"
