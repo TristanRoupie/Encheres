@@ -62,7 +62,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	public Utilisateur selectUtilisateurByEmail(String email) {
 		Session session = ConnectionProvider.session;
 		Query q = session.createQuery("from Utilisateur u where u.email = :email")
-				.setParameter("pseudo", email); 
+				.setParameter("email", email); 
 		List<Utilisateur> utilisateurs =  q.getResultList();
 		if (utilisateurs.size()==0){
 			return null;

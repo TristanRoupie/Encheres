@@ -25,11 +25,11 @@ class Runner {
 		
 		//recherche par pseudo
 		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
-		Utilisateur u = utilisateurDAO.selectUtilisateurByPseudo("pseudo");
+		Utilisateur u = utilisateurDAO.selectUtilisateurByEmail("Tristan.roupie7@gmail.com");
 		if (u==null) {
 			System.out.println("l'objet n'existe pas");
 		}else {
-			System.out.println(u.getEmail());
+			System.out.println(u.getNom());
 		}
 		
 
