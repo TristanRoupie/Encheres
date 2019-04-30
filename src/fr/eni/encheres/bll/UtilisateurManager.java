@@ -51,7 +51,19 @@ public class UtilisateurManager {
 		utilisateur.setMotDePasse(motDePasse);
 		utilisateur.setCredit(credit);
 		utilisateur.setAdministrateur(administrateur);
-		
+
 		return utilisateur;
+	}
+
+	public Utilisateur selectById(int noUtilisateur) {
+		return this.utilisateurDAO.selectUtilisateurByid(noUtilisateur);
+	}
+	
+	public Utilisateur selectByPseudo(String pseudo) {
+		return this.utilisateurDAO.selectUtilisateurByPseudo(pseudo);
+	}
+	
+	public Utilisateur selectByEmail(String email) {
+		return this.utilisateurDAO.selectUtilisateurByEmail(email);
 	}
 }
