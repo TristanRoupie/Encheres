@@ -1,17 +1,22 @@
 package fr.eni.encheres.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 //credit INTEGER NOT NULL,administrateur bit NOT NULL)
 
-@Entity
+@Entity(name = "UTILISATEURS")
 @Table(name = "UTILISATEURS")
 @Data
 public class Utilisateur {
@@ -41,6 +46,12 @@ public class Utilisateur {
 	private int credit;
 	@Column(name = "administrateur", length=1, nullable=false, columnDefinition = "int default 0")
 	private int administrateur; // 0 or 1 because Lombok bugs with boolean
+	@OneToMany(mappedBy = "UTILISATEURS",
+		        cascade = CascadeType.ALL,
+		        orphanRemoval = true
+		    )
+	private List<ArticleVendu> articles = new ArrayList<>();
+	
 
 	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, int codePostal, String ville, String motDePasse, int credit, int administrateur) {
@@ -72,6 +83,27 @@ public class Utilisateur {
 		this.setMotDePasse ( motDePasse);
 		this.setCredit (credit);
 		this.setAdministrateur(administrateur);
+	}
+	
+	
+
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, int codePostal, String ville, String motDePasse, int credit, int administrateur,
+			List<ArticleVendu> articles) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+		this.administrateur = administrateur;
+		this.articles = articles;
 	}
 	
 	public Utilisateur() {
