@@ -10,12 +10,29 @@
 <body>
 		<header>
 		<nav>
-			<ul>
-				<li><a href="#">Encheres</a></li>
-				<li><a href="#">Vendre un article</a></li>
-				<li><a href="#">Mon profil</a></li>
-				<li><a href="#">Déconnexion</a></li>			
-			</ul>
+		<div id="blocduhaut">
+		<form action="${pageContext.request.contextPath}/creacompte.jsp" method="get">
+			<input
+				type="submit"
+				value="Déconnexion"
+				>
+		</form>
+		<form action="${pageContext.request.contextPath}/monprofil.jsp" method="get">
+			<input
+				type="submit"
+				value="Mon profil">
+		</form>
+				<form action="${pageContext.request.contextPath}/vendrearticle.jsp" method="get">
+			<input
+				type="submit"
+				value="Vendre un article">
+		</form>
+		<form action="${pageContext.request.contextPath}" method="get">
+			<input
+				type="submit"
+				value="Enchères">
+		</form>
+		</div>
 		</nav>
 		
 		</header>
@@ -35,8 +52,10 @@
 				<div id="bb">
 				<select	name="Catégories" id="Catégories" style="height: 30px">
 					<option value="0" hidden>Selectionner une catégorie</option>
-					<option value="1">Multimédia</option>
-					<option value="2">Loisirs</option>
+					<option value="1">Informatique</option>
+					<option value="2">Ameublement</option>
+					<option value="3">Vêtements</option>
+					<option value="4">Sport & loisirs</option>
 					</div>
 				</select>
 				

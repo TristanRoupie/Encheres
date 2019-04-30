@@ -8,51 +8,10 @@
 <title>Encheres</title>
 </head>
 <body>
-	<div>
-		<header>
-			<h1>Eni-Enchères</h1>
-		</header>
-
-		<div id="conteneur">
-			<h4>Identifiant :</h4>
-			<form action="${pageContext.request.contextPath}" method="post">
-			<input
-				class="bloclogin"
-				type="text" 
-				name="login" 
-				size="15" />
-			</form>	
-			<h4>Mot de passe :</h4>
-			<form action="${pageContext.request.contextPath}" method="post"">
-			<input
-				class="bloclogin" 
-				type="text" 
-				name="login"
-				size="15" />
-			</form>
-		</div>
-		<div id="conteneur">
-		<form action="${pageContext.request.contextPath}/listeEncheres.jsp" method="get">
-			<input id
-				type="submit"
-				value="Connexion"
-				style="height: 100px"/>
-		</form>
-		</div>
-			<div id="conteneur">
-			<form action="${pageContext.request.contextPath}/monprofil.jsp" method="post">
-			<input id
-				type="submit"
-				value="Créer un compte"
-				style="height: 100px"/>
-			</form>	
-		</div>
-
-
-
-
-
-
+	<div id="conteneur">
+		<h1>Eni-Enchères</h1>
+		
+	
 	</div>
 </body>
 </html>
