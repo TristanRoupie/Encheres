@@ -25,7 +25,7 @@ class Runner {
 				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
 
 //        Session session = ConnectionProvider.session;
-//        session.beginTransaction();
+//        <session class="beginTransaction"></session>;
 //        session.save(newUtilisateur);
 //        session.getTransaction().commit();
 //        
