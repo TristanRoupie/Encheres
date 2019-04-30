@@ -53,5 +53,6 @@ public class UtilisateurManager {
 		utilisateur.setAdministrateur(administrateur);
 
 		return utilisateur;
+		
 	}
 }
