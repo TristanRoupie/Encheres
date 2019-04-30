@@ -40,7 +40,7 @@
 		</form>
 		</div>
 			<div id="conteneur">
-			<form action="${pageContext.request.contextPath}" method="post">
+			<form action="${pageContext.request.contextPath}/monprofil.jsp" method="post">
 			<input id
 				type="submit"
 				value="Créer un compte"
