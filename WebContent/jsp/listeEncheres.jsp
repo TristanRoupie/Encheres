@@ -11,13 +11,13 @@
 		<header>
 		<nav>
 		<div id="blocduhaut">
-		<form action="${pageContext.request.contextPath}/creacompte.jsp" method="get">
+		<form action="${pageContext.request.contextPath}/jsp/creacompte.jsp" method="get">
 			<input
 				type="submit"
 				value="S'inscrire"
 				>
 		</form>
-		<form action="${pageContext.request.contextPath}/index.jsp" method="get">
+		<form action="${pageContext.request.contextPath}/jsp/index.jsp" method="get">
 			<input
 				type="submit"
 				value="Se connecter">
@@ -40,6 +40,8 @@
 					<option value="0" hidden>Selectionner une catégorie</option>
 					<option value="1">Multimédia</option>
 					<option value="2">Loisirs</option>
+					<option value="3">Vêtements</option>
+					<option value="4">Sport & loisirs</option>
 			</select>			
 			</div> <!-- fin du sousbloc3 -->
 			<div id="sousbloc3">

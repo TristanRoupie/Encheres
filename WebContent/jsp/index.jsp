@@ -11,23 +11,23 @@
 		<header>
 		<nav>
 		<div id="blocduhaut">
-		<form action="${pageContext.request.contextPath}/creacompte.jsp" method="get">
+		<form action="${pageContext.request.contextPath}/jsp/creacompte.jsp" method="get">
 			<input
 				type="submit"
 				value="Déconnexion"
 				>
 		</form>
-		<form action="${pageContext.request.contextPath}/monprofil.jsp" method="get">
+		<form action="${pageContext.request.contextPath}/jsp/monprofil.jsp" method="get">
 			<input
 				type="submit"
 				value="Mon profil">
 		</form>
-				<form action="${pageContext.request.contextPath}/vendrearticle.jsp" method="get">
+				<form action="${pageContext.request.contextPath}/jsp/vendrearticle.jsp" method="get">
 			<input
 				type="submit"
 				value="Vendre un article">
 		</form>
-		<form action="${pageContext.request.contextPath}" method="get">
+		<form action="${pageContext.request.contextPath}/jsp/index.jsp" method="get">
 			<input
 				type="submit"
 				value="Enchères">
