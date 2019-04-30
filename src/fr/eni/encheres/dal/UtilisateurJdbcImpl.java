@@ -35,9 +35,24 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public Utilisateur selectUtilisateur(int noUtilisateur) {
+	public Utilisateur selectUtilisateurById(int noUtilisateur) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public Utilisateur selectUtilisateurByPseudo(String pseudo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public Utilisateur selectUtilisateurByEmail(string email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
 
 }
