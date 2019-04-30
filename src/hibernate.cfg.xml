@@ -17,6 +17,7 @@
 		<!-- //<mapping class="fr.eni.encheres.bo.Voiture" /> -->
 		<mapping class="fr.eni.encheres.bo.Utilisateur" />
 		<mapping class="fr.eni.encheres.bo.ArticleVendu" />
+		<mapping class="fr.eni.encheres.bo.Categorie" />
 		<!-- <mapping class="fr.eni.encheres.bo.Retrait" /> -->
 		<!-- //<mapping class="fr.eni.encheres.bo.Enchere" /> //<mapping class="fr.eni.encheres.bo.Categorie" -->
 
