@@ -35,7 +35,7 @@
 		
 		<div id="bloccommerce2">
 		<div id="sousbloc3">
-		<form action="${pageContext.request.contextPath}/jsp/listeEncheres.jsp" method="get">
+		<form action="${pageContext.request.contextPath}" method="get">
 			<input id
 				type="submit"
 				value="Enregistrer"
@@ -44,7 +44,7 @@
 		</form>
 		</div>
 		<div id="sousbloc3">
-		<form action="${pageContext.request.contextPath}/jsp/creacompte.jsp" method="get">
+		<form action="${pageContext.request.contextPath}/creaCompte" method="get">
 			<input id
 				type="submit"
 				value="Annuler"

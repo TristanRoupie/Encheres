@@ -11,13 +11,13 @@
 		<header>
 		<nav>
 		<div id="blocduhaut">
-		<form action="${pageContext.request.contextPath}/jsp/creacompte.jsp" method="get">
+		<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
 			<input
 				type="submit"
 				value="S'inscrire"
 				>
 		</form>
-		<form action="${pageContext.request.contextPath}/jsp/index.jsp" method="get">
+		<form action="${pageContext.request.contextPath}" method="get">
 			<input
 				type="submit"
 				value="Se connecter">

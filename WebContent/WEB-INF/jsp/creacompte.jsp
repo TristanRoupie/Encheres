@@ -15,7 +15,7 @@
 		<h4>Identifiant</h4>	
 	</div> <!-- fin du sousbloc -->
 	<div id="soubloc3">
-		<form action="${pageContext.request.contextPath}/jsp/index.jsp" method="post">
+		<form action="${pageContext.request.contextPath}" method="post">
 			<input
 				class="bloclogin"
 				type="text" 
@@ -41,7 +41,7 @@
 	</div>	<!-- fin du bloccommerce -->
 	<div id="bloccommerce">
 	<div id="sousbloc3">
-		<form action="${pageContext.request.contextPath}/jsp/index.jsp" method="get">
+		<form action="${pageContext.request.contextPath}" method="get">
 			<input id
 				type="submit"
 				class="supprimer"
@@ -50,7 +50,7 @@
 		</form>
 	</div>
 	<div id="sousbloc3">
-		<form action="${pageContext.request.contextPath}/jsp/createprofil.jsp" method="get">
+		<form action="${pageContext.request.contextPath}/createProfil" method="get">
 			<input id
 				type="submit"
 				class="supprimer"
