@@ -49,14 +49,26 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		Session session = ConnectionProvider.session;
 		Query q = session.createQuery("from Utilisateur u where u.pseudo = :pseudo")
 				.setParameter("pseudo", pseudo); 
-		Utilisateur utilisateur = (Utilisateur) q.getSingleResult();
-		return utilisateur;
+		List<Utilisateur> utilisateurs =  q.getResultList();
+		if (utilisateurs.size()==0){
+			return null;
+		}else {
+			return (Utilisateur) q.getSingleResult();
+		}
+		
 	}
 
 	@Override
 	public Utilisateur selectUtilisateurByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = ConnectionProvider.session;
+		Query q = session.createQuery("from Utilisateur u where u.email = :email")
+				.setParameter("email", email); 
+		List<Utilisateur> utilisateurs =  q.getResultList();
+		if (utilisateurs.size()==0){
+			return null;
+		}else {
+			return (Utilisateur) q.getSingleResult();
+		}
 	}
 
 }
