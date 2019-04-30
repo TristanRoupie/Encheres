@@ -3,6 +3,8 @@ package fr.eni.encheres.bll;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.sun.xml.bind.v2.TODO;
+
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.DAOFactory;
 import fr.eni.encheres.dal.UtilisateurDAO;
@@ -84,7 +86,7 @@ public class UtilisateurManager {
 
 	public Utilisateur modifierUtilisateur(int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateur = selectById(noUtilisateur);
-
+		// TODO implement method logic
 		return utilisateur;
 	}
 }
