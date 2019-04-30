@@ -26,7 +26,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public void DeleteUtilisateur(Utilisateur utilisateur) {
+	public void deleteUtilisateur(Utilisateur utilisateur) {
 		Session session = ConnectionProvider.session;
 		session.beginTransaction();
 		session.delete(utilisateur);
@@ -35,7 +35,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public Utilisateur GetUtilisateur(int noUtilisateur) {
+	public Utilisateur selectUtilisateur(int noUtilisateur) {
 		// TODO Auto-generated method stub
 		return null;
 	}
