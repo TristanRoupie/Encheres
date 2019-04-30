@@ -91,3 +91,35 @@ ul {
 #pave2 {
 	background-color: white;
 }
+#sousbloc3 {
+	flex-wrap: wrap;
+	flex-direction: column;
+	min-width: 200px;
+	background-color: green;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin: auto;
+}
+#sousbloc4 {
+	flex-wrap: wrap;
+	flex-direction: column;
+	min-width: 200px;
+	background-color: cyan;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin: auto;
+}
+#bloccommerce2 {
+	display: flex;
+	flex-direction: row;
+	margin: 30px;
+	padding: 30px;
+	background-color: yellow;
+	justify-content: space-around;
+}
+label
+{
+	display: block;
+	width: 150px;
+	float: left;
+}
