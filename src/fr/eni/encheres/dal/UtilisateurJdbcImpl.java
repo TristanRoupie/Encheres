@@ -8,7 +8,6 @@ import org.hibernate.Session;
 
 import fr.eni.encheres.bo.Utilisateur;
 
-
 public class UtilisateurJdbcImpl implements UtilisateurDAO {
 
 	@Override
@@ -40,33 +39,32 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public Utilisateur selectUtilisateurByid(int noUtilisateur) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = ConnectionProvider.session;
+		Utilisateur utilisateur = (Utilisateur) session.get(Utilisateur.class, noUtilisateur);
+		return utilisateur;
 	}
 
 	@Override
 	public Utilisateur selectUtilisateurByPseudo(String pseudo) {
 		Session session = ConnectionProvider.session;
-		Query q = session.createQuery("from Utilisateur u where u.pseudo = :pseudo")
-				.setParameter("pseudo", pseudo); 
-		List<Utilisateur> utilisateurs =  q.getResultList();
-		if (utilisateurs.size()==0){
+		Query q = session.createQuery("from Utilisateur u where u.pseudo = :pseudo").setParameter("pseudo", pseudo);
+		List<Utilisateur> utilisateurs = q.getResultList();
+		if (utilisateurs.size() == 0) {
 			return null;
-		}else {
+		} else {
 			return (Utilisateur) q.getSingleResult();
 		}
-		
+
 	}
 
 	@Override
 	public Utilisateur selectUtilisateurByEmail(String email) {
 		Session session = ConnectionProvider.session;
-		Query q = session.createQuery("from Utilisateur u where u.email = :email")
-				.setParameter("email", email); 
-		List<Utilisateur> utilisateurs =  q.getResultList();
-		if (utilisateurs.size()==0){
+		Query q = session.createQuery("from Utilisateur u where u.email = :email").setParameter("email", email);
+		List<Utilisateur> utilisateurs = q.getResultList();
+		if (utilisateurs.size() == 0) {
 			return null;
-		}else {
+		} else {
 			return (Utilisateur) q.getSingleResult();
 		}
 	}
