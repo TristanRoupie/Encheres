@@ -17,11 +17,11 @@ class Runner {
 //		
 //		utilisateurDAO.addUtilisateur(newUtilisateur);
 //		
-		Utilisateur newUtilisateur2 = new Utilisateur("pseudo4", "Roupie", "Tristan", "Tristan.roupie7@gmail.com",
-				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
-		UtilisateurDAO utilisateurDAO2 = DAOFactory.getUtilisateurDAO();
-		utilisateurDAO2.addUtilisateur(newUtilisateur2);
-		System.out.println(newUtilisateur2.getNoUtilisateur());
+//		Utilisateur newUtilisateur2 = new Utilisateur("pseudo6", "Roupie", "Tristan", "Tristan.roupie87@gmail.com",
+//				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
+//		UtilisateurDAO utilisateurDAO2 = DAOFactory.getUtilisateurDAO();
+//		utilisateurDAO2.addUtilisateur(newUtilisateur2);
+//		System.out.println(newUtilisateur2.getNoUtilisateur());
 		
 		//recherche par pseudo
 		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
