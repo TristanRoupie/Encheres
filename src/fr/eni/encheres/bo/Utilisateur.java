@@ -21,11 +21,11 @@ public class Utilisateur {
 	private int noUtilisateur;
 	@Column(name = "pseudo", length=30, nullable=false)
 	private String pseudo;
-	@Column(name = "nom", length=30, nullable=false)
+	@Column(name = "nom", length=30, nullable=false, unique=true)
 	private String nom;
 	@Column(name = "prenom", length=30, nullable=false)
 	private String prenom;
-	@Column(name = "email", length=50, nullable=false)
+	@Column(name = "email", length=50, nullable=false, unique=true)
 	private String email;
 	@Column(name = "telephone", length=15, nullable=true)
 	private String telephone;
