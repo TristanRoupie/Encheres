@@ -58,12 +58,17 @@ public class UtilisateurManager {
 	public Utilisateur selectById(int noUtilisateur) {
 		return this.utilisateurDAO.selectUtilisateurByid(noUtilisateur);
 	}
-	
+
 	public Utilisateur selectByPseudo(String pseudo) {
 		return this.utilisateurDAO.selectUtilisateurByPseudo(pseudo);
 	}
-	
+
 	public Utilisateur selectByEmail(String email) {
 		return this.utilisateurDAO.selectUtilisateurByEmail(email);
+	}
+
+	public void supprimerUtilisateur(int noUtilisateur) {
+		Utilisateur utilisateur = selectById(noUtilisateur);
+		this.utilisateurDAO.deleteUtilisateur(utilisateur);
 	}
 }
