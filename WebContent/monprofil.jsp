@@ -34,7 +34,24 @@
 		<p>Votre crédit est de :</p>
 		
 		<div id="bloccommerce2">
-		
+		<div id="sousbloc3">
+		<form action="${pageContext.request.contextPath}/listeEncheres.jsp" method="get">
+			<input id
+				type="submit"
+				value="Enregistrer"
+				class="enregistrer"
+				style="height: 100px"/>
+		</form>
+		</div>
+		<div id="sousbloc3">
+		<form action="${pageContext.request.contextPath}/creacompte.jsp" method="get">
+			<input id
+				type="submit"
+				value="Supprimer mon compte"
+				class="supprimer"
+				style="height: 100px"/>
+		</form>
+		</div>
 		
 		</div>
 	

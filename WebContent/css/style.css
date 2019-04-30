@@ -127,3 +127,11 @@ p{
 	margin-left: 50px;
 	padding-left: 50px;
 }
+.enregistrer {
+	height: 50px;
+	width: 200px;
+}
+.supprimer {
+	height: 50px;
+	width: 200px;	
+}
