@@ -14,14 +14,38 @@
 			<div id="sousbloc3">
 			<img src="https://dummyimage.com/200X200/000/fff" alt="image du produit">
 			</div>
-		</div> <!-- Fin du bloccommerce -->
 			<div id="sousbloc3">
 			<h4>Article</h4>
+			<h4>Description</h4>
+			<h4>Catégorie</h4>
+			<h4>Photo de l'article</h4>
+			<h4>Mise à prix</h4>
+			<h4>Début de l'enchère</h4>
+			<h4>Fin de l'enchère</h4>
+			</div>
+			<div id="sousbloc4">
 			<input
 				type="text"
-				size="30">
+				size="30"><br><br>
+			<textarea rows="5" cols="50" name="categorie"></textarea><br><br>
+			<select	name="Catégories" id="Catégories" style="height: 30px">
+					<option value="0" hidden>Selectionner une catégorie</option>
+					<option value="1">Multimédia</option>
+					<option value="2">Loisirs</option>
+					<option value="3">Vêtements</option>
+					<option value="4">Sport & loisirs</option>
+			</select><br><br>
+					<input
+						type="number"
+						min="0"><br><br>
+					<input
+						type="datetime-local"><br><br>
+					<input
+						type="datetime-local"><br><br>
 			
 			</div>
+		</div> <!-- Fin du bloccommerce -->
+			
 		
 		
 	
