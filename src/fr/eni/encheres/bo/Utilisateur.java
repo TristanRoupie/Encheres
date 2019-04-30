@@ -12,7 +12,7 @@ import lombok.Data;
 //credit INTEGER NOT NULL,administrateur bit NOT NULL)
 
 @Entity
-@Table(name = "UTILISATEUR")
+@Table(name = "UTILISATEURS")
 @Data
 public class Utilisateur {
 	@Id

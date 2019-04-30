@@ -7,8 +7,10 @@ public interface UtilisateurDAO {
 	public void addUtilisateur(Utilisateur utilisateur);
 	public void updateUtilisateur(Utilisateur utilisateur);
 	public void deleteUtilisateur(Utilisateur utilisateur);
-	public Utilisateur selectUtilisateur(int noUtilisateur);
-	//TEST
+	public Utilisateur selectUtilisateurByid(int noUtilisateur);
+	public Utilisateur selectUtilisateurByPseudo(String pseudo);
+	public Utilisateur selectUtilisateurByEmail(String email);
+
 	
 
 }
