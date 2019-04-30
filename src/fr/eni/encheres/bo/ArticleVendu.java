@@ -32,10 +32,12 @@ public class ArticleVendu {
 	private int miseAPrix;
 	@Column(name = "prix_vente", length=11, nullable=true )
 	private int prixVente;
-	@Column(name = "etat-vente", length=1, nullable=true )
+	@Column(name = "etat_vente", length=1, nullable=false ,columnDefinition = "int default 0" )
 	private int etatVente; // 0 or 1 because Lombok bugs with boolean
 	@ManyToOne
 	private Utilisateur utilisateur;
+	@ManyToOne
+	private Categorie categorie;
 	
 	//@one INTEGER NOT NULL
 	//private Retrait lieuRetrait;

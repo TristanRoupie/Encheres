@@ -1,7 +1,3 @@
-*{
-	border:1px solid black;
-}
-
 @charset "UTF-8";
 h1 {
 	color: red;
@@ -153,4 +149,13 @@ p{
 	flex-direction: row;
 	background-color: yellow;
 	justify-content: space-around;
+}
+#sousbloc5 {
+	flex-wrap: wrap;
+	flex-direction: column;
+	min-width: 200px;
+	background-color: pink;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top:10px;
 }
