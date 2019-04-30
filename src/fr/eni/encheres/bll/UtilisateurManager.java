@@ -17,58 +17,74 @@ public class UtilisateurManager {
 
 	public Utilisateur ajouterUtilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email,
 			String telephone, String rue, int codePostal, String ville, String motDePasse, int credit,
-			int administrateur) {
+			int administrateur) throws BusinessException {
+
+		BusinessException businessException = new BusinessException();
 
 		Utilisateur utilisateur = null;
-		utilisateur = new Utilisateur();
-		utilisateur.setNoUtilisateur(noUtilisateur);
 
-//		Pseudo check with jRegex external lib
-//		Regex for alphanumeric caracter only
-		String regex = "^[a-zA-Z0-9]*$";
-		Pattern patternPseudo = Pattern.compile(regex);
-//		Create matcher object which is a boolean
-		Matcher matcherPseudo = patternPseudo.matcher(pseudo);
-		if (matcherPseudo.matches() == true) {
-			utilisateur.setPseudo(pseudo);
+		if (!businessException.hasErrors()) {
+			utilisateur = new Utilisateur();
+			utilisateur.setNoUtilisateur(noUtilisateur);
+
+//			Pseudo check with jRegex external lib
+//			Regex for alphanumeric caracter only
+			String regex = "^[a-zA-Z0-9]*$";
+			Pattern patternPseudo = Pattern.compile(regex);
+//			Create matcher object which is a boolean
+			Matcher matcherPseudo = patternPseudo.matcher(pseudo);
+			if (matcherPseudo.matches() == true) {
+				utilisateur.setPseudo(pseudo);
+			} else {
+				System.out.println("Pseudo non valide");
+				throw businessException;
+			}
+			utilisateur.setNom(nom);
+			utilisateur.setPrenom(prenom);
+			Pattern patternEmail = Pattern.compile(regex);
+//			Create matcher object which is a boolean
+			Matcher matcherEmail = patternEmail.matcher(pseudo);
+			if (matcherEmail.matches() == true) {
+				utilisateur.setEmail(email);
+			} else {
+				System.out.println("Email non valide");
+			}
+			utilisateur.setTelephone(telephone);
+			utilisateur.setRue(rue);
+			utilisateur.setCodePostal(codePostal);
+			utilisateur.setVille(ville);
+			utilisateur.setMotDePasse(motDePasse);
+			utilisateur.setCredit(credit);
+			utilisateur.setAdministrateur(administrateur);
+
+			this.utilisateurDAO.addUtilisateur(utilisateur);
 		} else {
-			System.out.println("Pseudo non valide");
+			throw businessException;
 		}
-		utilisateur.setNom(nom);
-		utilisateur.setPrenom(prenom);
-		Pattern patternEmail = Pattern.compile(regex);
-//		Create matcher object which is a boolean
-		Matcher matcherEmail = patternEmail.matcher(pseudo);
-		if (matcherEmail.matches() == true) {
-			utilisateur.setEmail(email);
-		} else {
-			System.out.println("Email non valide");
-		}
-		utilisateur.setTelephone(telephone);
-		utilisateur.setRue(rue);
-		utilisateur.setCodePostal(codePostal);
-		utilisateur.setVille(ville);
-		utilisateur.setMotDePasse(motDePasse);
-		utilisateur.setCredit(credit);
-		utilisateur.setAdministrateur(administrateur);
 
 		return utilisateur;
 	}
 
-	public Utilisateur selectById(int noUtilisateur) {
+	public Utilisateur selectById(int noUtilisateur) throws BusinessException {
 		return this.utilisateurDAO.selectUtilisateurByid(noUtilisateur);
 	}
 
-	public Utilisateur selectByPseudo(String pseudo) {
+	public Utilisateur selectByPseudo(String pseudo) throws BusinessException {
 		return this.utilisateurDAO.selectUtilisateurByPseudo(pseudo);
 	}
 
-	public Utilisateur selectByEmail(String email) {
+	public Utilisateur selectByEmail(String email) throws BusinessException {
 		return this.utilisateurDAO.selectUtilisateurByEmail(email);
 	}
 
-	public void supprimerUtilisateur(int noUtilisateur) {
+	public void supprimerUtilisateur(int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateur = selectById(noUtilisateur);
 		this.utilisateurDAO.deleteUtilisateur(utilisateur);
+	}
+
+	public Utilisateur modifierUtilisateur(int noUtilisateur) throws BusinessException {
+		Utilisateur utilisateur = selectById(noUtilisateur);
+
+		return utilisateur;
 	}
 }
