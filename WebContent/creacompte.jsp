@@ -40,7 +40,7 @@
 		</form>
 		</div>
 			<div id="conteneur">
-			<form action="${pageContext.request.contextPath}" method="get">
+			<form action="${pageContext.request.contextPath}" method="post">
 			<input id
 				type="submit"
 				value="Créer un compte"
