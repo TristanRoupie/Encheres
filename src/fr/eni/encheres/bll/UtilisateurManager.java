@@ -51,8 +51,7 @@ public class UtilisateurManager {
 		utilisateur.setMotDePasse(motDePasse);
 		utilisateur.setCredit(credit);
 		utilisateur.setAdministrateur(administrateur);
-
-		return utilisateur;
 		
+		return utilisateur;
 	}
 }
