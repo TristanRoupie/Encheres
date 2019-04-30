@@ -10,10 +10,19 @@
 <body>
 		<header>
 		<nav>
-			<ul>
-				<li><a href="#">S'inscrire</a></li>
-				<li><a href="#">Se connecter</a></li>			
-			</ul>
+		<div id="blocduhaut">
+		<form action="${pageContext.request.contextPath}/creacompte.jsp" method="get">
+			<input
+				type="submit"
+				value="S'inscrire"
+				>
+		</form>
+		<form action="${pageContext.request.contextPath}/index.jsp" method="get">
+			<input
+				type="submit"
+				value="Se connecter">
+		</form>
+		</div>
 		</nav>
 		
 		</header>
