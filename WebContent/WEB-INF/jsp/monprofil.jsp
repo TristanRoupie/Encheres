@@ -13,19 +13,19 @@
 		
 		<div id="bloccommerce2">
 			<div id="sousbloc3">
-		<label for="pseudo"  ${requestScope.monprofil.pseudo}>Pseudo :</label><input type="text" id="pseudo" style="min-height: 20px"/><br />
-		<label for="prenom"${requestScope.monprofil.prenom}>Prénom :</label><input type="text" id="prenom" style="min-height: 20px"/><br />
-		<label for="telephone"${requestScope.monprofil.telephone}>Téléphone :</label><input type="text" id="telephone" style="min-height: 20px"/><br />
-		<label for="codepostal"${requestScope.monprofil.codepostal}>Code Postal :</label><input type="text" id="codepostal" style="min-height: 20px"/><br />
-		<label for="mdpnow"${requestScope.monprofil.mdpnow}>Mot de passe actuel :</label><input type="text" id="mdpnow" style="min-height: 20px"/><br />
-		<label for="newmdp"${requestScope.monprofil.newmdp}>Nouveau mot de passe :</label><input type="text" id="newmdp" style="min-height: 20px"/><br />
+		<label for="pseudo"  ${requestScope.monprofil.pseudo}>Pseudo :</label><input type="text" id="pseudo" class="pseudo"/><br />
+		<label for="prenom"${requestScope.monprofil.prenom}>Prénom :</label><input type="text" id="prenom" class="prenom"><br />
+		<label for="telephone"${requestScope.monprofil.telephone}>Téléphone :</label><input type="text" id="telephone" class="telephone"/><br />
+		<label for="codepostal"${requestScope.monprofil.codepostal}>Code Postal :</label><input type="text" id="codepostal" class="codeposte"/><br />
+		<label for="mdpnow"${requestScope.monprofil.mdpnow}>Mot de passe actuel :</label><input type="text" id="mdpnow" class="mdpnow"/><br />
+		<label for="newmdp"${requestScope.monprofil.newmdp}>Nouveau mot de passe :</label><input type="text" id="newmdp" class="newmdp"/><br />
 			</div> <!-- fin du sousbloc3 -->
 			<div id="sousbloc3">
-		<label for="nom" ${requestScope.monprofil.nom}>Nom :</label><input type="text" id="nom" style="min-height: 20px" /><br />
-		<label for="email" ${requestScope.monprofil.email}>Prénom :</label><input type="text" id=""email"" style="min-height: 20px"/><br />
-		<label for="rue" ${requestScope.monprofil.Rue}>Prénom :</label><input type="text" id="Rue" style="min-height: 20px"/><br />
-		<label for="ville" ${requestScope.monprofil.ville}>Ville :</label><input type="text" id="ville" style="min-height: 20px"/><br />
-		<label for="confirmation" ${requestScope.monprofil.confirmation}>Confirmation :</label><input type="text" id="confirmation" style="min-height: 20px"/><br />
+		<label for="nom" ${requestScope.monprofil.nom}>Nom :</label><input type="text" id="nom" class="nom" /><br />
+		<label for="email" ${requestScope.monprofil.email}>Prénom :</label><input type="text" id=""email" class="email"/><br />
+		<label for="rue" ${requestScope.monprofil.Rue}>Prénom :</label><input type="text" id="Rue" class="Rue"/><br />
+		<label for="ville" ${requestScope.monprofil.ville}>Ville :</label><input type="text" id="ville" class="ville"/><br />
+		<label for="confirmation" ${requestScope.monprofil.confirmation}>Confirmation :</label><input type="text" id="confirmation" class="confirmation"/><br />
 			</div> <!-- fin du sousbloc4 -->
 			
 			
