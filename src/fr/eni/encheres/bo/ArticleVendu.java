@@ -41,8 +41,6 @@ public class ArticleVendu {
 	
 	//@one INTEGER NOT NULL
 	//private Retrait lieuRetrait;
-	//@ManyToOne
-	//private Categorie categorie;
 
 
 

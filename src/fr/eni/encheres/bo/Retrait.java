@@ -1,11 +1,19 @@
 package fr.eni.encheres.bo;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import lombok.Data;
 
+@Entity(name = "RETRAITS")
+@Table(name = "RETRAITS")
 @Data
 public class Retrait {
+	
 	private String rue;
+	
 	private int codePostal;
+	
 	private String ville;
 
 	public Retrait(String rue, int codePostal, String ville) {
