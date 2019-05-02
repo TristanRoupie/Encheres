@@ -38,7 +38,7 @@
 		<form action="${pageContext.request.contextPath}" method="get">
 			<input id
 				type="submit"
-				value="Enregistrer"
+				value="Créer"
 				class="enregistrer"
 				style="height: 100px"/>
 		</form>
