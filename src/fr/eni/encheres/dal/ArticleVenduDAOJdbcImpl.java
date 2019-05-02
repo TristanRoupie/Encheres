@@ -12,11 +12,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 	@Override
 	public void addArticle(ArticleVendu article) {
-		CategorieDAO categoriedao = new CategorieJdbcImpl();
-		if (categoriedao.selectCategorieByLibelle(article.getCategorie().getLibelle())==null) {
-			categoriedao.addCategorie(article.getCategorie());
-		}
-		article.setCategorie(categoriedao.selectCategorieByLibelle(article.getCategorie().getLibelle()));
+		getCategorie(article);
 		Session session = ConnectionProvider.session;
 		session.beginTransaction();
 		session.save(article);
@@ -24,8 +20,11 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 	}
 
+	
+
 	@Override
 	public void updateArticle(ArticleVendu article) {
+		getCategorie(article);
 		Session session = ConnectionProvider.session;
 		session.beginTransaction();
 		session.saveOrUpdate(article);
@@ -34,6 +33,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 	@Override
 	public void deleteArticle(ArticleVendu article) {
+		getCategorie(article);
 		Session session = ConnectionProvider.session;
 		session.beginTransaction();
 		session.delete(article);
@@ -51,6 +51,14 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		} else {
 			return articles;
 		}
+	}
+	
+	private void getCategorie(ArticleVendu article) {
+		CategorieDAO categoriedao = new CategorieJdbcImpl();
+		if (categoriedao.selectCategorieByLibelle(article.getCategorie().getLibelle())==null) {
+			categoriedao.addCategorie(article.getCategorie());
+		}
+		 article.setCategorie(categoriedao.selectCategorieByLibelle(article.getCategorie().getLibelle()));
 	}
 
 }
