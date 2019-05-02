@@ -21,7 +21,7 @@
 			<h4>Photo de l'article</h4>
 			<h4>Mise à prix</h4>
 			<h4>Début de l'enchère</h4>
-			<h4>Fin de l'enchère</h4>
+			<h4>Fin de l'enchère de tristant</h4>
 			</div>
 			<div id="sousbloc4">
 			<input
