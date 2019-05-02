@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -79,13 +79,13 @@
 			<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
 			<input
 				type="submit"
-				value="Enregistrer"
+				value="Annuler"
 				class="Enregistrer">
 			</form>
 			<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
 			<input
 				type="submit"
-				value="Enregistrer"
+				value="Annuler la vente"
 				class="Enregistrer">
 			</form>
 		</div>

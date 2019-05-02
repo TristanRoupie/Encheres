@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreaCompteServlet
  */
-@WebServlet("/creaCompte")
-public class CreaCompteServlet extends HttpServlet {
+@WebServlet("/connexionInscription")
+public class ConnexionInscriptionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String PATH_TO_CREACOMPTE_JSP = "/WEB-INF/jsp/creaCompte.jsp";
+	private static final String PATH_TO_CONNEXIONINSCRIPTION_JSP = "/WEB-INF/jsp/connexionInscription.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreaCompteServlet() {
+    public ConnexionInscriptionServlet() {
         super();
     }
 
@@ -28,7 +28,7 @@ public class CreaCompteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CREACOMPTE_JSP);
+		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CONNEXIONINSCRIPTION_JSP);
 		rd.forward(request, response);
 	}
 

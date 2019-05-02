@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletAccueil
  */
-@WebServlet("/")
+@WebServlet("/home")
 public class AccueilServlet extends HttpServlet {
 	private static final String PATH_TO_INDEX_JSP = "/WEB-INF/jsp/index.jsp";
 	private static final long serialVersionUID = 1L;
