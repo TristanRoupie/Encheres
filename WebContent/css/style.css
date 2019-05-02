@@ -201,3 +201,17 @@ p{
 	background-color: #AA7939;
 	justify-content:space-around;
 }
+a {
+	border:1px solid #000000;
+	background-color:#805215;
+	display:block;
+	width:200px;
+	height:50px;
+	text-align:center;
+	text-decoration:none;
+	color:#000000;
+	border-radius: 10px;
+}
+a:hover {
+	border-color: #805215;;
+}
