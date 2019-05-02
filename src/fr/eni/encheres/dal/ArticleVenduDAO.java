@@ -4,7 +4,6 @@ import java.util.List;
 
 import fr.eni.encheres.bo.ArticleVendu;
 
-
 public interface ArticleVenduDAO {
 	
 	public void addArticle(ArticleVendu article);

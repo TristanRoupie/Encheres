@@ -47,7 +47,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	@Override
 	public Utilisateur selectUtilisateurByPseudo(String pseudo) {
 		Session session = ConnectionProvider.session;
-		Query q = session.createQuery("from Utilisateur u where u.pseudo = :pseudo").setParameter("pseudo", pseudo);
+		Query q = session.createQuery("from UTILISATEURS u where u.pseudo = :pseudo").setParameter("pseudo", pseudo);
 		List<Utilisateur> utilisateurs = q.getResultList();
 		if (utilisateurs.size() == 0) {
 			return null;
@@ -60,7 +60,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	@Override
 	public Utilisateur selectUtilisateurByEmail(String email) {
 		Session session = ConnectionProvider.session;
-		Query q = session.createQuery("from Utilisateur u where u.email = :email").setParameter("email", email);
+		Query q = session.createQuery("from UTILISATEURS u where u.email = :email").setParameter("email", email);
 		List<Utilisateur> utilisateurs = q.getResultList();
 		if (utilisateurs.size() == 0) {
 			return null;

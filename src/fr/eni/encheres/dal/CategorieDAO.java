@@ -8,10 +8,10 @@ import fr.eni.encheres.bo.Categorie;
 
 public interface CategorieDAO {
 	
-	public void addCategorie(Categorie Categorie);
-	public void updateCategorie(Categorie article);
-	public void deleteCategorie(Categorie article);
+	public void addCategorie(Categorie categorie);
+	public void updateCategorie(Categorie categorie);
+	public void deleteCategorie(Categorie categorie);
 	public List<Categorie> selectAllCategorie();
-	public Categorie selectCategorieByLibelle(String libelle);
+	public Categorie selectCategorieByLibelle(String libele);
 
 }
