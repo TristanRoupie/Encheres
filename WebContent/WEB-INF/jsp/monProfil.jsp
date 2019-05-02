@@ -53,14 +53,14 @@
 			</form>
 		</c:if>
 		<c:if test="${empty nom}">
-			<form action="${pageContext.request.contextPath}/encheres" method="post">
+			<form action="${pageContext.request.contextPath}/home" method="post">
 				<input id
 					type="submit"
 					value="Créer"
 					class="enregistrer"
 					style="height: 100px"/>
 			</form>
-			<form action="${pageContext.request.contextPath}/home" method="post">
+			<form action="${pageContext.request.contextPath}/home" method="get">
 				<input id
 					type="submit"
 					value="Annuler"

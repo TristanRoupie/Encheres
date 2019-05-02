@@ -11,10 +11,9 @@
 <body>
 	<header>
 		<nav>
-			<c:if test="${! connexion}">
+			<c:if test="${connexion}">
 				<div id="blocduhaut">
-					<form action="${pageContext.request.contextPath}/home"
-						method="get">
+					<form action="${pageContext.request.contextPath}/home" method="get">
 						<input type="submit" value="Déconnexion">
 					</form>
 					<form action="${pageContext.request.contextPath}/monProfil"
@@ -25,12 +24,20 @@
 						method="get">
 						<input type="submit" value="Vendre un article">
 					</form>
-					<form action="${pageContext.request.contextPath}" method="get">
-						<input type="submit" value="Enchères">
-					</form>			
 				</div>
-				</c:if>
-				<c:if
+			</c:if>
+			<c:if test="${!connexion}">
+				<div id="blocduhaut">
+					<form
+						action="${pageContext.request.contextPath}/connexionInscription"
+						method="get">
+						<input
+							type="submit" value="S'inscrire"> 
+						<input
+							type="submit" value="Se connecter">
+					</form>
+				</div>
+			</c:if>
 		</nav>
 	</header>
 	<div id="conteneur">
