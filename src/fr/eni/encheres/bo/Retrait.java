@@ -41,4 +41,15 @@ public class Retrait {
 
 	}
 
+	public Retrait(int noArtcile, String rue, int codePostal, String ville, ArticleVendu artcile) {
+		super();
+		this.noArtcile = noArtcile;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.artcile = artcile;
+	}
+	
+	
+
 }

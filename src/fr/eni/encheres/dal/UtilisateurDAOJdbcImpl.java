@@ -8,7 +8,7 @@ import org.hibernate.Session;
 
 import fr.eni.encheres.bo.Utilisateur;
 
-public class UtilisateurJdbcImpl implements UtilisateurDAO {
+public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void addUtilisateur(Utilisateur utilisateur) {
