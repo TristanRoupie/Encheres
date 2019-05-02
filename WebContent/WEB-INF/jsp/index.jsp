@@ -4,30 +4,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 <title>Encheres</title>
 </head>
 <body>
 	<header>
 		<nav>
-			<div id="blocduhaut">
-				<form action="${pageContext.request.contextPath}/creaCompte"
-					method="get">
-					<input type="submit" value="Déconnexion">
-				</form>
-				<form action="${pageContext.request.contextPath}/monProfil"
-					method="get">
-					<input type="submit" value="Mon profil">
-				</form>
-				<form action="${pageContext.request.contextPath}/vendreArticle"
-					method="get">
-					<input type="submit" value="Vendre un article">
-				</form>
-				<!-- Julien a la lourde responsabilité de supprimer le dernier formulaire ;) -->
-				<%-- <form action="${pageContext.request.contextPath}" method="get">
-					<input type="submit" value="Enchères">
-				</form> --%>
-			</div>
+			<c:if test="${! connexion}">
+				<div id="blocduhaut">
+					<form action="${pageContext.request.contextPath}/home"
+						method="get">
+						<input type="submit" value="Déconnexion">
+					</form>
+					<form action="${pageContext.request.contextPath}/monProfil"
+						method="get">
+						<input type="submit" value="Mon profil">
+					</form>
+					<form action="${pageContext.request.contextPath}/vendreArticle"
+						method="get">
+						<input type="submit" value="Vendre un article">
+					</form>
+					<form action="${pageContext.request.contextPath}" method="get">
+						<input type="submit" value="Enchères">
+					</form>			
+				</div>
+				</c:if>
+				<c:if
 		</nav>
 	</header>
 	<div id="conteneur">
