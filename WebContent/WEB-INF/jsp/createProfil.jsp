@@ -13,19 +13,19 @@
 		
 		<div id="bloccommerce2">
 			<div id="sousbloc3">
-		<label for="pseudo">Pseudo :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="pseudo" style="min-height: 20px"/></form><br />
-		<label for="prenom">Prénom :</label><input type="text" id="prenom" style="min-height: 20px"/><br />
-		<label for="telephone">Téléphone :</label><input type="text" id="telephone" style="min-height: 20px"/><br />
-		<label for="codepostal">Code Postal :</label><input type="text" id="codepostal" style="min-height: 20px"/><br />
-		<label for="mdpnow">Mot de passe actuel :</label><input type="text" id="mdpnow" style="min-height: 20px"/><br />
-		<label for="newmdp">Nouveau mot de passe :</label><input type="text" id="newmdp" style="min-height: 20px"/><br />
+		<label for="pseudo">Pseudo :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="pseudo" /></form><br />
+		<label for="prenom">Prénom :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="prenom" /></form><br />
+		<label for="telephone">Téléphone :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="telephone" /></form><br />
+		<label for="codepostal">Code Postal :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="codepostal" /></form><br />
+		<label for="mdpnow">Mot de passe actuel :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="mdpnow" /></form><br />
+		<label for="newmdp">Nouveau mot de passe :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="newmdp" /></form><br />
 			</div> <!-- fin du sousbloc3 -->
 			<div id="sousbloc3">
-		<label for="nom">Nom :</label><input type="text" id="nom" style="min-height: 20px" /><br />
-		<label for="email">Prénom :</label><input type="text" id=""email"" style="min-height: 20px"/><br />
-		<label for="rue">Prénom :</label><input type="text" id="Rue" style="min-height: 20px"/><br />
-		<label for="ville">Ville :</label><input type="text" id="ville" style="min-height: 20px"/><br />
-		<label for="confirmation">Confirmation :</label><input type="text" id="confirmation" style="min-height: 20px"/><br />
+		<label for="nom">Nom :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="nom"  /></form><br />
+		<label for="email">Prénom :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="email"/></form><br />
+		<label for="rue">Prénom :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="Rue" /></form><br />
+		<label for="ville">Ville :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="ville" /></form><br />
+		<label for="confirmation">Confirmation :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="confirmation" /></form><br />
 			</div> <!-- fin du sousbloc4 -->
 			
 			
