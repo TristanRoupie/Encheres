@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="style.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -45,8 +45,52 @@
 			
 			</div>
 		</div> <!-- Fin du bloccommerce -->
-			
-		
+		<div id="bloccommerce">
+			<div id="sousbloc3" >
+				<h3>Retrait</h3>
+			</div> <!--fin du sousbloc-->
+		</div>
+			<div id="bloccommerce">
+			<div id="sousbloc3">
+				<h4>Rue</h4>
+				<h4>Code postal</h4>
+				<h4>Ville</h4>
+			</div> <!--fin du sousbloc-->
+			<div id="sousbloc3">
+				<input
+					type="text"
+					size="30"><br><br>
+					<input
+					type="text"
+					size="30"><br><br>
+					<input
+					type="text"
+					size="30">
+			</div> <!--fin du sousbloc-->		
+		</div><!--fin du bloccommerce-->
+		<div id="sousbloc5">
+			<div id="bloccommerce3">
+			<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
+			<input
+				type="submit"
+				value="Enregistrer"
+				class="Enregistrer">
+			</form>
+			<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
+			<input
+				type="submit"
+				value="Enregistrer"
+				class="Enregistrer">
+			</form>
+			<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
+			<input
+				type="submit"
+				value="Enregistrer"
+				class="Enregistrer">
+			</form>
+		</div>
+		</div>
+
 		
 	
 	

@@ -11,6 +11,10 @@ h1 {
 }
 h3 {
 	margin-left: 50px;
+	font-weight: bold;
+}
+h4 {
+	margin-left: 200px;
 }
 #conteneur {
 	display: flex;
@@ -155,7 +159,7 @@ p{
 	margin: 10px;
 	padding: 10px;
 }
-#bloccommerce2 {
+#bloccommerce3 {
 	display: flex;
 	flex-direction: row;
 	background-color: #AA7939;
@@ -178,4 +182,22 @@ p{
 
 	margin-bottom: 3px;
 	margin-top: 3px;
+}
+#sousbloc5 {
+	flex-wrap: wrap;
+	flex-direction: column;
+	min-width: 200px;
+	background-color: #AA7939;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin: auto;
+	justify-content: space-around;
+}
+#bloccommerce3 {
+	display: flex;
+	flex-direction: row;
+	margin: 30px;
+	padding: 30px;
+	background-color: #AA7939;
+	justify-content:space-around;
 }

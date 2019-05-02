@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <title>Mon Profil</title>
 </head>
 <body>
@@ -38,7 +38,7 @@
 		<form action="${pageContext.request.contextPath}" method="get">
 			<input id
 				type="submit"
-				value="Enregistrer"
+				value="Créer"
 				class="enregistrer"
 				style="height: 100px"/>
 		</form>

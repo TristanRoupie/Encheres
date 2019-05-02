@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="././css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <title>Mon Profil</title>
 </head>
 <body>
@@ -35,16 +36,18 @@
 		
 		<div id="bloccommerce2">
 		<div id="sousbloc3">
-		<form action="${pageContext.request.contextPath}/jsp/encheres" method="get">
+		<c:if test="${!empty nom}">
+		<form action="${pageContext.request.contextPath}/encheres" method="post">
 			<input id
 				type="submit"
 				value="Enregistrer"
 				class="enregistrer"
 				style="height: 100px"/>
 		</form>
+		</c:if>
 		</div>
 		<div id="sousbloc3">
-		<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
+		<form action="${pageContext.request.contextPath}/home" method="post">
 			<input id
 				type="submit"
 				value="Supprimer mon compte"
