@@ -81,7 +81,13 @@ public class UtilisateurManager {
 
 	public void supprimerUtilisateur(int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateur = selectById(noUtilisateur);
-		this.utilisateurDAO.deleteUtilisateur(utilisateur);
+		BusinessException businessException = new BusinessException();
+		if (utilisateur != null) {
+			this.utilisateurDAO.deleteUtilisateur(utilisateur);
+		} else {
+			System.out.println("Cet utilisateur n'existe pas");
+			throw businessException;
+		}
 	}
 
 	public Utilisateur modifierUtilisateur(int noUtilisateur) throws BusinessException {
