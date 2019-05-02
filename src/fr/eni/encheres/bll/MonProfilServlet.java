@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/monProfil")
 public class MonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String PATH_TO_MON_PROFIL_JSP = "/WEB-INF/jsp/monprofil.jsp";
+	private static final String PATH_TO_MON_PROFIL_JSP = "/WEB-INF/jsp/monProfil.jsp";
 
 	/**
 	 * @see HttpServlet#HttpServlet()

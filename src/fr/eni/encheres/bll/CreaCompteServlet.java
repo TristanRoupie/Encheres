@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/creaCompte")
 public class CreaCompteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String PATH_TO_CREACOMPTE_JSP = "/WEB-INF/jsp/creacompte.jsp";
+	private static final String PATH_TO_CREACOMPTE_JSP = "/WEB-INF/jsp/creaCompte.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
