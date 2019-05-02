@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/connexionInscription")
 public class ConnexionInscriptionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String PATH_TO_CONNEXIONINSCRIPTION_JSP = "/WEB-INF/jsp/connecxionInscription.jsp";
+	private static final String PATH_TO_CONNEXIONINSCRIPTION_JSP = "/WEB-INF/jsp/connexionInscription.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
