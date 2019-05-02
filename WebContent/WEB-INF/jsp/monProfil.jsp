@@ -14,12 +14,12 @@
 		
 		<div id="bloccommerce2">
 			<div id="sousbloc3">
-		<label for="pseudo"  >Pseudo</label><input type="text" id="pseudo" class="pseudo" value="${requestScope.monprofil.pseudo}"/><br />
-		<label for="prenom">Prénom</label><input type="text" id="prenom" class="prenom" value="${requestScope.monprofil.prenom}"><br />
-		<label for="telephone">Téléphone</label><input type="text" id="telephone" class="telephone" value="${requestScope.monprofil.telephone}"/><br />
-		<label for="codepostal">Code Postal</label><input type="text" id="codepostal" class="codeposte" value="${requestScope.monprofil.codepostal}"/><br />
-		<label for="mdpnow">Mot de passe actuel</label><input type="password" id="mdpnow" class="mdpnow" value="${requestScope.monprofil.mdpnow}"/><br />
-		<label for="newmdp">Nouveau mot de passe</label><input type="password" id="newmdp" class="newmdp"/><br />
+		<label for="pseudo"  >Pseudo</label><input type="text" name="pseudo" class="pseudo" value="${requestScope.monprofil.pseudo}"/><br />
+		<label for="prenom">Prénom</label><input type="text" name="prenom" class="prenom" value="${requestScope.monprofil.prenom}"><br />
+		<label for="telephone">Téléphone</label><input type="text" name="telephone" class="telephone" value="${requestScope.monprofil.telephone}"/><br />
+		<label for="codepostal">Code Postal</label><input type="text" name="codepostal" class="codeposte" value="${requestScope.monprofil.codepostal}"/><br />
+		<label for="mdpnow">Mot de passe actuel</label><input type="password" name="mdpnow" class="mdpnow" value="${requestScope.monprofil.mdpnow}"/><br />
+		<label for="newmdp">Nouveau mot de passe</label><input type="password" name="newmdp" class="newmdp"/><br />
 			</div> <!-- fin du sousbloc3 -->
 			<div id="sousbloc3">
 		<label for="nom" >Nom</label><input type="text" id="nom" class="nom" value="${requestScope.monprofil.nom}" /><br />
@@ -56,7 +56,7 @@
 			<form action="${pageContext.request.contextPath}/home" method="post">
 				<input id
 					type="submit"
-					value="Créer"
+					value="Créer le compte"
 					class="enregistrer"
 					style="height: 100px"/>
 			</form>
