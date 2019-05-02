@@ -9,7 +9,7 @@ import org.hibernate.Session;
 
 import fr.eni.encheres.bo.Categorie;
 
-public class CategorieJdbcImpl implements CategorieDAO {
+public class CategorieDAOJdbcImpl implements CategorieDAO {
 
 	@Override
 	public void addCategorie(Categorie categorie) {

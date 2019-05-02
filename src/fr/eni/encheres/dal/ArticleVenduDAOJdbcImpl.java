@@ -45,7 +45,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	@Override
 	public List<ArticleVendu> selectAllArticle() {
 		Session session = ConnectionProvider.session;
-		Query q = session.createQuery("from ArtcileVendu");
+		Query q = session.createQuery("from ARTICLES_VENDUS");
 		List<ArticleVendu> articles = q.getResultList();
 		if (articles.size() == 0) {
 			return null;
@@ -55,7 +55,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 	
 	private void getCategorie(ArticleVendu article) {
-		CategorieDAO categoriedao = new CategorieJdbcImpl();
+		CategorieDAO categoriedao = new CategorieDAOJdbcImpl();
 		if (categoriedao.selectCategorieByLibelle(article.getCategorie().getLibelle())==null) {
 			categoriedao.addCategorie(article.getCategorie());
 		}
