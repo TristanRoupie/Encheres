@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -37,15 +39,67 @@ public class ArticleVendu {
 	@ManyToOne
 	private Utilisateur utilisateur;
 	@ManyToOne
-	private Categorie categorie;
-	
-	//@one INTEGER NOT NULL
-	//private Retrait lieuRetrait;
+	private ArticleVendu categorie;
 
 
 
 	public ArticleVendu() {
 
 	}
+
+
+
+	public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres,
+			Date dateFinEncheres, int miseAPrix, int prixVente, int etatVente, Utilisateur utilisateur,
+			ArticleVendu categorie) {
+		super();
+		this.noArticle = noArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.etatVente = etatVente;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
+		
+	}
+
+
+
+	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
+			int miseAPrix, int prixVente, int etatVente, Utilisateur utilisateur, ArticleVendu categorie) {
+		super();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.etatVente = etatVente;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
+		
+	}
+
+	
+	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
+			int miseAPrix, int etatVente, Utilisateur utilisateur, ArticleVendu categorie) {
+		super();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.etatVente = etatVente;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
+	}
+	
+	
+	
+	
+	
 
 }

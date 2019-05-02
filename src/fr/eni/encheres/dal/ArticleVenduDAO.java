@@ -7,9 +7,9 @@ import fr.eni.encheres.bo.ArticleVendu;
 
 public interface ArticleVenduDAO {
 	
-	public void addArticle(ArticleVendu artilce);
-	public void updateArticle(ArticleVendu artilce);
-	public void deleteArticle(ArticleVendu artilce);
+	public void addArticle(ArticleVendu article);
+	public void updateArticle(ArticleVendu article);
+	public void deleteArticle(ArticleVendu article);
 	public List<ArticleVendu> selectAllArticle();
 	
 	
