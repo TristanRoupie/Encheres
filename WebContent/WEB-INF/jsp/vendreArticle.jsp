@@ -70,9 +70,17 @@
 		<div id="sousbloc5">
 			<div id="bloccommerce3">
 				<form action="${pageContext.request.contextPath}/home" method="get">
-					<input type="submit" value="Enregistrer" class="Enregistrer">
-					<input type="submit" value="Annuler la vente" class="Enregistrer">
-					<input type="submit" value="Annuler" class="Enregistrer">
+					<input 
+						type="submit" 
+						value="Enregistrer" 
+						class="supprimer">
+					<input type="submit" 
+						value="Annuler la vente" 
+						class="supprimer">
+					<input 
+						type="submit" 
+						value="Annuler"
+						class="supprimer">
 				</form>
 			</div>
 		</div>
