@@ -79,13 +79,13 @@
 			<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
 			<input
 				type="submit"
-				value="Enregistrer"
+				value="Annuler"
 				class="Enregistrer">
 			</form>
 			<form action="${pageContext.request.contextPath}/jsp/creaCompte" method="get">
 			<input
 				type="submit"
-				value="Enregistrer"
+				value="Annuler la vente"
 				class="Enregistrer">
 			</form>
 		</div>
