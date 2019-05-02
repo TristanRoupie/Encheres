@@ -23,8 +23,8 @@
 			</div> <!-- fin du sousbloc3 -->
 			<div id="sousbloc3">
 		<label for="nom" >Nom</label><input type="text" id="nom" class="nom" value="${requestScope.monprofil.nom}" /><br />
-		<label for="email" >Prénom</label><input type="text" id=""email" class="email" value="${requestScope.monprofil.email}"/><br />
-		<label for="rue" >Prénom</label><input type="text" id="Rue" class="Rue" value="${requestScope.monprofil.Rue}"/><br />
+		<label for="email" >Email</label><input type="text" id=""email" class="email" value="${requestScope.monprofil.email}"/><br />
+		<label for="rue" >Rue</label><input type="text" id="Rue" class="Rue" value="${requestScope.monprofil.Rue}"/><br />
 		<label for="ville" >Ville</label><input type="text" id="ville" class="ville" value="${requestScope.monprofil.ville}"/><br />
 		<label for="confirmation">Confirmation</label><input type="password" id="confirmation" class="confirmation"/><br />
 			</div> <!-- fin du sousbloc4 -->
