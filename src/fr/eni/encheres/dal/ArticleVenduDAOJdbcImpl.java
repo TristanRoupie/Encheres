@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 
 import fr.eni.encheres.bo.ArticleVendu;
+import fr.eni.encheres.bo.Utilisateur;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
@@ -59,6 +60,15 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			categoriedao.addCategorie(article.getCategorie());
 		}
 		 article.setCategorie(categoriedao.selectCategorieByLibelle(article.getCategorie().getLibelle()));
+	}
+
+
+
+	@Override
+	public ArticleVendu selectArticleById(int noArticle) {
+		Session session = ConnectionProvider.session;
+		ArticleVendu article = (ArticleVendu) session.get(ArticleVendu.class, noArticle);
+		return article ;
 	}
 
 }

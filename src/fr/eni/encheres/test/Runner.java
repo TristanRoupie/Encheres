@@ -68,11 +68,14 @@ class Runner {
 						utilisateur, categorie);
 				artcileDAO = DAOFactory.getArticleVenduDAO();
 				artcileDAO.addArticle(article);
+				System.out.println(article.getNoArticle());
 	
 	// modifier un article
 	categorie = new Categorie("super lolipop");
-	article = 
-	artcileDAO = DAOFactory.getArticleVenduDAO();
+	article = artcileDAO.selectArticleById(article.getNoArticle());
+	article.setCategorie(categorie);
 	artcileDAO.updateArticle(article);
+	System.out.println(article.getCategorie());
+	
 }
 }
