@@ -13,7 +13,7 @@
 		
 		<div id="bloccommerce2">
 			<div id="sousbloc3">
-		<label for="pseudo">Pseudo :</label><input type="text" id="pseudo" style="min-height: 20px"/><br />
+		<label for="pseudo">Pseudo :</label><form action="${pageContext.request.contextPath}"method="get"><input type="text" id="pseudo" style="min-height: 20px"/></form><br />
 		<label for="prenom">Prénom :</label><input type="text" id="prenom" style="min-height: 20px"/><br />
 		<label for="telephone">Téléphone :</label><input type="text" id="telephone" style="min-height: 20px"/><br />
 		<label for="codepostal">Code Postal :</label><input type="text" id="codepostal" style="min-height: 20px"/><br />
