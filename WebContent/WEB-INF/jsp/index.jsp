@@ -119,7 +119,7 @@
 			<div class="bloccommerce">
 				<div class="sousbloc1">
 				<c:if test="${listArticle>0}">
-				<c:forEach var="idObjet" items=""${listArticle}>
+				<%-- <c:forEach var="idObjet" items=""${listArticle}> --%>
 					<img src="https://dummyimage.com/200X200/000/fff"
 						alt="image du produit" class="imageflottante">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -129,12 +129,12 @@
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat
 						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 						sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						</c:forEach>
+						<%-- </c:forEach> --%>
 						</c:if>
 				</div>
 				<div class="sousbloc2">
 				<c:if test="${listArticle>0}">
-				<c:forEach var="idObjet" items=""${listArticle}>
+			<%-- 	<c:forEach var="idObjet" items=""${listArticle}> --%>
 					<img src="https://dummyimage.com/200X200/000/fff"
 						alt="image du produit" class="imageflottante">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -144,7 +144,7 @@
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat
 						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 						sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						</c:forEach>
+						<%-- </c:forEach> --%>
 						</c:if>
 				</div>
 			</div>
