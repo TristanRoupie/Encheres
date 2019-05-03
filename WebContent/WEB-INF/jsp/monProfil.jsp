@@ -13,7 +13,7 @@
 	<div class="conteneur">
 		<!-- debut du conteneur -->
 		<h1>Mon Profil</h1>
-		<p>Votre crédit est de :${requestScope.monprofil.credit}</p>
+		
 		<div class="bloccommerce2">
 			<div class="sousbloc3">
 				<c:if test="${empty nom}">
@@ -22,11 +22,15 @@
 						method="post">
 						<div class="bloccommerce2">
 							<div class="sousbloc3">
-								<label for="pseudo">Pseudo</label> <input type="text"
-									name="pseudo" class="pseudo"
-									value="${requestScope.monprofil.pseudo}" /><br /> <label
-									for="prenom">Prénom</label> <input type="text" name="prenom"
-									class="prenom" value="${requestScope.monprofil.prenom}"><br />
+								<label for="pseudo">Pseudo</label> 
+										<input type="text"
+											name="pseudo" 
+											class="pseudo"
+											value="${requestScope.monprofil.pseudo}" /><br />
+								<label for="prenom">Prénom</label>
+										<input type="text" 
+												name="prenom"
+												class="prenom" value="${requestScope.monprofil.prenom}"><br />
 								<label for="telephone">Téléphone</label> <input type="text"
 									name="telephone" class="telephone"
 									value="${requestScope.monprofil.telephone}" /><br /> <label
@@ -80,6 +84,7 @@
 						<input type="submit" value="Supprimer mon compte"
 							class="supprimer" style="height: 100px" />
 					</form>
+					<p>Votre crédit est de :${requestScope.monprofil.credit}</p>
 				</c:if>
 			</div>
 			<div class="sousbloc3"></div>
