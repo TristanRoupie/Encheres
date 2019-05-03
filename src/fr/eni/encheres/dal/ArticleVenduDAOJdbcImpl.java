@@ -71,4 +71,26 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		return article ;
 	}
 
+
+
+	@Override
+	public List<ArticleVendu> selectArticleBy(String pseudo, int achatVente, int etat, String contient) {
+		Session session = ConnectionProvider.session;
+		int noUtilisateur = new UtilisateurDAOJdbcImpl().selectUtilisateurByPseudo(pseudo).getNoUtilisateur();
+		System.out.println(noUtilisateur);
+		
+		Query q = session.createQuery("from ARTICLES_VENDUS a where a.nomArticle like :contient and  a.etatVente  = :etat AND a.no_utilisateur = ");
+		q.setParameter("contient", "%" + contient+ "%");
+		q.setParameter("etat", etat);
+q.setParameter("noUtilisateur", noUtilisateur);
+		
+		List<ArticleVendu> articles = q.getResultList();
+		if (articles.size() == 0) {
+			return null;
+		} else {
+			return articles;
+		}
+		
+	}
+
 }

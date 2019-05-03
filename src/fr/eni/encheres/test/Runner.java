@@ -1,6 +1,9 @@
 package fr.eni.encheres.test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -56,18 +59,59 @@ class Runner {
 		} else {
 			System.out.println("=====>" + utilisateur);
 		}
+
 		// Ajout d'un article sans adresse de recuperation
-		Categorie categorie = new Categorie("super electro");
-		ArticleVendu article = new ArticleVendu("seche linge", "lave super bien le linge",
-				new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis() + 1000), 15, 0, 0,
-				utilisateur, categorie);
+		Categorie categorie = new Categorie("merguez electro");
+		ArticleVendu article = new ArticleVendu("seche linge en cours", "lave super bien le linge",
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 10)),
+				new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 10)), 15, 0, 1, utilisateur, categorie);
 		ArticleVenduDAO artcileDAO = DAOFactory.getArticleVenduDAO();
 		artcileDAO.addArticle(article);
+
 		// Ajout d'un article sans adresse de recuperation
-		categorie = new Categorie("super electro");
-		article = new ArticleVendu("seche cheveux", "seche super bien les cheveux",
-				new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis() + 1000), 15, 0, 0,
-				utilisateur, categorie);
+		categorie = new Categorie("morgo electro");
+		article = new ArticleVendu("seche cheveux pas commence", "seche super bien les cheveux",
+				new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 10)),
+				new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 20)), 15, 0, 0, utilisateur, categorie);
+		artcileDAO = DAOFactory.getArticleVenduDAO();
+		artcileDAO.addArticle(article);
+		System.out.println(article.getNoArticle());
+
+		// Ajout d'un article sans adresse de recuperation
+		categorie = new Categorie("morgo electro");
+		article = new ArticleVendu("seche cheveux termine", "seche super bien les cheveux",
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 10)),
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 20)), 15, 0, 3, utilisateur, categorie);
+		artcileDAO = DAOFactory.getArticleVenduDAO();
+		artcileDAO.addArticle(article);
+		System.out.println(article.getNoArticle());
+
+		
+		
+		
+		// Ajout d'un article sans adresse de recuperation
+		utilisateur = utilisateurDAO3.selectUtilisateurByPseudo("pseudo6");
+		categorie = new Categorie("merguez electro");
+		article = new ArticleVendu("seche linge en cours6", "lave super bien le linge",
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 10)),
+				new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 10)), 15, 0, 1, utilisateur, categorie);
+		artcileDAO = DAOFactory.getArticleVenduDAO();
+		artcileDAO.addArticle(article);
+
+		// Ajout d'un article sans adresse de recuperation
+		categorie = new Categorie("morgo electro");
+		article = new ArticleVendu("seche cheveux pas commence6", "seche super bien les cheveux",
+				new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 10)),
+				new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 20)), 15, 0, 0, utilisateur, categorie);
+		artcileDAO = DAOFactory.getArticleVenduDAO();
+		artcileDAO.addArticle(article);
+		System.out.println(article.getNoArticle());
+
+		// Ajout d'un article sans adresse de recuperation
+		categorie = new Categorie("morgo electro");
+		article = new ArticleVendu("seche cheveux termine6", "seche super bien les cheveux",
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 10)),
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 20)), 15, 0, 3, utilisateur, categorie);
 		artcileDAO = DAOFactory.getArticleVenduDAO();
 		artcileDAO.addArticle(article);
 		System.out.println(article.getNoArticle());
@@ -83,5 +127,16 @@ class Runner {
 		Retrait retrait = new Retrait(article.getNoArticle(), "13 rue general", 35720, "rennes", article);
 		RetraitDAO retraitDao = DAOFactory.getRetraitDAO();
 		retraitDao.addRetrait(retrait);
+
+		// recherche d article par vendeur ou par acheteur
+		List<ArticleVendu> articles = artcileDAO.selectArticleBy("pseudo", 0, 3, "");
+		if (articles != null) {
+			for (ArticleVendu artcile : articles) {
+				System.out.println(artcile);
+			}
+		} else {
+			System.out.println("pas de liste");
+		}
+
 	}
 }

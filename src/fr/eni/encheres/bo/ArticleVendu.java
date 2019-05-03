@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
@@ -37,6 +38,7 @@ public class ArticleVendu {
 	@Column(name = "etat_vente", length = 1, nullable = false, columnDefinition = "int default 0")
 	private int etatVente; // 0 or 1 because Lombok bugs with boolean
 	@ManyToOne
+	@JoinColumn(name = "no_utilisateur")
 	private Utilisateur utilisateur;
 	@ManyToOne
 	private Categorie categorie;
