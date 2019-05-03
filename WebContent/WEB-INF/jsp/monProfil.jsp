@@ -19,7 +19,7 @@
 		<div id="bloccommerce2">
 		<div id="sousbloc3">
 		<c:if test="${!empty nom}">
-			<form action="${pageContext.request.contextPath}/encheres" method="post">
+			<form action="${pageContext.request.contextPath}/home" method="post">
 				<input id
 					type="submit"
 					value="Enregistrer"
