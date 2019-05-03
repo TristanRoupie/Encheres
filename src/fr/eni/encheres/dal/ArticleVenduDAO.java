@@ -10,6 +10,7 @@ public interface ArticleVenduDAO {
 	public void updateArticle(ArticleVendu article);
 	public void deleteArticle(ArticleVendu article);
 	public List<ArticleVendu> selectAllArticle();
+	public ArticleVendu selectArticleById(int noArtcile);
 	
 	
 

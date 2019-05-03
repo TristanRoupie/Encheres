@@ -6,11 +6,11 @@
 	<session-factory>
 		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="hibernate.connection.url">jdbc:sqlserver://10.44.101.15:1433;databaseName=ENCHERE_BD</property>
-		<property name="hibernate.connection.username">USER_ENCHERES</property>
-		<property name="hibernate.connection.password">Pa$$w0rd</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://10.44.101.15:1433;databaseName=</property> <!-- localhost    ENCHERES -->
+		<property name="hibernate.connection.username">USER_ENCHERES </property>	<!--  sa-->
+		<property name="hibernate.connection.password">Pa$$w0rd</property> <!-- MSSQmara1980*  -->
 		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 		<property name="hibernate.connection.pool_size">10</property>
 		<property name="hibernate.connection.autocommit">false</property>
 		<property name="hibernate.current_session_context_class">thread</property>

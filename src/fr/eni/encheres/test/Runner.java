@@ -6,9 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.bo.Categorie;
+import fr.eni.encheres.bo.Retrait;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.ArticleVenduDAO;
 import fr.eni.encheres.dal.DAOFactory;
+import fr.eni.encheres.dal.RetraitDAO;
 import fr.eni.encheres.dal.UtilisateurDAO;
 
 class Runner {
@@ -62,17 +64,24 @@ class Runner {
 		ArticleVenduDAO artcileDAO = DAOFactory.getArticleVenduDAO();
 		artcileDAO.addArticle(article);
 		// Ajout d'un article sans adresse de recuperation
-				categorie = new Categorie("super electro");
-				article = new ArticleVendu("seche cheveux", "seche super bien les cheveux",
-						new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis() + 1000), 15, 0, 0,
-						utilisateur, categorie);
-				artcileDAO = DAOFactory.getArticleVenduDAO();
-				artcileDAO.addArticle(article);
-	
-	// modifier un article
-	categorie = new Categorie("super lolipop");
-	article = 
-	artcileDAO = DAOFactory.getArticleVenduDAO();
-	artcileDAO.updateArticle(article);
-}
+		categorie = new Categorie("super electro");
+		article = new ArticleVendu("seche cheveux", "seche super bien les cheveux",
+				new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis() + 1000), 15, 0, 0,
+				utilisateur, categorie);
+		artcileDAO = DAOFactory.getArticleVenduDAO();
+		artcileDAO.addArticle(article);
+		System.out.println(article.getNoArticle());
+
+		// modifier un article
+		categorie = new Categorie("super lolipop");
+		article = artcileDAO.selectArticleById(article.getNoArticle());
+		article.setCategorie(categorie);
+		artcileDAO.updateArticle(article);
+		System.out.println(article.getCategorie());
+
+		// ajouter un retrait
+		Retrait retrait = new Retrait(article.getNoArticle(), "13 rue general", 35720, "rennes", article);
+		RetraitDAO retraitDao = DAOFactory.getRetraitDAO();
+		retraitDao.addRetrait(retrait);
+	}
 }
