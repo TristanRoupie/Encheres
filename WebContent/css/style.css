@@ -1,22 +1,27 @@
 @charset "UTF-8";
+
 body {
 	font-family: Verdana;
 	font-size: 0.9em;
 }
+
 h1 {
 	color: black;
 	text-transform: uppercase;
 	text-align: center;
 	text-shadow: 0.1em 0.1em grey;
 }
+
 h3 {
 	margin-left: 50px;
 	font-weight: bold;
 }
+
 h4 {
 	margin-left: 200px;
 }
-#conteneur {
+
+.conteneur {
 	display: flex;
 	flex-direction: row;
 	display: inline-table;
@@ -27,36 +32,43 @@ h4 {
 	min-height: 800px;
 	background-color: #AA7939;
 }
-#navbar {
+
+.navbar {
 	
 }
-#bloclogin {
+
+.bloclogin {
 	display: flex;
 	flex-direction: row;
 	display: inline-table;
 	margin-top: 10px;
 	padding-top: 10px;
 }
+
 li {
 	display: inline;
 	padding: 10px;
 	text-align: right;
 }
+
 ul {
 	float: right;
 }
-#vide {
+
+.vide {
 	width: 100%;
 	height: 50px;
 }
-#bloccommerce {
+
+.bloccommerce {
 	display: flex;
 	flex-direction: row;
 	margin: 30px;
 	padding: 30px;
 	background-color: #AA7939;
 }
-#sousbloc1 {
+
+.sousbloc1 {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-width: 200px;
@@ -66,7 +78,8 @@ ul {
 	margin-right: 50px;
 	margin-left: 20px;
 }
-#sousbloc2 {
+
+.sousbloc2 {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-width: 200px;
@@ -76,42 +89,51 @@ ul {
 	margin-right: 50px;
 	margin-left: 50px;
 }
-#jj {
+
+.jj {
 	width: 150px;
 }
-#bb {
+
+.bb {
 	margin-left: 50px;
 }
+
 .imageflottante {
 	float: left;
 }
-#bloctotal {
+
+.bloctotal {
 	width: 100%;
 	min-height: 300px;
 	background-color: #AA7939;
 }
-#blochaut {
+
+.blochaut {
 	width: 100%;
 	background-color: #AA7939;
 	display: flex;
 }
-#pave1 {
+
+.pave1 {
 	max-width: 45%;
 	background-color: #AA7939;
 }
-#pave2 {
+
+.pave2 {
 	background-color: #AA7939;
 }
-#sousbloc3 {
+
+.sousbloc3 {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-width: 300px;
-	background-color: ##AA7939;
+	background-color: #AA7939;
 	padding-right: 30px;
 	padding-left: 30px;
 	margin: auto;
 }
-#sousbloc4 {
+
+.sousbloc4 {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-width: 200px;
@@ -120,7 +142,8 @@ ul {
 	padding-left: 50px;
 	margin: auto;
 }
-#bloccommerce2 {
+
+.bloccommerce2 {
 	display: flex;
 	flex-direction: row;
 	margin: 30px;
@@ -128,16 +151,18 @@ ul {
 	background-color: #AA7939;
 	justify-content: space-around;
 }
-label
-{
+
+label {
 	display: block;
 	width: 150px;
-	float: left;	
+	float: left;
 }
-p{
+
+p {
 	margin-left: 50px;
 	padding-left: 50px;
 }
+
 .enregistrer {
 	height: 50px;
 	width: 200px;
@@ -145,6 +170,7 @@ p{
 	background-color: #805215;
 	border-color: #805215;
 }
+
 .supprimer {
 	height: 50px;
 	width: 200px;
@@ -152,38 +178,43 @@ p{
 	background-color: #805215;
 	border-color: #805215;
 }
-#blocduhaut {
+
+.blocduhaut {
 	background-color: #AA7939;
 	display: flex;
 	flex-direction: row-reverse;
 	margin: 10px;
 	padding: 10px;
 }
-#bloccommerce3 {
+
+.bloccommerce3 {
 	display: flex;
 	flex-direction: row;
 	background-color: #AA7939;
 	justify-content: space-around;
 }
-#sousbloc5 {
+
+.sousbloc5 {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-width: 200px;
 	background-color: #AA7939;
 	padding-right: 50px;
 	padding-left: 50px;
-	margin-top:10px;
+	margin-top: 10px;
 }
-.pseudo, .prenom, .telephone, .codepostal,.mdpnow, .newmdp, .nom, .email, .style, .confirmation, .Rue, .ville{
+
+.pseudo, .prenom, .telephone, .codepostal, .mdpnow, .newmdp, .nom,
+	.email, .style, .confirmation, .Rue, .ville {
 	border-radius: 3px;
 	min-height: 20px;
 	min-width: 100px;
 	border: 1px solid grey-light;
-
 	margin-bottom: 3px;
 	margin-top: 3px;
 }
-#sousbloc5 {
+
+.sousbloc5 {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-width: 200px;
@@ -193,25 +224,28 @@ p{
 	margin: auto;
 	justify-content: space-around;
 }
-#bloccommerce3 {
+
+.bloccommerce3 {
 	display: flex;
 	flex-direction: row;
 	margin: 30px;
 	padding: 30px;
 	background-color: #AA7939;
-	justify-content:space-around;
+	justify-content: space-around;
 }
+
 a {
-	border:1px solid #000000;
-	background-color:#805215;
-	display:block;
-	width:200px;
-	height:50px;
-	text-align:center;
-	text-decoration:none;
-	color:#000000;
+	border: 1px solid #000000;
+	background-color: #805215;
+	display: block;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
 	border-radius: 10px;
 }
+
 a:hover {
-	border-color: #805215;;
+	border-color: #805215;
 }
