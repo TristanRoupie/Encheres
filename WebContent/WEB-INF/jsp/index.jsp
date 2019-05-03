@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,9 @@
 <body>
 	<header>
 		<nav>
-			<c:if test="${connexion}">
+			
 				<div id="blocduhaut">
+				<c:if test="${connexion}">
 					<form action="${pageContext.request.contextPath}/home" method="get">
 						<input type="submit" value="Déconnexion">
 					</form>
@@ -24,8 +26,9 @@
 						method="get">
 						<input type="submit" value="Vendre un article">
 					</form>
+					</c:if>
 				</div>
-			</c:if>
+			
 			<c:if test="${!connexion}">
 				<div id="blocduhaut">
 					<form
@@ -44,7 +47,7 @@
 		<h1>Liste des enchères</h1>
 		<div>
 			<h3>Filtres</h3>
-			<form action="" method="post">
+			<form action="${pageContext.request.contextPath}/Catégorie.java" method="post">
 				<div id="bb">
 					<input type="search" class="bb" value="Article à rechercher"
 						style="height: 40px">
@@ -52,17 +55,22 @@
 			</form>
 			<h3>Catégories</h3>
 			<div id="bb">
+			<form action="${pageContext.request.contextPath}/Catégorie.java" method="post">
 				<select name="Catégories" id="Catégories" style="height: 30px">
 					<option value="0" hidden>Selectionner une catégorie</option>
 					<option value="1">Informatique</option>
 					<option value="2">Ameublement</option>
 					<option value="3">Vêtements</option>
 					<option value="4">Sport & loisirs</option>
+					</select>
+					</form>
 			</div>
-			</select>
-
+			
+				
 		</div>
 		<div id="bloccommerce">
+		<c:if test="${!connexion}">
+		<form action="${pageContext.request.contextPath}/Catégorie.java" method="post">
 			<div id="sousbloc1">
 				<input type="radio" class="jj" name="commerce" value="achats"
 					checked> Achats
@@ -101,7 +109,9 @@
 						terminées</label>
 				</div>
 			</div>
-		</div>
+			</form>
+			</c:if>
+		</div><!-- fin bloc commerce -->
 		<div id="vide">
 			<div id="bloccommerce">
 				<div id="sousbloc1">
