@@ -83,7 +83,7 @@
 
 				</c:if>
 				<c:if test="${!empty nom}">
-					<form action="${pageContext.request.contextPath}/home"
+					<form action="${pageContext.request.contextPath}/connexionInscription"
 						method="post">
 						<input type="submit" value="Enregistrer" class="enregistrer"
 							style="height: 100px" />
