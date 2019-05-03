@@ -44,7 +44,7 @@
 		<h1>Liste des enchères</h1>
 		<div>
 			<h3>Filtres</h3>
-			<form action="${pageContext.request.contextPath}/Catégorie.java"
+			<form action="${pageContext.request.contextPath}/home"
 				method="post">
 				<div class="bb">
 					<input type="search" class="bb" value="Article à rechercher"
@@ -53,7 +53,7 @@
 			</form>
 			<h3>Catégories</h3>
 			<div class="bb">
-				<form action="${pageContext.request.contextPath}/Catégorie.java"
+				<form action="${pageContext.request.contextPath}/home"
 					method="post">
 					<select name="Catégories" class="Catégories" style="height: 30px">
 						<option value="0" hidden>Selectionner une catégorie</option>
@@ -118,6 +118,8 @@
 		<div class="vide">
 			<div class="bloccommerce">
 				<div class="sousbloc1">
+				<c:if test="${listArticle>0}">
+				<c:forEach var="idObjet" items=""${listArticle}>
 					<img src="https://dummyimage.com/200X200/000/fff"
 						alt="image du produit" class="imageflottante">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -127,8 +129,12 @@
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat
 						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 						sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</c:forEach>
+						</c:if>
 				</div>
 				<div class="sousbloc2">
+				<c:if test="${listArticle>0}">
+				<c:forEach var="idObjet" items=""${listArticle}>
 					<img src="https://dummyimage.com/200X200/000/fff"
 						alt="image du produit" class="imageflottante">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -138,9 +144,11 @@
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat
 						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 						sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</c:forEach>
+						</c:if>
 				</div>
 			</div>
-
+		</div>
 		</div>
 </body>
 </html>
