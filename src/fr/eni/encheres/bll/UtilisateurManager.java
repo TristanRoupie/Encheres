@@ -16,8 +16,7 @@ public class UtilisateurManager {
 	}
 
 	public Utilisateur ajouterUtilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email,
-			String telephone, String rue, int codePostal, String ville, String motDePasse, int credit,
-			int administrateur) throws BusinessException {
+			String telephone, String rue, int codePostal, String ville, String motDePasse) throws BusinessException {
 
 		BusinessException businessException = new BusinessException();
 
@@ -54,8 +53,6 @@ public class UtilisateurManager {
 			utilisateur.setCodePostal(codePostal);
 			utilisateur.setVille(ville);
 			utilisateur.setMotDePasse(motDePasse);
-			utilisateur.setCredit(credit);
-			utilisateur.setAdministrateur(administrateur);
 
 			this.utilisateurDAO.addUtilisateur(utilisateur);
 		} else {
