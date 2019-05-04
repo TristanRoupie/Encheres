@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="conteneur">
-		<h1>Eni-Enchères</h1>
+		<h1><a href="${pageContext.request.contextPath}/home"></a>Eni-Enchères</h1>
 		<div class="bloccommerce2">
 			<div class="sousbloc3">
 				<h4>identifiant</h4>
