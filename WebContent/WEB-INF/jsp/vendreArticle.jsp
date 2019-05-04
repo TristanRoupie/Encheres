@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
-<title>Insert title here</title>
+<title>Vendre Article</title>
 </head>
 <body>
 	<h1>Nouvelle vente</h1>
 	<div class="conteneur">
-	<form action="${pageContext.request.contextPath}/home" method="post">
+	<form action="${pageContext.request.contextPath}/VendreArticleServlet" method="post">
 		<div class="bloccommerce">
 			<div class="sousbloc3">
 				<img src="https://dummyimage.com/200X200/000/fff"
@@ -53,9 +53,18 @@
 		</div>
 		<div class="bloccommerce">
 			<div class="sousbloc3">
-				<h4>Rue</h4>
-				<h4>Code postal</h4>
-				<h4>Ville</h4>
+				  <fieldset>
+    <legend>Retrait</legend>
+
+    <input type="text"  value="${requestScope.utilisateur.getRue()}" id="rue" name="retrait">
+    <label for="rue">Rue</label><br/>
+
+    <input type="text" value="${requestScope.utilisateur.getCodePostal() }" id="cp" name="retrait">
+    <label for="cp">Code Postal</label><br/>
+
+    <input type="text" value="${requestScope.utilisateur.getVille() }" id="ville" name="retrait">
+    <label for="ville">Ville</label>
+  </fieldset>
 			</div>
 			<!--fin du sousbloc-->
 			<div class="sousbloc3">
