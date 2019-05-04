@@ -33,7 +33,7 @@
 								for="codepostal">Code Postal</label> <input type="text"
 								pattern="[0-9]{5}" name="codepostal" class="codeposte"
 								value="${requestScope.monprofil.codepostal}" /><br />
-							<c:if test="${empty nom}">
+							<c:if test="${empty nom}"> <!-- si il y a pas de nom -->
 
 
 
