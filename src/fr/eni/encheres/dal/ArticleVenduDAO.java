@@ -11,8 +11,10 @@ public interface ArticleVenduDAO {
 	public void deleteArticle(ArticleVendu article);
 	public List<ArticleVendu> selectAllArticle();
 	public ArticleVendu selectArticleById(int noArtcile);
-	public List<ArticleVendu> selectArticleBy(String pseudo , int achatVente , int etat , String contient );
-	//select * from ARTICLES_VENDUS where nom_article like'%seche%' and utilisateur_no_utilisateur != 1 AND  GETDATE() < date_fin_encheres AND  GETDATE() < date_debut_encheres
+	public List<ArticleVendu> selectArticleVendeur(String pseudo  , int etat , String contient );
+	public List<ArticleVendu> selectArticleAcheteurOuverte(String pseudo , String contient );
+	public List<ArticleVendu> selectArticleEncherEnCours(String pseudo , String contient );
+	
 	
 	
 

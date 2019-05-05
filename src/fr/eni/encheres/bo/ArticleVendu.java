@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,10 +38,11 @@ public class ArticleVendu {
 	private int prixVente;
 	@Column(name = "etat_vente", length = 1, nullable = false, columnDefinition = "int default 0")
 	private int etatVente; // 0 or 1 because Lombok bugs with boolean
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "no_utilisateur")
 	private Utilisateur utilisateur;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "no_categorie")
 	private Categorie categorie;
 
 	public ArticleVendu() {

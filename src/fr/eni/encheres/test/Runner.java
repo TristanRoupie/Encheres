@@ -9,10 +9,12 @@ import org.junit.jupiter.api.Test;
 
 import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.bo.Categorie;
+import fr.eni.encheres.bo.Enchere;
 import fr.eni.encheres.bo.Retrait;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.ArticleVenduDAO;
 import fr.eni.encheres.dal.DAOFactory;
+import fr.eni.encheres.dal.EnchereDAO;
 import fr.eni.encheres.dal.RetraitDAO;
 import fr.eni.encheres.dal.UtilisateurDAO;
 
@@ -86,9 +88,6 @@ class Runner {
 		artcileDAO.addArticle(article);
 		System.out.println(article.getNoArticle());
 
-		
-		
-		
 		// Ajout d'un article sans adresse de recuperation
 		utilisateur = utilisateurDAO3.selectUtilisateurByPseudo("pseudo6");
 		categorie = new Categorie("merguez electro");
@@ -128,8 +127,8 @@ class Runner {
 		RetraitDAO retraitDao = DAOFactory.getRetraitDAO();
 		retraitDao.addRetrait(retrait);
 
-		// recherche d article par vendeur ou par acheteur
-		List<ArticleVendu> articles = artcileDAO.selectArticleBy("pseudo", 0, 3, "");
+		// recherche d article par vendeur
+		List<ArticleVendu> articles = artcileDAO.selectArticleVendeur("pseudo", 3, "");
 		if (articles != null) {
 			for (ArticleVendu artcile : articles) {
 				System.out.println(artcile);
@@ -137,6 +136,56 @@ class Runner {
 		} else {
 			System.out.println("pas de liste");
 		}
+		
+		// recherche d article en coures d'encheres
+				List<ArticleVendu> articles2 = artcileDAO.selectArticleAcheteurOuverte("pseudo", "");
+				if (articles != null) {
+					for (ArticleVendu artcile : articles) {
+						System.out.println(artcile);
+					}
+				} else {
+					System.out.println("pas de liste");
+				}
+				
+				// rajout d'enchères
+				utilisateur= utilisateurDAO2.selectUtilisateurByPseudo("pseudo");
+				article= artcileDAO.selectArticleById(article.getNoArticle());
+				Enchere enchere = new Enchere(new Date(System.currentTimeMillis()),50,utilisateur,article);
+				EnchereDAO enchereDao = DAOFactory.getEnchereDAO();
+				enchereDao.addEnchere(enchere);
+				
+				// rajout d'enchères
+				utilisateur= utilisateurDAO2.selectUtilisateurByPseudo("pseudo6");
+				article= artcileDAO.selectArticleById(article.getNoArticle());
+				enchere = new Enchere(new Date(System.currentTimeMillis()),60,utilisateur,article);
+				enchereDao = DAOFactory.getEnchereDAO();
+				enchereDao.addEnchere(enchere);
+				
+				// rajout d'enchères
+				utilisateur= utilisateurDAO2.selectUtilisateurByPseudo("pseudo");
+				article= artcileDAO.selectArticleById(8);
+				enchere = new Enchere(new Date(System.currentTimeMillis()),60,utilisateur,article);
+				 enchereDao = DAOFactory.getEnchereDAO();
+				enchereDao.addEnchere(enchere);
+				
+				// rajout d'enchères
+				utilisateur= utilisateurDAO2.selectUtilisateurByPseudo("pseudo6");
+				article= artcileDAO.selectArticleById(8);
+				enchere = new Enchere(new Date(System.currentTimeMillis()),50,utilisateur,article);
+				enchereDao = DAOFactory.getEnchereDAO();
+				enchereDao.addEnchere(enchere);
+				
+				// recherche d article avec une encher de l utilisateur
+				articles2 = artcileDAO.selectArticleEncherEnCours("pseudo6", "");
+				if (articles2 != null) {
+					for (ArticleVendu artcile : articles2) {
+						System.out.println(artcile);
+					}
+				} else {
+					System.out.println("pas de liste");
+				}
+				
+				
 
 	}
 }
