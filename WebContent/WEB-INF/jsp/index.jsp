@@ -11,48 +11,29 @@
 <title>Encheres</title>
 </head>
 <body>
-	<header>
-		<nav>
-
-
-			<div id="blocduhaut">
-				<c:if test="${connexion}">
-					<!-- Si on est connecté -->
-
-					<div class="blocduhaut">
-
-
-						<form action="${pageContext.request.contextPath}/home"
-							method="get">
-							<input type="submit" value="Déconnexion">
-						</form>
-						<form action="${pageContext.request.contextPath}/monProfil"
-							method="get">
-							<input type="submit" value="Mon profil">
-						</form>
-						<form action="${pageContext.request.contextPath}/vendreArticle"
-							method="get">
-							<input type="submit" value="Vendre un article">
-						</form>
-				</c:if>
-			</div>
-
-
-			<div class="blocduhaut">
-				<c:if test="${!connexion}">
-
-
-					<form
-						action="${pageContext.request.contextPath}/connexionInscription"
-						method="get">
-						<input type="submit" value="S'inscrire"> <input
-							type="submit" value="Se connecter">
-					</form>
-				</c:if>
-			</div>
-
-		</nav>
-	</header>
+			<header>
+			<nav>
+			<c:if test="${connexion}">
+				<a href="${pageContext.request.contextPath}/home">
+					<input type="submit" value="Déconnexion" id="boutonnav">
+				</a>
+				<a href="${pageContext.request.contextPath}/monProfil.jsp">
+					<input type="submit" value="Mon Profil" id="boutonnav">
+				</a>
+				<a href="${pageContext.request.contextPath}/vendreArticle.jsp">
+					<input type="submit" value="Vendre un article" id="boutonnav">
+				</a>					
+			</c:if>
+			<c:if test="${!connexion}">
+				<a href="${pageContext.request.contextPath}/connexionInscription">
+					<input type="submit" value="S'inscrire" id="boutonnav">
+				</a>
+				<a href="${pageContext.request.contextPath}/connexionInscription.jsp">
+					<input type="submit" value="Se connecter" id="boutonnav">
+				</a>
+			</c:if>
+			</nav>
+		</header>
 
 	<div id="conteneur">
 		<h1>
