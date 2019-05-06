@@ -35,7 +35,7 @@ public class Utilisateur {
 	@Column(name = "rue", length = 30, nullable = false)
 	private String rue;
 	@Column(name = "code_postal", length = 10, nullable = false)
-	private int codePostal;
+	private String codePostal;
 	@Column(name = "ville", length = 30, nullable = false)
 	private String ville;
 	@Column(name = "mot_de_passe", length = 30, nullable = false)
@@ -46,7 +46,7 @@ public class Utilisateur {
 	private int administrateur; // 0 or 1 because Lombok bugs with boolean
 
 	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, int codePostal, String ville, String motDePasse, int credit, int administrateur) {
+			String rue, String codePostal, String ville, String motDePasse, int credit, int administrateur) {
 		super();
 		this.setNoUtilisateur(noUtilisateur);
 		this.setPseudo(pseudo);
@@ -62,7 +62,7 @@ public class Utilisateur {
 		this.setAdministrateur(administrateur);
 	}
 
-	public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, int codePostal, String ville,
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, String codePostal, String ville,
 			String motDePasse, int credit, int administrateur) {
 		super();
 		this.setPseudo(pseudo);
@@ -77,7 +77,7 @@ public class Utilisateur {
 		this.setAdministrateur(administrateur);
 	}
 
-	public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, int codePostal, String ville,
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, String codePostal, String ville,
 			String motDePasse) {
 		super();
 		this.setPseudo(pseudo);
