@@ -10,7 +10,6 @@ public interface UtilisateurDAO {
 	public Utilisateur selectUtilisateurByid(int noUtilisateur);
 	public Utilisateur selectUtilisateurByPseudo(String pseudo);
 	public Utilisateur selectUtilisateurByEmail(String email);
-
+	public Utilisateur selectUtilisateurBYpseudoPassword(String pseudo , String password);
 	
-
 }

@@ -11,10 +11,10 @@ import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Utilisateur;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
-	private final String REQUETE_VENDEUR = "FROM ARTICLES_VENDUS a WHERE a.etatVente  = ";
-	private final String WHERE_ARTCILE_LIKE = "AND a.nomArticle LIKE ";
-	private final String WHERE_UTILISATEUR_IS = "AND a.utilisateur.pseudo = ";
-	private final String WHERE_CATEGORIE_IS = "AND a.categorie.noCategorie = ";
+	private final String REQUETE_VENDEUR = "FROM ArticleVendu a WHERE a.etatVente =:etatVente ";
+	private final String WHERE_ARTCILE_LIKE = "AND a.nomArticle LIKE :nomArticle";
+	private final String WHERE_UTILISATEUR_IS = "AND a.utilisateur.pseudo = :pseudo";
+	private final String WHERE_CATEGORIE_IS = "AND a.categorie.noCategorie = :noCategorie";
 	
 
 	@Override
@@ -73,6 +73,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	@Override
 	public List<ArticleVendu> selectArticleVendeur(String pseudo, int etat, String contient, int noCategorie) {
 		StringBuilder reqSQL = new StringBuilder();
+		// preparation de la requete sql en fonction des parametres envoyé
 		reqSQL.append(REQUETE_VENDEUR);
 		reqSQL.append(etat);
 		System.out.println(reqSQL);
@@ -94,13 +95,14 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(reqSQL.toString());
 				List<ArticleVendu> articles = q.getResultList();
+				
+				
 		session.close();
 		if (articles.size() == 0) {
 			return null;
 		} else {
 			return articles;
 		}
-
 	}
 
 	@Override
