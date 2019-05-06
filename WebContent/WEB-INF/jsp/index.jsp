@@ -25,7 +25,7 @@
 				</a>					
 			</c:if>
 			<c:if test="${!connexion}">
-				<a href="${pageContext.request.contextPath}/connexionInscription">
+				<a href="${pageContext.request.contextPath}/monProfil">
 					<input type="submit" value="S'inscrire" id="boutonnav">
 				</a>
 				<a href="${pageContext.request.contextPath}/connexionInscription">
