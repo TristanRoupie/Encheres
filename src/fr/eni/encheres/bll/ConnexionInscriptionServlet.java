@@ -16,6 +16,7 @@ import fr.eni.encheres.bo.Utilisateur;
  */
 @WebServlet("/connexionInscription")
 public class ConnexionInscriptionServlet extends HttpServlet {
+	private static final String PATH_TO_INDEX_JSP = "/WEB-INF/jsp/index.jsp";
 	private static final long serialVersionUID = 1L;
 	private static final String PATH_TO_CONNEXIONINSCRIPTION_JSP = "/WEB-INF/jsp/connexionInscription.jsp";
 
@@ -75,7 +76,7 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 		} catch (BusinessException e) {
 			request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_INDEX_JSP);
 		rd.forward(request, response);
 	}
 
