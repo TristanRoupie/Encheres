@@ -13,6 +13,6 @@ public interface RetraitDAO {
 	public void updateRetrait(Retrait retrait);
 	public void deleteRetrait(Retrait retrait);
 	public List<Retrait> selectAllRetrait();
-	public Retrait selectRetraitById(int noArticle);
+	public Retrait selectRetraitByIdArticle(int noArticle);
 
 }

@@ -58,7 +58,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	}
 
 	@Override
-	public List<Enchere> selectEnchereByArtcile(ArticleVendu article) {
+	public List<Enchere> selectEnchereByArticle(ArticleVendu article) {
 		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(
 				"from ENCHERES e where e.article = :article");
