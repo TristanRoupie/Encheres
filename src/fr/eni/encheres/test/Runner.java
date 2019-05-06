@@ -24,7 +24,7 @@ class Runner {
 	void test() {
 		// Ajout utilisteur
 		Utilisateur newUtilisateur = new Utilisateur("pseudo", "Roupie", "Tristan", "Tristan.roupie@gmail.com",
-				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
+				"rue de la libération", "35190", "Labaussaine", "yoyo", 587, 0);
 		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
 		if (utilisateurDAO.selectUtilisateurByEmail(newUtilisateur.getEmail()) == null) {
 			utilisateurDAO.addUtilisateur(newUtilisateur);
@@ -32,7 +32,7 @@ class Runner {
 		}
 		// Ajout utilisteur
 		Utilisateur newUtilisateur2 = new Utilisateur("pseudo6", "Roupie", "Tristan", "Tristan.roupie87@gmail.com",
-				"rue de la libération", 35190, "Labaussaine", "yoyo", 587, 0);
+				"rue de la libération", "35190", "Labaussaine", "yoyo", 587, 0);
 		UtilisateurDAO utilisateurDAO2 = DAOFactory.getUtilisateurDAO();
 		if (utilisateurDAO2.selectUtilisateurByPseudo(newUtilisateur2.getPseudo()) == null) {
 			utilisateurDAO2.addUtilisateur(newUtilisateur2);
