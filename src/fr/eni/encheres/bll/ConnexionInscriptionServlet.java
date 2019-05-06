@@ -54,8 +54,6 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 		String codePostal = null;
 		String ville = null;
 		String motDePasse = null;
-		int credit = 0;
-		int administrateur = 0;
 
 		try {
 //			Parameter input fetch
