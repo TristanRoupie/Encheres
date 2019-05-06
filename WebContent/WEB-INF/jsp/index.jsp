@@ -11,6 +11,7 @@
 <title>Encheres</title>
 </head>
 <body>
+<div id="conteneur">
 			<header>
 			<nav>
 			<c:if test="${connexion}">
@@ -35,7 +36,7 @@
 			</nav>
 		</header>
 
-	<div id="conteneur">
+	
 		<h1>
 			<a href="${pageContext.request.contextPath}/home">Liste des
 				enchères</a>
