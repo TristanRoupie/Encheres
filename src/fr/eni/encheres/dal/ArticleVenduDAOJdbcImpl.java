@@ -11,8 +11,8 @@ import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Utilisateur;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
-	private final String REQUETE_VENDEUR = "from ARTICLES_VENDUS a WHERE a.etatVente  = :etat ";
-	private final String WHERE_ARTCILE_LIKE = "AND a.nomArticle Like :contient ";
+	private final String REQUETE_VENDEUR = "FROM ARTICLES_VENDUS a WHERE a.etatVente  = :etat ";
+	private final String WHERE_ARTCILE_LIKE = "AND a.nomArticle LIKE :contient ";
 	private final String WHERE_UTILISATEUR_IS = "AND a.utilisateur = :utilisateur";
 	
 
@@ -29,7 +29,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	@Override
 	public void updateArticle(ArticleVendu article) {
 		getCategorie(article);
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		session.beginTransaction();
 		session.saveOrUpdate(article);
 		session.getTransaction().commit();
@@ -39,45 +39,48 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	@Override
 	public void deleteArticle(ArticleVendu article) {
 		getCategorie(article);
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		session.beginTransaction();
 		session.delete(article);
 		session.getTransaction().commit();
+		session.close();
 
 	}
 
 	@Override
 	public List<ArticleVendu> selectAllArticle() {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery("from ARTICLES_VENDUS");
 		List<ArticleVendu> articles = q.getResultList();
+		session.close();
 		if (articles.size() == 0) {
 			return null;
 		} else {
 			return articles;
 		}
+		
 	}
 
 	@Override
 	public ArticleVendu selectArticleById(int noArticle) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		ArticleVendu article = (ArticleVendu) session.get(ArticleVendu.class, noArticle);
+		session.close();
 		return article;
 	}
 
 	@Override
 	public List<ArticleVendu> selectArticleVendeur(String pseudo, int etat, String contient, Categorie categorie) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Utilisateur utilisateur = new UtilisateurDAOJdbcImpl().selectUtilisateurByPseudo(pseudo);
 		System.out.println(utilisateur);
-
 		Query q = session.createQuery(
 				"from ARTICLES_VENDUS a where a.etatVente  = :etat AND a.nomArticle like :contient AND a.utilisateur = :utilisateur");
 		q.setParameter("contient", "%" + contient + "%");
 		q.setParameter("utilisateur", utilisateur);
 		q.setParameter("etat", etat);
-
 		List<ArticleVendu> articles = q.getResultList();
+		session.close();
 		if (articles.size() == 0) {
 			return null;
 		} else {
@@ -88,16 +91,15 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 	@Override
 	public List<ArticleVendu> selectArticleAcheteurOuverte(String pseudo, String contient, Categorie categorie) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Utilisateur utilisateur = new UtilisateurDAOJdbcImpl().selectUtilisateurByPseudo(pseudo);
 		System.out.println(utilisateur);
-
 		Query q = session.createQuery(
 				"from ARTICLES_VENDUS a where a.nomArticle like :contient and  a.etatVente  = 1 AND a.utilisateur != :utilisateur");
 		q.setParameter("contient", "%" + contient + "%");
 		q.setParameter("utilisateur", utilisateur);
-
 		List<ArticleVendu> articles = q.getResultList();
+		session.close();
 		if (articles.size() == 0) {
 			return null;
 		} else {
@@ -107,16 +109,13 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 	@Override
 	public List<ArticleVendu> selectArticleEncherEnCours(String pseudo, String contient, Categorie categorie) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Utilisateur utilisateur = new UtilisateurDAOJdbcImpl().selectUtilisateurByPseudo(pseudo);
-
 		Query q = session.createQuery(
-//				select e from Employee e inner join e.team
 				"SELECT a from ENCHERES e JOIN e.article a where a.etatVente  = 1 and e.utilisateur = :utilisateur");
-//		q.setParameter("contient", "%" + contient + "%");
 		q.setParameter("utilisateur", utilisateur);
-
 		List<ArticleVendu> articles = q.getResultList();
+		session.close();
 		if (articles.size() == 0) {
 			return null;
 		} else {
