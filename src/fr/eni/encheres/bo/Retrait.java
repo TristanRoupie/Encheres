@@ -18,19 +18,19 @@ public class Retrait {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "no_article", length = 11, nullable = false, unique = true)
-	private int noArtcile;
+	private int noarticle;
 	@Column(name = "rue", length = 30, nullable = false)
 	private String rue;
 	@Column(name = "code_postal", length = 15, nullable = false)
-	private int codePostal;
+	private String codePostal;
 	@Column(name = "ville", length = 30, nullable = false)
 	private String ville;
 
 	@PrimaryKeyJoinColumn
     @OneToOne   
-	private ArticleVendu artcile;
+	private ArticleVendu article;
 
-	public Retrait(String rue, int codePostal, String ville) {
+	public Retrait(String rue, String codePostal, String ville) {
 		super();
 		this.rue = rue;
 		this.codePostal = codePostal;
@@ -41,13 +41,13 @@ public class Retrait {
 
 	}
 
-	public Retrait(int noArtcile, String rue, int codePostal, String ville, ArticleVendu artcile) {
+	public Retrait(int noarticle, String rue, String codePostal, String ville, ArticleVendu article) {
 		super();
-		this.noArtcile = noArtcile;
+		this.noarticle = noarticle;
 		this.rue = rue;
 		this.codePostal = codePostal;
 		this.ville = ville;
-		this.artcile = artcile;
+		this.article = article;
 	}
 	
 	
