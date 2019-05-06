@@ -14,35 +14,39 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	@Override
 	public void addEnchere(Enchere enchere) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		session.beginTransaction();
 		session.save(enchere);
 		session.getTransaction().commit();
+		session.close();
 
 	}
 
 	@Override
 	public void updateEnchere(Enchere enchere) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		session.beginTransaction();
 		session.saveOrUpdate(enchere);
 		session.getTransaction().commit();
+		session.close();
 
 	}
 
 	@Override
 	public void deleteEnchere(Enchere enchere) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		session.beginTransaction();
 		session.delete(enchere);
 		session.getTransaction().commit();
+		session.close();
 	}
 
 	@Override
 	public List<Enchere> selectAllEnchere() {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery("from ENCHERES");
 		List<Enchere> encheres = q.getResultList();
+		session.close();
 		if (encheres.size() == 0) {
 			return null;
 		} else {
@@ -52,11 +56,12 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	@Override
 	public List<Enchere> selectEnchereByArtcile(ArticleVendu article) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(
 				"from ENCHERES e where e.article = :article");
 		q.setParameter("article", article);
 		List<Enchere> encheres = q.getResultList();
+		session.close();
 		if (encheres.size() == 0) {
 			return null;
 		} else {
@@ -67,11 +72,12 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	@Override
 	public List<Enchere> selectEnchereByUtilisateur(Utilisateur utilisateur) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(
 				"from ENCHERES e where e.utilisateur = :utilisateur");
 		q.setParameter("utilisateur", utilisateur);
 		List<Enchere> encheres = q.getResultList();
+		session.close();
 		if (encheres.size() == 0) {
 			return null;
 		} else {
@@ -81,16 +87,19 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	@Override
 	public Enchere selectEnchere(ArticleVendu article, Utilisateur utilisateur) {
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(
 				"from ENCHERES e where e.utilisateur = :utilisateur and e.article = :article");
 		q.setParameter("utilisateur", utilisateur);
 		q.setParameter("article", article);
 		List<Enchere> encheres = q.getResultList();
 		if (encheres.size() == 0) {
+			session.close();
 			return null;
 		} else {
-			return (Enchere) q.getSingleResult();
+			Enchere enchere =(Enchere) q.getSingleResult();
+			session.close();
+			return enchere;
 		}
 	}
 
