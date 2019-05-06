@@ -15,8 +15,12 @@ public class UtilisateurManager {
 		this.utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
 
+
 	public Utilisateur ajouterUtilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email,
-			String telephone, String rue, int codePostal, String ville, String motDePasse) throws BusinessException {
+			String telephone, String rue, String codePostal, String ville, String motDePasse) throws BusinessException {
+
+		String regexAlphanumeric = "^[a-zA-Z0-9]*$";
+		String regexNumeric = "^[0-9]*$";
 
 		BusinessException businessException = new BusinessException();
 
@@ -26,10 +30,8 @@ public class UtilisateurManager {
 			utilisateur = new Utilisateur();
 			utilisateur.setNoUtilisateur(noUtilisateur);
 
-//			Pseudo check with jRegex external lib
-//			Regex for alphanumeric caracter only
-			String regex = "^[a-zA-Z0-9]*$";
-			Pattern patternPseudo = Pattern.compile(regex);
+			// PSEUDO
+			Pattern patternPseudo = Pattern.compile(regexAlphanumeric);
 //			Create matcher object which is a boolean
 			Matcher matcherPseudo = patternPseudo.matcher(pseudo);
 			if (matcherPseudo.matches() == true) {
@@ -38,9 +40,22 @@ public class UtilisateurManager {
 				System.out.println("Pseudo non valide");
 				throw businessException;
 			}
-			utilisateur.setNom(nom);
-			utilisateur.setPrenom(prenom);
-			Pattern patternEmail = Pattern.compile(regex);
+//			NOM
+			if (nom.length() > 30 || nom == null || nom == "") {
+				System.out.println("Champs nom invalide");
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+			} else {
+				utilisateur.setNom(nom);
+			}
+//			PRENOM
+			if (prenom.length() > 30 || prenom == null || prenom == "") {
+				System.out.println("Champs prenom invalide");
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+			} else {
+				utilisateur.setPrenom(prenom);
+			}
+//			EMAIL
+			Pattern patternEmail = Pattern.compile(regexAlphanumeric);
 //			Create matcher object which is a boolean
 			Matcher matcherEmail = patternEmail.matcher(pseudo);
 			if (matcherEmail.matches() == true) {
@@ -48,10 +63,44 @@ public class UtilisateurManager {
 			} else {
 				System.out.println("Email non valide");
 			}
-			utilisateur.setTelephone(telephone);
-			utilisateur.setRue(rue);
-			utilisateur.setCodePostal(codePostal);
-			utilisateur.setVille(ville);
+//			TELEPHONE	
+			Pattern patternTelephone = Pattern.compile(regexNumeric);
+//			Create matcher object which is a boolean
+			Matcher matcherTelephone = patternTelephone.matcher(telephone);
+			if (matcherTelephone.matches() == true) {
+				utilisateur.setTelephone(telephone);
+			} else {
+				System.out.println("Telephone non valide");
+			}
+//			RUE
+			if (rue.length() > 30 || rue == null) {
+				System.out.println("Champs rue invalide");
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+			} else {
+				utilisateur.setRue(rue);
+			}
+//			CODE POSTAL
+			if (codePostal.length() > 5) {
+				System.out.println("Champs code postal invalide");
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+			} else {
+				Pattern patternCodePostal = Pattern.compile(regexNumeric);
+//				Create matcher object which is a boolean
+				Matcher matcherCodePostal = patternCodePostal.matcher(codePostal);
+				if (matcherCodePostal.matches() == true) {
+					utilisateur.setCodePostal(codePostal);
+				} else {
+					System.out.println("Code postal non valide");
+				}
+			}
+//			VILLE
+			if (ville.length() > 30 || ville == null) {
+				System.out.println("Champs ville invalide");
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+			} else {
+				utilisateur.setVille(ville);
+			}
+//			MOT DE PASSE
 			utilisateur.setMotDePasse(motDePasse);
 
 			this.utilisateurDAO.addUtilisateur(utilisateur);
