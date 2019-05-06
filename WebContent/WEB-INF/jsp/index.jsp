@@ -17,10 +17,10 @@
 				<a href="${pageContext.request.contextPath}/home">
 					<input type="submit" value="Déconnexion" id="boutonnav">
 				</a>
-				<a href="${pageContext.request.contextPath}/monProfil.jsp">
+				<a href="${pageContext.request.contextPath}/monProfil">
 					<input type="submit" value="Mon Profil" id="boutonnav">
 				</a>
-				<a href="${pageContext.request.contextPath}/vendreArticle.jsp">
+				<a href="${pageContext.request.contextPath}/vendreArticle">
 					<input type="submit" value="Vendre un article" id="boutonnav">
 				</a>					
 			</c:if>
@@ -28,7 +28,7 @@
 				<a href="${pageContext.request.contextPath}/connexionInscription">
 					<input type="submit" value="S'inscrire" id="boutonnav">
 				</a>
-				<a href="${pageContext.request.contextPath}/connexionInscription.jsp">
+				<a href="${pageContext.request.contextPath}/connexionInscription">
 					<input type="submit" value="Se connecter" id="boutonnav">
 				</a>
 			</c:if>
