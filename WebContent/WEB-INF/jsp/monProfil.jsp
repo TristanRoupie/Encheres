@@ -24,7 +24,7 @@
 					<div class="bloccommerce2">
 						<div class="sousbloc3">
 							<label for="pseudo">Pseudo</label> <input type="text"
-								name="pseudo" class="pseudo"
+								name="pseudo"  required class="pseudo"
 								value="${requestScope.monprofil.pseudo}" /><br /> <label
 								for="prenom">Prénom</label> <input type="text" name="prenom"
 								class="prenom" value="${requestScope.monprofil.prenom}" placeholder="prénom" /><br />
