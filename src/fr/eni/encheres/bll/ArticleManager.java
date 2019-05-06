@@ -26,17 +26,17 @@ public class ArticleManager {
 		
 		BusinessException businessException = new BusinessException();
 		ArticleVendu articleVendu = null;
-//		EtatVente etatvente = null;
+		//EtatVente etatvente = null;
 		
 		if (!businessException.hasErrors()) {
 			articleVendu = new ArticleVendu();
-			articleVendu.setNoArticle(noArticle);;
+			articleVendu.setNoArticle(noArticle);
 
-//			Pseudo check with jRegex external lib
-//			Regex for alphanumeric caracter only
+			//ArticleVendu check with jRegex external lib
+			//Regex for alphanumeric caracter only
 			String regex = "^[a-zA-Z0-9]*$";
 			Pattern patternNomArticle = Pattern.compile(regex);
-//			Create matcher object which is a boolean
+			//Create matcher object which is a boolean
 			Matcher matcherNomArticle = patternNomArticle.matcher(nomArticle);
 			if (matcherNomArticle.matches() == true) {
 				articleVendu.setNomArticle(nomArticle);;

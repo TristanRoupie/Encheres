@@ -12,9 +12,9 @@ public interface EnchereDAO {
 	public void updateEnchere(Enchere enchere);
 	public void deleteEnchere(Enchere enchere);
 	public List<Enchere> selectAllEnchere();
-	public List<Enchere> selectEnchereByArtcile(ArticleVendu article);
+	public List<Enchere> selectEnchereByArticle(ArticleVendu article);
 	public List<Enchere> selectEnchereByUtilisateur(Utilisateur utilisateur );
-	public Enchere selectEnchere(ArticleVendu article, Utilisateur utilisateur);
+	public Enchere selectEnchere(int noArticle, int noUtilisateur);
 	
 	
 	

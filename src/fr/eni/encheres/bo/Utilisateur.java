@@ -34,7 +34,7 @@ public class Utilisateur {
 	private String telephone;
 	@Column(name = "rue", length = 30, nullable = false)
 	private String rue;
-	@Column(name = "code_postal", length = 10, nullable = false)
+	@Column(name = "code_postal", length = 5, nullable = false)
 	private String codePostal;
 	@Column(name = "ville", length = 30, nullable = false)
 	private String ville;

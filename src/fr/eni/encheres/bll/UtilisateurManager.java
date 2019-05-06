@@ -20,7 +20,7 @@ public class UtilisateurManager {
 			String telephone, String rue, String codePostal, String ville, String motDePasse) throws BusinessException {
 
 		String regexAlphanumeric = "^[a-zA-Z0-9]*$";
-		String regexNumeric = "[0-9]";
+		String regexNumeric = "^[0-9]*$";
 
 		BusinessException businessException = new BusinessException();
 
@@ -86,7 +86,7 @@ public class UtilisateurManager {
 			} else {
 				Pattern patternCodePostal = Pattern.compile(regexNumeric);
 //				Create matcher object which is a boolean
-				Matcher matcherCodePostal = patternCodePostal.matcher(String.valueOf(codePostal));
+				Matcher matcherCodePostal = patternCodePostal.matcher(codePostal);
 				if (matcherCodePostal.matches() == true) {
 					utilisateur.setCodePostal(codePostal);
 				} else {
