@@ -6,7 +6,6 @@ import javax.persistence.Query;
 
 import org.hibernate.Session;
 
-import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.bo.Retrait;
 
 public class RetraitDAOJdbcImpl implements RetraitDAO {

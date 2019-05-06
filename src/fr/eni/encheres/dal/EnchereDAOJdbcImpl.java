@@ -15,6 +15,9 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	@Override
 	public void addEnchere(Enchere enchere) {
 		Session session = ConnectionProvider.getConnection();
+		enchere.getArticle().setPrixVente(enchere.getMontantEnchere());
+		ArticleVenduDAOJdbcImpl articleDAO = new ArticleVenduDAOJdbcImpl();
+		articleDAO.updateArticle(enchere.getArticle());
 		session.beginTransaction();
 		session.save(enchere);
 		session.getTransaction().commit();

@@ -163,15 +163,15 @@ class Runner {
 				
 				// rajout d'enchères
 				utilisateur= utilisateurDAO2.selectUtilisateurByPseudo("pseudo");
-				article= artcileDAO.selectArticleById(8);
-				enchere = new Enchere(new Date(System.currentTimeMillis()),60,utilisateur,article);
+				article= artcileDAO.selectArticleById(article.getNoArticle()-1);
+				enchere = new Enchere(new Date(System.currentTimeMillis()),70,utilisateur,article);
 				 enchereDao = DAOFactory.getEnchereDAO();
 				enchereDao.addEnchere(enchere);
 				
 				// rajout d'enchères
 				utilisateur= utilisateurDAO2.selectUtilisateurByPseudo("pseudo6");
-				article= artcileDAO.selectArticleById(8);
-				enchere = new Enchere(new Date(System.currentTimeMillis()),50,utilisateur,article);
+				article= artcileDAO.selectArticleById(article.getNoArticle()-1);
+				enchere = new Enchere(new Date(System.currentTimeMillis()),98,utilisateur,article);
 				enchereDao = DAOFactory.getEnchereDAO();
 				enchereDao.addEnchere(enchere);
 				
