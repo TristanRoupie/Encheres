@@ -137,8 +137,8 @@
 					
 						<div class="bloccommerce">
 							<div class="sousbloc1">
-								<c:if test="${listArticle>0}">
-									<c:forEach var="idObjet" items="" ${listArticle}> <!-- Boucle permettant de chercher l'article dans une liste et de l'afficher apres -->
+								<c:if test="${listArticle.size()>0}">
+									 <c:forEach var="element" items="${listArticle}"> <!-- Boucle permettant de chercher l'article dans une liste et de l'afficher apres -->
 										<img src="https://dummyimage.com/200X200/000/fff"
 											alt="image du produit" class="imageflottante">
 
@@ -150,13 +150,13 @@
 											<li>Vendeur: ${ art.getVendeur().getPseudo()}</li>
 
 										</ul>
-										</c:forEach>
+									</c:forEach>
 								</c:if>
 
 							</div>
 							<div class="sousbloc2">
-								<c:if test="${listArticle>0}">
-									<c:forEach var="idObjet" items="" ${listArticle}>
+								<c:if test="${listArticle.size()>0}">
+									<c:forEach var="element" items="${listArticle}">
 										<img src="https://dummyimage.com/200X200/000/fff"
 											alt="image du produit" class="imageflottante">
 
@@ -168,7 +168,7 @@
 											<li>Vendeur: ${ art.getVendeur().getPseudo()}</li>
 										</ul>
 
-										</c:forEach>
+									</c:forEach>
 								</c:if>
 
 							</div>
