@@ -19,11 +19,11 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	@Override
 	public void addArticle(ArticleVendu article) {
 		getCategorie(article);
-		Session session = ConnectionProvider.session;
+		Session session = ConnectionProvider.getConnection();
 		session.beginTransaction();
 		session.save(article);
 		session.getTransaction().commit();
-
+		session.close();
 	}
 
 	@Override
@@ -33,6 +33,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		session.beginTransaction();
 		session.saveOrUpdate(article);
 		session.getTransaction().commit();
+		session.close();
 	}
 
 	@Override

@@ -16,6 +16,7 @@
 
 		<div class="bloccommerce2">
 			<div class="sousbloc3">
+			
 
 				<form
 					action="${pageContext.request.contextPath}/connexionInscription"
@@ -26,26 +27,26 @@
 								name="pseudo" class="pseudo"
 								value="${requestScope.monprofil.pseudo}" /><br /> <label
 								for="prenom">Prénom</label> <input type="text" name="prenom"
-								class="prenom" value="${requestScope.monprofil.prenom}"><br />
+								class="prenom" value="${requestScope.monprofil.prenom}" placeholder="prénom" /><br />
 							<label for="telephone">Téléphone</label> <input type="text"
 								name="telephone" class="telephone"
 								value="${requestScope.monprofil.telephone}" /><br /> <label
 								for="codepostal">Code Postal</label> <input type="text"
 								pattern="[0-9]{5}" name="codepostal" class="codeposte"
-								value="${requestScope.monprofil.codepostal}" /><br />
+								value="${requestScope.monprofil.codepostal}" placeholder="Code postal" /><br />
 							<c:if test="${empty nom}"> <!-- si il y a pas de nom -->
 
 
 
 								<label for="mdpnow">Mot de passe</label>
 								<input type="password" name="mdpnow" class="mdpnow"
-									value="${requestScope.monprofil.mdpnow}" />
+									value="${requestScope.monprofil.mdpnow}" placeholder="mot de passe" />
 								<br />
 							</c:if>
 							<c:if test="${!empty nom}">
 								<!-- Moot de passe si connecté -->
 								<label for="newmdp">Nouveau mot de passe</label>
-								<input type="password" name="newmdp" class="newmdp" />
+								<input type="password" name="newmdp" class="newmdp" placeholder="nouveau mot de passe" />
 								<br />
 							</c:if>
 						</div>
@@ -54,16 +55,19 @@
 							<label for="nom">Nom</label> <input type="text" name="nom"
 								class="nom" value="${requestScope.monprofil.nom}" /><br /> <label
 								for="email">Email</label> <input type="email" name="email"
-								class="email" value="${requestScope.monprofil.email}" /><br />
+								class="email" value="${requestScope.monprofil.email}" placeholder="E-mail" /><br />
 							<label for="rue">Rue</label> <input type="text" name="rue"
 								class="Rue" value="${requestScope.monprofil.Rue}" /><br /> <label
 								for="ville">Ville</label> <input type="text" name="ville"
-								class="ville" value="${requestScope.monprofil.ville}" /><br />
+								class="ville" value="${requestScope.monprofil.ville}" placeholder="ville" /><br />
 							<c:if test="${!empty nom}">
 								<label for="confirmation">Confirmation</label>
-								<input type="password" name="confirmation" class="confirmation" />
+								<input type="password" name="confirmation" class="confirmation" placeholder="confirmer mot de passe" />
 								<br />
 							</c:if>
+							<input type="submit" value="Créer le compte" class="enregistrer"
+							style="height: 100px" /> <input type="submit" value="Annuler"
+							class="supprimer" style="height: 100px" />
 						</div>
 						<!-- fin du sousbloc4 -->
 					</div>
@@ -73,11 +77,9 @@
 				</form>
 				<c:if test="${empty nom}">
 
-					<form action="${pageContext.request.contextPath}/home" method="get">
-						<input type="submit" value="Créer le compte" class="enregistrer"
-							style="height: 100px" /> <input type="submit" value="Annuler"
-							class="supprimer" style="height: 100px" />
-					</form>
+					<%-- <form action="${pageContext.request.contextPath}/home" method="get">
+						
+					</form> --%>
 
 
 
