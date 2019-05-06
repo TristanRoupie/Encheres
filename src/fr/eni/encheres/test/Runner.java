@@ -128,7 +128,7 @@ class Runner {
 		retraitDao.addRetrait(retrait);
 
 		// recherche d article par vendeur
-		List<ArticleVendu> articles = artcileDAO.selectArticleVendeur("pseudo", 3, "");
+		List<ArticleVendu> articles = artcileDAO.selectArticleVendeur("pseudo", 3, "",null);
 		if (articles != null) {
 			for (ArticleVendu artcile : articles) {
 				System.out.println(artcile);
@@ -138,7 +138,7 @@ class Runner {
 		}
 		
 		// recherche d article en coures d'encheres
-				List<ArticleVendu> articles2 = artcileDAO.selectArticleAcheteurOuverte("pseudo", "");
+				List<ArticleVendu> articles2 = artcileDAO.selectArticleAcheteurOuverte("pseudo", "",null);
 				if (articles != null) {
 					for (ArticleVendu artcile : articles) {
 						System.out.println(artcile);
@@ -176,7 +176,7 @@ class Runner {
 				enchereDao.addEnchere(enchere);
 				
 				// recherche d article avec une encher de l utilisateur
-				articles2 = artcileDAO.selectArticleEncherEnCours("pseudo6", "");
+				articles2 = artcileDAO.selectArticleEncherEnCours("pseudo6", "",null);
 				if (articles2 != null) {
 					for (ArticleVendu artcile : articles2) {
 						System.out.println(artcile);
