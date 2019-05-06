@@ -51,7 +51,7 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 		String email = null;
 		String telephone = null;
 		String rue = null;
-		int codePostal = 0;
+		String codePostal = null;
 		String ville = null;
 		String motDePasse = null;
 		int credit = 0;
@@ -65,7 +65,7 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 			email = request.getParameter("email");
 			telephone = request.getParameter("telephone");
 			rue = request.getParameter("rue");
-			codePostal = Integer.parseInt(request.getParameter("codepostal"));
+			codePostal = request.getParameter("codepostal");
 			ville = request.getParameter("ville");
 			motDePasse = request.getParameter("mdpnow");
 
