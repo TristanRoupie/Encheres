@@ -76,4 +76,17 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 	}
 
+
+	@Override
+	public Utilisateur checkUtilisateurByPseudo(String pseudo, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Utilisateur checkUtilisateurByEmail(String email, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
