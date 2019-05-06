@@ -11,9 +11,10 @@ import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Utilisateur;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
-	private final String REQUETE_VENDEUR = "FROM ARTICLES_VENDUS a WHERE a.etatVente  = :etat ";
-	private final String WHERE_ARTCILE_LIKE = "AND a.nomArticle LIKE :contient ";
-	private final String WHERE_UTILISATEUR_IS = "AND a.utilisateur = :utilisateur";
+	private final String REQUETE_VENDEUR = "FROM ARTICLES_VENDUS a WHERE a.etatVente  = ";
+	private final String WHERE_ARTCILE_LIKE = "AND a.nomArticle LIKE ";
+	private final String WHERE_UTILISATEUR_IS = "AND a.utilisateur.pseudo = ";
+	private final String WHERE_CATEGORIE_IS = "AND a.categorie.noCategorie = ";
 	
 
 	@Override
@@ -70,16 +71,29 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 
 	@Override
-	public List<ArticleVendu> selectArticleVendeur(String pseudo, int etat, String contient, Categorie categorie) {
+	public List<ArticleVendu> selectArticleVendeur(String pseudo, int etat, String contient, int noCategorie) {
+		StringBuilder reqSQL = new StringBuilder();
+		reqSQL.append(REQUETE_VENDEUR);
+		reqSQL.append(etat);
+		System.out.println(reqSQL);
+		if (contient.length()!=0) {
+			reqSQL.append(WHERE_ARTCILE_LIKE);
+			reqSQL.append("%" + contient + "%");
+			System.out.println(reqSQL);
+		}
+		if (noCategorie!=-1) {
+			reqSQL.append(WHERE_CATEGORIE_IS);
+			reqSQL.append(noCategorie);
+			System.out.println(reqSQL);
+		}
+		if (pseudo.length()!=0) {
+			reqSQL.append(WHERE_UTILISATEUR_IS);
+			reqSQL.append(pseudo);
+			System.out.println(reqSQL);
+		}		
 		Session session = ConnectionProvider.getConnection();
-		Utilisateur utilisateur = new UtilisateurDAOJdbcImpl().selectUtilisateurByPseudo(pseudo);
-		System.out.println(utilisateur);
-		Query q = session.createQuery(
-				"from ARTICLES_VENDUS a where a.etatVente  = :etat AND a.nomArticle like :contient AND a.utilisateur = :utilisateur");
-		q.setParameter("contient", "%" + contient + "%");
-		q.setParameter("utilisateur", utilisateur);
-		q.setParameter("etat", etat);
-		List<ArticleVendu> articles = q.getResultList();
+		Query q = session.createQuery(reqSQL.toString());
+				List<ArticleVendu> articles = q.getResultList();
 		session.close();
 		if (articles.size() == 0) {
 			return null;
@@ -90,7 +104,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 
 	@Override
-	public List<ArticleVendu> selectArticleAcheteurOuverte(String pseudo, String contient, Categorie categorie) {
+	public List<ArticleVendu> selectArticleAcheteurOuverte(String pseudo, String contient, int noCategorie) {
 		Session session = ConnectionProvider.getConnection();
 		Utilisateur utilisateur = new UtilisateurDAOJdbcImpl().selectUtilisateurByPseudo(pseudo);
 		System.out.println(utilisateur);
@@ -108,7 +122,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 
 	@Override
-	public List<ArticleVendu> selectArticleEncherEnCours(String pseudo, String contient, Categorie categorie) {
+	public List<ArticleVendu> selectArticleEncherEnCours(String pseudo, String contient, int noCategorie) {
 		Session session = ConnectionProvider.getConnection();
 		Utilisateur utilisateur = new UtilisateurDAOJdbcImpl().selectUtilisateurByPseudo(pseudo);
 		Query q = session.createQuery(

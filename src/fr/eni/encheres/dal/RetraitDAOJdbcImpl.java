@@ -52,7 +52,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 	}
 
 	@Override
-	public Retrait selectRetraitById(int noArticle) {
+	public Retrait selectRetraitByIdArticle(int noArticle) {
 		Session session = ConnectionProvider.getConnection();
 		Retrait retrait = (Retrait) session.get(Retrait.class, noArticle);
 		session.close();

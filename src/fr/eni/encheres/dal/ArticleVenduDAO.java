@@ -12,9 +12,9 @@ public interface ArticleVenduDAO {
 	public void deleteArticle(ArticleVendu article);
 	public List<ArticleVendu> selectAllArticle();
 	public ArticleVendu selectArticleById(int noArticle);
-	public List<ArticleVendu> selectArticleVendeur(String pseudo  , int etat , String contient,Categorie categorie );
-	public List<ArticleVendu> selectArticleAcheteurOuverte(String pseudo , String contient ,Categorie categorie );
-	public List<ArticleVendu> selectArticleEncherEnCours(String pseudo , String contient,Categorie categorie  );
+	public List<ArticleVendu> selectArticleVendeur(String pseudo  , int etat , String contient,int noCategorie );
+	public List<ArticleVendu> selectArticleAcheteurOuverte(String pseudo , String contient ,int noCategorie );
+	public List<ArticleVendu> selectArticleEncherEnCours(String pseudo , String contient,int noCategorie  );
 	
 	
 	

@@ -58,11 +58,11 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	}
 
 	@Override
-	public List<Enchere> selectEnchereByArticle(ArticleVendu article) {
+	public List<Enchere> selectEnchereByArticle(int noArticle) {
 		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(
 				"from ENCHERES e where e.article = :article");
-		q.setParameter("article", article);
+		q.setParameter("article", noArticle);
 		List<Enchere> encheres = q.getResultList();
 		session.close();
 		if (encheres.size() == 0) {
@@ -74,11 +74,11 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	}
 
 	@Override
-	public List<Enchere> selectEnchereByUtilisateur(Utilisateur utilisateur) {
+	public List<Enchere> selectEnchereByUtilisateur(int noUtilisateur) {
 		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(
 				"from ENCHERES e where e.utilisateur = :utilisateur");
-		q.setParameter("utilisateur", utilisateur);
+		q.setParameter("utilisateur", noUtilisateur);
 		List<Enchere> encheres = q.getResultList();
 		session.close();
 		if (encheres.size() == 0) {
@@ -89,12 +89,12 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	}
 
 	@Override
-	public Enchere selectEnchere(ArticleVendu article, Utilisateur utilisateur) {
+	public Enchere selectEnchere(int noArticle, int noUtilisateur) {
 		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(
 				"from ENCHERES e where e.utilisateur = :utilisateur and e.article = :article");
-		q.setParameter("utilisateur", utilisateur);
-		q.setParameter("article", article);
+		q.setParameter("utilisateur", noUtilisateur);
+		q.setParameter("article", noArticle);
 		List<Enchere> encheres = q.getResultList();
 		if (encheres.size() == 0) {
 			session.close();
