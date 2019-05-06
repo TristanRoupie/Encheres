@@ -40,14 +40,16 @@
 		<!-- fin du bloccommerce -->
 		<div class="bloccommerce">
 			<div class="sousbloc3">
-				<form action="${pageContext.request.contextPath}/monProfil" method="get">
+				<form action="${pageContext.request.contextPath}/home" method="get">
 					<input type="submit" class="supprimer" value="Connexion"
-						name="connexion" />
+						name="connexion" /></form>
 					<div class="sousbloc3">
+					<form action="${pageContext.request.contextPath}/monProfil" method="get">
 						<input type="submit" class="supprimer" value="Créer un compte"
 							name="supprimer" />
+						</form>	
 					</div>
-				</form>
+				
 			</div>
 
 		</div>

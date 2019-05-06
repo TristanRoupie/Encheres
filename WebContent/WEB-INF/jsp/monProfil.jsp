@@ -66,15 +66,17 @@
 								<br />
 							</c:if>
 							<input type="submit" value="Créer le compte" class="enregistrer"
-							style="height: 100px" /> <input type="submit" value="Annuler"
-							class="supprimer" style="height: 100px" />
+							style="height: 100px" /> </form>
+							<form action="${pageContext.request.contextPath}/home">
+							<input type="submit" value="Annuler"
+							class="supprimer" style="height: 100px" /></form>
 						</div>
 						<!-- fin du sousbloc4 -->
 					</div>
 					<!-- fin du bloccommerce2 -->
 
 
-				</form>
+				
 				<c:if test="${empty nom}">
 
 					<%-- <form action="${pageContext.request.contextPath}/home" method="get">
