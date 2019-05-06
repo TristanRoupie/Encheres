@@ -123,7 +123,7 @@ class Runner {
 		System.out.println(article.getCategorie());
 
 		// ajouter un retrait
-		Retrait retrait = new Retrait(article.getNoArticle(), "13 rue general", 35720, "rennes", article);
+		Retrait retrait = new Retrait(article.getNoArticle(), "13 rue general", "35720", "rennes", article);
 		RetraitDAO retraitDao = DAOFactory.getRetraitDAO();
 		retraitDao.addRetrait(retrait);
 
@@ -175,7 +175,7 @@ class Runner {
 				enchereDao = DAOFactory.getEnchereDAO();
 				enchereDao.addEnchere(enchere);
 				
-				// recherche d article avec une encher de l utilisateur
+				// recherche d article avec une enchere de l utilisateur
 				articles2 = artcileDAO.selectArticleEncherEnCours("pseudo6", "",-1);
 				if (articles2 != null) {
 					for (ArticleVendu artcile : articles2) {

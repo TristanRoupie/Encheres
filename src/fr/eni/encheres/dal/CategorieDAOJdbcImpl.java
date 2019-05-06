@@ -41,7 +41,7 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 	@Override
 	public List<Categorie> selectAllCategorie() {
 		Session session = ConnectionProvider.getConnection();
-		Query q = session.createQuery("from CATEGORIES");
+		Query q = session.createQuery("from Categorie");
 		List<Categorie> categories = q.getResultList();
 		session.close();
 		if (categories.size() == 0) {
@@ -54,7 +54,7 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 	@Override
 	public Categorie selectCategorieByLibelle(String libelle) {
 		Session session = ConnectionProvider.getConnection();
-		Query q = session.createQuery("from CATEGORIES c where c.libelle = :libelle").setParameter("libelle", libelle);
+		Query q = session.createQuery("from Categorie c where c.libelle = :libelle").setParameter("libelle", libelle);
 		List<Categorie> categories = q.getResultList();
 		if (categories.size() == 0) {
 			session.close();

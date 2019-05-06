@@ -15,6 +15,7 @@ public interface ArticleVenduDAO {
 	public List<ArticleVendu> selectArticleVendeur(String pseudo  , int etat , String contient,int noCategorie );
 	public List<ArticleVendu> selectArticleAcheteurOuverte(String pseudo , String contient ,int noCategorie );
 	public List<ArticleVendu> selectArticleEncherEnCours(String pseudo , String contient,int noCategorie  );
+	public List<ArticleVendu> selectArticleEncherRemporte(String pseudo, String contient, int noCategorie);
 	
 	
 	

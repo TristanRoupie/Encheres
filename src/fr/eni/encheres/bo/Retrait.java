@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity(name = "RETRAITS")
+@Entity
 @Table(name = "RETRAITS")
 @Data
 public class Retrait {

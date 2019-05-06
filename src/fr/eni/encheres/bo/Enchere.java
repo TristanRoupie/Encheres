@@ -10,12 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.transaction.Synchronization;
+import javax.transaction.SystemException;
+import javax.transaction.Transaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.UserTransaction;
+
+import org.hibernate.engine.transaction.jta.platform.spi.JtaPlatform;
 
 import lombok.Data;
-@Entity(name = "ENCHERES")
+@Entity
 @Table(name = "ENCHERES")
 @Data
-public class Enchere implements Serializable{
+public class Enchere implements Serializable {
 	
 	@Id
 	@ManyToOne(fetch = FetchType.EAGER)

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity(name = "UTILISATEURS")
+@Entity
 @Table(name = "UTILISATEURS")
 @Data
 public class Utilisateur {
