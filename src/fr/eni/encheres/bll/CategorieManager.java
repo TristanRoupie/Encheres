@@ -16,6 +16,7 @@ public class CategorieManager {
 	}
 	
 	//MEthodes appelées.
+	//Cette méthode a vérifié vu qu'elle m'indique une erreur chez moi.
 	public void addCategorie(int noCategorie, String libelle) {
 		Categorie categorie = null;
 		categorie.setNoCategorie(noCategorie);
@@ -23,18 +24,25 @@ public class CategorieManager {
 		this.categorieDAO.addCategorie(categorie);
 		
 	}
-	public void updateCategorie(Categorie categorie) {
+	public Categorie updateCategorie(Categorie categorie) {
+		return this.updateCategorie(categorie);
+		
 	}
 	
 	public void deleteCategorie(Categorie categorie) {
+		if (categorie != null) {
+			this.categorieDAO.deleteCategorie(categorie);
+		} else {
+			System.out.println("Pas possible de supprimer cette catégorie saperlipopette !");
+		}
 	}
 	
 	public List<Categorie> selectAllCategorie() {
-		return null;
+		return this.categorieDAO.selectAllCategorie();
 	}
 	
 	public Categorie selectCategorieByLibelle(String libele) {
-		return null;
+		return this.categorieDAO.selectCategorieByLibelle(libele);
 	}
 	
 
