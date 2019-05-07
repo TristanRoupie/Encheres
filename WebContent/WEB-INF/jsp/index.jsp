@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <title>Encheres</title>
 </head>
-<body>
+<body class="bg-light">
 	<div class="container-fluid"> <!--debut Containeur principal-->
 		<!-- Header et navigation haut de page -->
 		<header class="row justify-content-end ">
@@ -32,26 +32,26 @@
 				</c:if>
 				<c:if test="${empty sessionScope.pseudo}">
 					<ul class="nav">
-						<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/monProfil">Inscription</a></li>
-						<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/connexionInscription">Se connecter</a></li>
+						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/monProfil">Inscription</a></li>
+						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/connexionInscription">Se connecter</a></li>
 					</ul>
 				</c:if>
 			</nav>
 		</header>
 		<!-- Header et navigation haut de page -->
-		<h1 class="text-center"><a href="${pageContext.request.contextPath}/home">Liste des enchères</a></h1>
+		<h1 class="text-center"><a href="${pageContext.request.contextPath}/home" class="text-info">Liste des enchères</a></h1>
 		<h2>${sessionScope.pseudo}</h2>
 			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
 
 			<h3 class="text-center">Filtres</h3>
 
 			<form action="${pageContext.request.contextPath}/" method="post">
-				<div class="form-group col-sm-6">
+				<div class="form-group col-sm-5">
 					<input type="search" class="form-control row col-sm-8" value="Article à rechercher" name="article"> 
 				</div>
-				<div class="form-group col-sm-6">
-					<label for="categories">Catégories : </label>
-					<select name="Catégories" class="form-control row" id="categories">
+				<div class="form-group row col-sm-5">
+					<label for="categories" class="col-sm-3 col-form-label">Catégories : </label>
+					<select name="Catégories" class="form-control col-sm-5" id="categories">
 						<option hidden value="0">Selectionner une catégorie</option>
 						<!-- A verifier si la value apparait bien sans conflit avec le nom -->
 						<option value="${Categorie.getLibelle()}">Informatique</option>

@@ -12,7 +12,7 @@
 	href="${pageContext.request.contextPath}/css/style.css">
 <title>Mon Profil</title>
 </head>
-<body>
+<body class="bg-light">
 	<div class="container-fluid">
 		<!-- debut du conteneur -->
 		<h1 class="text-center mt-3 mb-5">Mon Profil</h1>
@@ -80,8 +80,8 @@
 					</div>
 				</div>
 				<div class="form-group d-flex justify-content-around col-sm-6 mt-5">
-					<input type="submit" value="Créer" class="form-control btn btn-info col-sm-4" name="create" />
-					<input type="submit" value="Annuler" class="form-control btn btn-info col-sm-4" name="cancel" />
+					<input type="submit" value="Créer" class="form-control btn btn-info col-sm-3" name="create" />
+					<input type="submit" value="Annuler" class="form-control btn btn-info col-sm-3" name="cancel" />
 				</div>
 			</div>
 		</form>
