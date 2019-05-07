@@ -195,6 +195,15 @@ class Runner {
 					System.out.println("pas de liste");
 				}
 				
+				// recherche utilisateur
+				utilisateur = utilisateurDAO.checkUtilisateur("","Tristan.roupie87@gmail.com","yoyo");
+				if (utilisateur != null) {
+					System.out.println(utilisateur);
+				} else {
+					System.out.println("mauvais");
+				}
+				
+				
 				
 
 	}
