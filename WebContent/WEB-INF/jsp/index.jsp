@@ -37,9 +37,8 @@
 				</c:if>
 			</nav>
 		</header>
-			<!-- Header et navigation haut de page -->
-			<h1 class="text-center"><a href="${pageContext.request.contextPath}/home">Liste des enchères</a></h1>
-		<div>
+		<!-- Header et navigation haut de page -->
+		<h1 class="text-center"><a href="${pageContext.request.contextPath}/home">Liste des enchères</a></h1>
 		<h2>${requestScope.session.pseudo}</h2>
 			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
 
@@ -47,7 +46,7 @@
 
 			<form action="${pageContext.request.contextPath}/" method="post">
 				<div class="form-group col-sm-6">
-					<input type="search" class="form-control row col-sm-8" value="Article à rechercher" style="height: 40px"> 
+					<input type="search" class="form-control row col-sm-8" value="Article à rechercher" name="article"> 
 				</div>
 				<div class="form-group col-sm-6">
 					<label for="categories">Catégories : </label>
@@ -60,50 +59,51 @@
 						<option value="${Categorie.getLibelle()}">Sport et loisirs</option>
 					</select>
 				</div>
-				<div class="container col-sm-8 mt-4 mb-4 offset-sm-4">
-					<div class="row bg-info">
-						<div class="col-sm-6">
+				<div class="container mt-4 mb-4">
+					<div class="row">
+						<div class="col-sm-4">
 						<!-- Bloc Achat -->
 							<div class="form-check">
 								<input type="radio" class="form-check-input" name="commerce" value="achats" checked id="achats">
 							<label for="achats" class="form-check-label">Achats</label>
 							</div>
 							<div class="form-check ml-4">
-								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="achats">
-								<label for="achats" class="form-check-label">Enchères ouvertes</label>
+								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="enchOuvertes">
+								<label for="enchOuvertes" class="form-check-label">Enchères ouvertes</label>
 							</div>
 							<div class="form-check ml-4">
-								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="achats">
-								<label for="achats" class="form-check-label">Mes enchères en cours</label>
+								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="enchCours">
+								<label for="enchCours" class="form-check-label">Mes enchères en cours</label>
 							</div>
 							<div class="form-check ml-4">
-								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="achats">
-								<label for="achats" class="form-check-label">Mes enchères remportées</label>
+								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="enchRemportee">
+								<label for="enchRemportee" class="form-check-label">Mes enchères remportées</label>
 							</div>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<!-- Bloc Vente -->
 							<div class="form-check">
 								<input type="radio" class="form-check-input" name="commerce" value="achats" checked id="achats">
 								<label for="achats" class="form-check-label">Mes ventes</label>
 							</div>
 							<div class="form-check ml-4">
-								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="achats">
-								<label for="achats" class="form-check-label">Mes ventes en cours</label>
+								<input type="checkbox" class="form-check-input" name="vtesEnCours" value="achats" checked id="vtesEnCours">
+								<label for="vtesEnCours" class="form-check-label">Mes ventes en cours</label>
 							</div>
 							<div class="form-check ml-4">
-								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="achats">
-								<label for="achats" class="form-check-label">Ventes non débutées</label>
+								<input type="checkbox" class="form-check-input" name="vteNonDebutee" value="achats" checked id="vteNonDebutee">
+								<label for="vteNonDebutee" class="form-check-label">Ventes non débutées</label>
 							</div>
 							<div class="form-check ml-4">
-								<input type="checkbox" class="form-check-input" name="commerce" value="achats" checked id="achats">
-								<label for="achats" class="form-check-label">Ventes terminées</label>
+								<input type="checkbox" class="form-check-input" name="vteTerminee" value="achats" checked id="vteTerminee">
+								<label for="vteTerminee" class="form-check-label">Ventes terminées</label>
 							</div>
+						</div>
+						<div class="col-sm-4 mt-3">
+							<input type="submit" value="Rechercher" class="form-control btn btn-secondary btn-lg" name="rechercher"/>
 						</div>
 					</div>
 				</div>
-				<input type="submit" value="Rechercher" class="form-control" />
-
 			</form>	
 
 	<%-- <c:if test="${listArticle.size()>0}">
@@ -140,8 +140,6 @@
 		</c:if> --%>
 
 		</div>
-	</div>
-	</div>
 
 	<!--Fin Containeur principal-->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
