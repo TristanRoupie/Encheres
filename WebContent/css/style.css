@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
-/* * {
-	
+ *{
+	border: 1px solid black;
 }
+/*
 header {
 	display: flex;
 	text-align: right;
@@ -257,4 +258,7 @@ a:hover {
 } */
 
 <!--CSS VERSION 2 -->
+h1 {
+	text-align: center;
+}
 
