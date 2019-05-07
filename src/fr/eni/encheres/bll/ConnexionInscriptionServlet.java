@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.encheres.bo.Utilisateur;
 
@@ -33,6 +34,14 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("pseudo") == null) {
+//
+//			// no username in session
+//			// user probably hasn't logged in properly
+//		}
+
 		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CONNEXIONINSCRIPTION_JSP);
 		rd.forward(request, response);
 	}
@@ -43,38 +52,47 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+//		If create input
+		if (request.getParameter("create") != null) {
 //		Parameters initialisation
-		int noUtilisateur = 0;
-		String pseudo = null;
-		String nom = null;
-		String prenom = null;
-		String email = null;
-		String telephone = null;
-		String rue = null;
-		String codePostal = null;
-		String ville = null;
-		String motDePasse = null;
+			int noUtilisateur = 0;
+			String pseudo = null;
+			String nom = null;
+			String prenom = null;
+			String email = null;
+			String telephone = null;
+			String rue = null;
+			String codePostal = null;
+			String ville = null;
+			String motDePasse = null;
+			HttpSession session = request.getSession();
 
-		try {
+			try {
 //			Parameter input fetch
-			pseudo = request.getParameter("pseudo");
-			nom = request.getParameter("nom");
-			prenom = request.getParameter("prenom");
-			email = request.getParameter("email");
-			telephone = request.getParameter("telephone");
-			rue = request.getParameter("rue");
-			codePostal = request.getParameter("codepostal");
-			ville = request.getParameter("ville");
-			motDePasse = request.getParameter("mdpnow");
+				pseudo = request.getParameter("pseudo");
+				nom = request.getParameter("nom");
+				prenom = request.getParameter("prenom");
+				email = request.getParameter("email");
+				telephone = request.getParameter("telephone");
+				rue = request.getParameter("rue");
+				codePostal = request.getParameter("codepostal");
+				ville = request.getParameter("ville");
+				motDePasse = request.getParameter("mdpnow");
 
-			UtilisateurManager utilisateurManager = new UtilisateurManager();
-			Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom, prenom, email,
-					telephone, rue, codePostal, ville, motDePasse);
-			request.setAttribute("utilisateur", utilisateur);
-		} catch (BusinessException e) {
-			request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
+				UtilisateurManager utilisateurManager = new UtilisateurManager();
+				Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom, prenom,
+						email, telephone, rue, codePostal, ville, motDePasse);
+				System.out.println(utilisateur.getPseudo());
+				session.setAttribute("pseudo", utilisateur.getPseudo());
+			} catch (BusinessException e) {
+				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
+			}
 		}
-		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_INDEX_JSP);
+//			If log in input
+//		} else  if(request.getParameter("save") != null){
+//			request.setAttribute(name, o);
+//		}
+		RequestDispatcher rd = request.getRequestDispatcher("/home");
 		rd.forward(request, response);
 	}
 

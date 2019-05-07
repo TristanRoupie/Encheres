@@ -17,27 +17,27 @@
 			<div class="sousbloc3">
 				<label for="pseudo">Pseudo :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="pseudo" />
+					<input type="text" class="pseudo" name="nickname"/>
 				</form>
 				<br /> <label for="prenom">Prénom :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="prenom" />
+					<input type="text" class="prenom" name="firstname"/>
 				</form>
 				<br /> <label for="telephone">Téléphone :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="telephone" />
+					<input type="text" class="telephone" name="phone"/>
 				</form>
 				<br /> <label for="codepostal">Code Postal :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="codepostal" />
+					<input type="text" class="codepostal" name="zipcode"/>
 				</form>
 				<br /> <label for="mdpnow">Mot de passe actuel :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="mdpnow" />
+					<input type="text" class="mdpnow" name="mdpnow"/>
 				</form>
 				<br /> <label for="newmdp">Nouveau mot de passe :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="newmdp" />
+					<input type="text" class="newmdp" name="newmdp"/>
 				</form>
 				<br />
 			</div>
@@ -45,23 +45,23 @@
 			<div class="sousbloc3">
 				<label for="nom">Nom :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="nom" />
+					<input type="text" class="nom" name="lastname"/>
 				</form>
 				<br /> <label for="email">Prénom :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="email" />
+					<input type="text" class="email"  name="mail"/>
 				</form>
 				<br /> <label for="rue">Prénom :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="Rue" />
+					<input type="text" class="Rue" name="street"/>
 				</form>
 				<br /> <label for="ville">Ville :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="ville" />
+					<input type="text" class="ville" name="city"/>
 				</form>
 				<br /> <label for="confirmation">Confirmation :</label>
 				<form action="${pageContext.request.contextPath}" method="get">
-					<input type="text" class="confirmation" />
+					<input type="text" class="confirmation" name="confirm" />
 				</form>
 				<br />
 			</div>
@@ -75,16 +75,16 @@
 
 		<div class="bloccommerce2">
 			<div class="sousbloc3">
-				<form action="${pageContext.request.contextPath}" method="get">
+				<form action="${pageContext.request.contextPath}/connexionInscription" method="get">
 					<input class type="submit" value="Créer" class="enregistrer"
-						style="height: 100px" />
+						style="height: 100px" name="create" />
 				</form>
 			</div>
 			<div class="sousbloc3">
 				<form action="${pageContext.request.contextPath}/creaCompte"
 					method="get">
 					<input type="submit" value="Annuler" class="supprimer"
-						style="height: 100px" />
+						style="height: 100px" name="cancel" />
 				</form>
 			</div>
 

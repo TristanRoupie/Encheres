@@ -149,9 +149,9 @@ public class UtilisateurManager {
 		}
 	}
 
+	// TODO implement method logic
 	public Utilisateur modifierUtilisateur(int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateur = selectById(noUtilisateur);
-		// TODO implement method logic
 		return utilisateur;
 	}
 }

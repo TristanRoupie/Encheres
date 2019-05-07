@@ -39,6 +39,8 @@
 		</header>
 			<!-- Header et navigation haut de page -->
 			<h1 class="text-center"><a href="${pageContext.request.contextPath}/home">Liste des enchères</a></h1>
+		<div>
+		<h2>${requestScope.session.pseudo}</h2>
 			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
 
 			<h3 class="text-center">Filtres</h3>
@@ -58,7 +60,6 @@
 						<option value="${Categorie.getLibelle()}">Sport et loisirs</option>
 					</select>
 				</div>
-				<c:if test="${!connexion}">
 				<div class="container col-sm-8 mt-4 mb-4 offset-sm-4">
 					<div class="row bg-info">
 						<div class="col-sm-6">
@@ -103,11 +104,7 @@
 				</div>
 				<input type="submit" value="Rechercher" class="form-control" />
 
-				</c:if>
-			</form>
-	</div>
-
-	</div>
+			</form>	
 
 	<%-- <c:if test="${listArticle.size()>0}">
 		<c:forEach var="element" items="${listArticle}">
@@ -141,6 +138,10 @@
 
 			</c:forEach>
 		</c:if> --%>
+
+		</div>
+	</div>
+	</div>
 
 	<!--Fin Containeur principal-->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
