@@ -44,11 +44,12 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		session.close();
 		return utilisateur;
 	}
-	
+
 	@Override
 	public Utilisateur selectUtilisateurByPseudo(String pseudo) {
 		Session session = ConnectionProvider.getConnection();
-		Query q = session.createQuery("from Utilisateur u where u.pseudo = :pseudo").setParameter("pseudo", pseudo);
+		Query q = session.createQuery("FROM Utilisateur u WHERE u.pseudo = :pseudo");
+		q.setParameter("pseudo", pseudo);
 		List<Utilisateur> utilisateurs = q.getResultList();
 		if (utilisateurs.size() == 0) {
 			session.close();
@@ -64,7 +65,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	@Override
 	public Utilisateur selectUtilisateurByEmail(String email) {
 		Session session = ConnectionProvider.getConnection();
-		Query q = session.createQuery("from Utilisateur u where u.email = :email").setParameter("email", email);
+		Query q = session.createQuery("FROM Utilisateur u WHERE u.email = :email");
+		q.setParameter("email", email);
 		List<Utilisateur> utilisateurs = q.getResultList();
 		if (utilisateurs.size() == 0) {
 			session.close();
@@ -76,17 +78,22 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 	}
 
-
 	@Override
-	public Utilisateur checkUtilisateurByPseudo(String pseudo, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Utilisateur checkUtilisateurByEmail(String email, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public Utilisateur checkUtilisateur(String pseudo, String email, String motDePasse) {
+		Session session = ConnectionProvider.getConnection();
+		Query q = session.createQuery("FROM Utilisateur u WHERE ((u.pseudo = :pseudo) OR (u.email = :email)) AND u.motDePasse = :motDePasse");
+		q.setParameter("pseudo", pseudo);
+		q.setParameter("email", email);
+		q.setParameter("motDePasse", motDePasse);
+		List<Utilisateur> utilisateurs = q.getResultList();
+		if (utilisateurs.size() == 0) {
+			session.close();
+			return null;
+		} else {
+			Utilisateur utilisateur = (Utilisateur) q.getSingleResult();
+			session.close();
+			return utilisateur;
+		}
 	}
 
 }
