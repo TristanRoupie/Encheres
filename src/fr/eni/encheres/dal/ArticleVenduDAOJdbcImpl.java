@@ -12,12 +12,20 @@ import fr.eni.encheres.bo.Utilisateur;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	private final String REQUETE_VENDEUR = "FROM ArticleVendu a WHERE a.etatVente = :etatVente ";
+	private final String REQUETE_ACHETEUR = "SELECT e.article FROM Enchere e WHERE e.article.etatVente = :etatVente ";
+
 	private final String WHERE_ARTICLE_LIKE = "AND a.nomArticle LIKE :contient ";
+	private final String WHERE_ARTICLE_LIKE_ACHETEUR = "AND e.article.nomArticle LIKE :contient ";
+
+	private final String WHERE_CATEGORIE_IS = "AND a.categorie.noCategorie = :noCategorie ";
+	private final String WHERE_CATEGORIE_IS_ACHETEUR = "AND e.article.categorie.noCategorie = :noCategorie ";
+
 	private final String WHERE_UTILISATEUR_IS = "AND a.utilisateur.pseudo = :pseudo ";
 	private final String WHERE_UTILISATEUR_IS_NOT = "AND a.utilisateur.pseudo != :pseudo ";
-	private final String WHERE_CATEGORIE_IS = "AND a.categorie.noCategorie = :noCategorie ";
-	private final String REQUETE_ACHETEUR = "SELECT e.article FROM Enchere e WHERE e.article.etatVente = :etatVente ";
-	private final String WHERE_ACHETEUR_IS = "AND e.article.utilisateur.pseudo = :pseudo ";
+	private final String WHERE_ACHETEUR_IS = "AND e.utilisateur.pseudo = :pseudo ";
+	
+	private final String WHERE_MONTANT_ENCHERE = "AND e.montantEnchere = e.article.prixVente ";
+	
 
 	@Override
 	public void addArticle(ArticleVendu article) {
@@ -163,20 +171,20 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		System.out.println(reqSQL);
 
 		if (contient.length() != 0) {
-			reqSQL.append(WHERE_ARTICLE_LIKE);
+			reqSQL.append(WHERE_ARTICLE_LIKE_ACHETEUR);
 			System.out.println(reqSQL);
 		}
 		if (noCategorie != -1) {
-			reqSQL.append(WHERE_CATEGORIE_IS);
+			reqSQL.append(WHERE_CATEGORIE_IS_ACHETEUR);
 			System.out.println(reqSQL);
 		}
 		if (pseudo.length() != 0) {
-			reqSQL.append(WHERE_UTILISATEUR_IS);
+			reqSQL.append(WHERE_ACHETEUR_IS);
 			System.out.println(reqSQL);
 		}
 		Session session = ConnectionProvider.getConnection();
 		Query q = session.createQuery(reqSQL.toString());
-		
+
 		q.setParameter("etatVente", 1);
 
 		if (contient.length() != 0) {
@@ -188,7 +196,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		if (pseudo.length() != 0) {
 			q.setParameter("pseudo", pseudo);
 		}
-		
+
 		List<ArticleVendu> articles = q.getResultList();
 		session.close();
 		if (articles.size() == 0) {
@@ -198,13 +206,42 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		}
 
 	}
-	
+
 	@Override
 	public List<ArticleVendu> selectArticleEncherRemporte(String pseudo, String contient, int noCategorie) {
+		StringBuilder reqSQL = new StringBuilder();
+		// preparation de la requete sql en fonction des parametres envoyé
+		reqSQL.append(REQUETE_ACHETEUR);
+		reqSQL.append(WHERE_MONTANT_ENCHERE);
+		System.out.println(reqSQL);
+
+		if (contient.length() != 0) {
+			reqSQL.append(WHERE_ARTICLE_LIKE_ACHETEUR);
+			System.out.println(reqSQL);
+		}
+		if (noCategorie != -1) {
+			reqSQL.append(WHERE_CATEGORIE_IS_ACHETEUR);
+			System.out.println(reqSQL);
+		}
+		if (pseudo.length() != 0) {
+			reqSQL.append(WHERE_ACHETEUR_IS);
+			System.out.println(reqSQL);
+		}
+		
 		Session session = ConnectionProvider.getConnection();
-		Query q = session.createQuery(
-				"SELECT e.article from Enchere e where e.article.etatVente  = 2 AND e.utilisateur.pseudo = :pseudo AND e.montantEnchere = e.article.prixVente");
-		q.setParameter("pseudo", pseudo);
+		Query q = session.createQuery(reqSQL.toString());
+
+		q.setParameter("etatVente", 2);
+
+		if (contient.length() != 0) {
+			q.setParameter("contient", "%" + contient + "%");
+		}
+		if (noCategorie != -1) {
+			q.setParameter("noCategorie", noCategorie);
+		}
+		if (pseudo.length() != 0) {
+			q.setParameter("pseudo", pseudo);
+		}
 		List<ArticleVendu> articles = q.getResultList();
 		session.close();
 		if (articles.size() == 0) {
@@ -214,7 +251,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		}
 
 	}
-	
 
 	private void getCategorie(ArticleVendu article) {
 		CategorieDAO categoriedao = new CategorieDAOJdbcImpl();
