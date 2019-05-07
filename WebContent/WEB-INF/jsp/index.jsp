@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 
 <html>
@@ -17,10 +18,10 @@
 		<!-- Header et navigation haut de page -->
 		<header class="row justify-content-end ">
 			<nav>
-				<c:if test="${utilisateur}">
+				<c:if test="${!empty sessionScope.pseudo}">
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link active"
-							href="${pageContext.request.contextPath}/home">Déconnexion</a></li>
+							href="${pageContext.request.contextPath}/deconnexion">Déconnexion</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/monProfil">Mon
 								profil</a></li>
@@ -29,9 +30,9 @@
 								un article</a></li>
 					</ul>
 				</c:if>
-				<c:if test="${!utilisateur}">
+				<c:if test="${empty sessionScope.pseudo}">
 					<ul class="nav">
-						<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/monProfil">Inscription</a></li>
+						<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/monProfil">Inscription</a></li>
 						<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/connexionInscription">Se connecter</a></li>
 					</ul>
 				</c:if>
@@ -39,7 +40,7 @@
 		</header>
 		<!-- Header et navigation haut de page -->
 		<h1 class="text-center"><a href="${pageContext.request.contextPath}/home">Liste des enchères</a></h1>
-		<h2>${requestScope.session.pseudo}</h2>
+		<h2>${sessionScope.pseudo}</h2>
 			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
 
 			<h3 class="text-center">Filtres</h3>
@@ -61,6 +62,7 @@
 				</div>
 				<div class="container mt-4 mb-4">
 					<div class="row">
+						<c:if test="${!empty sessionScope.pseudo}">
 						<div class="col-sm-4">
 						<!-- Bloc Achat -->
 							<div class="form-check">
@@ -99,6 +101,7 @@
 								<label for="vteTerminee" class="form-check-label">Ventes terminées</label>
 							</div>
 						</div>
+						</c:if>
 						<div class="col-sm-4 mt-3">
 							<input type="submit" value="Rechercher" class="form-control btn btn-secondary btn-lg" name="rechercher"/>
 						</div>

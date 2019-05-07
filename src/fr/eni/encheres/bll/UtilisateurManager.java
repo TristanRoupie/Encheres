@@ -148,6 +148,19 @@ public class UtilisateurManager {
 			throw businessException;
 		}
 	}
+	
+	public void checkUtilisateur(int noUtilisateur) throws BusinessException {
+		Utilisateur utilisateur = selectById(noUtilisateur);
+		BusinessException businessException = new BusinessException();
+		if (utilisateur != null) {
+			this.utilisateurDAO.deleteUtilisateur(utilisateur);
+		} else {
+			System.out.println("Cet utilisateur n'existe pas");
+			throw businessException;
+		}
+	}
+	
+	
 
 	// TODO implement method logic
 	public Utilisateur modifierUtilisateur(int noUtilisateur) throws BusinessException {

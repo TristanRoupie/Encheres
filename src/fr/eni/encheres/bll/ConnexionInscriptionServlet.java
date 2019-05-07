@@ -35,13 +35,6 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("pseudo") == null) {
-//
-//			// no username in session
-//			// user probably hasn't logged in properly
-//		}
-
 		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CONNEXIONINSCRIPTION_JSP);
 		rd.forward(request, response);
 	}
@@ -78,7 +71,6 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 				codePostal = request.getParameter("codepostal");
 				ville = request.getParameter("ville");
 				motDePasse = request.getParameter("mdpnow");
-
 				UtilisateurManager utilisateurManager = new UtilisateurManager();
 				Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom, prenom,
 						email, telephone, rue, codePostal, ville, motDePasse);
@@ -88,10 +80,32 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 			}
 		}
-//			If log in input
-//		} else  if(request.getParameter("save") != null){
-//			request.setAttribute(name, o);
-//		}
+		
+		if (request.getParameter("connect") != null) {
+//			Parameters initialisation
+				int noUtilisateur = 0;
+				String pseudo = null;	
+				String email = null;
+				String motDePasse = null;
+				HttpSession session = request.getSession();
+
+				try {
+//				Parameter input fetch
+					pseudo = request.getParameter("pseudo");
+					email = request.getParameter("email");
+					motDePasse = request.getParameter("mdpnow");
+					UtilisateurManager utilisateurManager = new UtilisateurManager();
+					Utilisateur utilisateur = utilisateurManager
+					System.out.println(utilisateur.getPseudo());
+					session.setAttribute("pseudo", utilisateur.getPseudo());
+				} catch (BusinessException e) {
+					request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
+				}
+			}
+		
+		
+	
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/home");
 		rd.forward(request, response);
 	}
