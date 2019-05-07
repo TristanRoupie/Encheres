@@ -66,16 +66,17 @@
 								<br />
 							</c:if>
 							<input type="submit" value="Créer le compte" class="enregistrer"
-							style="height: 100px" /> </form>
+							style="height: 100px" name="create"/> </form>
 							<form action="${pageContext.request.contextPath}/home">
 							<input type="submit" value="Annuler"
-							class="supprimer" style="height: 100px" /></form>
+							class="supprimer" style="height: 100px" name="cancel"/></form>
 						</div>
 						<!-- fin du sousbloc4 -->
 					</div>
 					<!-- fin du bloccommerce2 -->
 
 
+				
 				
 				<c:if test="${empty nom}">
 
@@ -90,12 +91,12 @@
 					<form action="${pageContext.request.contextPath}/connexionInscription"
 						method="post">
 						<input type="submit" value="Enregistrer" class="enregistrer"
-							style="height: 100px" />
+							style="height: 100px" name="save"/>
 					</form>
 					<form action="${pageContext.request.contextPath}/home"
 						method="post">
 						<input type="submit" value="Supprimer mon compte"
-							class="supprimer" style="height: 100px" />
+							class="supprimer" style="height: 100px" name="delete"/>
 					</form>
 					<p>Votre crédit est de :${requestScope.monprofil.credit}</p>
 				</c:if>

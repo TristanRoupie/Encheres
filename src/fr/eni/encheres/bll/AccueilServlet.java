@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import fr.eni.encheres.bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletAccueil
@@ -30,6 +33,7 @@ public class AccueilServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_INDEX_JSP);
 		rd.forward(request, response);
 	}

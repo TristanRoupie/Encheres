@@ -25,19 +25,23 @@
 				</a> <a href="${pageContext.request.contextPath}/monProfil"> <input
 					type="submit" value="Mon Profil" class="btn btn-outline-primary">
 				</a> <a href="${pageContext.request.contextPath}/vendreArticle"> <input
-					type="submit" value="Vendre un article" class="btn btn-outline-primary">
+					type="submit" value="Vendre un article"
+					class="btn btn-outline-primary">
 				</a>
 				<!-- </c:if> -->
 				<!-- <c:if test="${!utilisateur}">  -->
 				<a href="${pageContext.request.contextPath}/monProfil"> <input
 					value="S'inscrire" type="button" class="btn btn-outline-primary">
 				</a> <a href="${pageContext.request.contextPath}/connexionInscription">
-					<input type="submit" value="Se connecter" class="btn btn-outline-primary">
+					<input type="submit" value="Se connecter"
+					class="btn btn-outline-primary">
 				</a>
 				<!-- </c:if>-->
 			</nav>
 		</header>
 		<div>
+		<h2>${requestScope.session.pseudo}</h2>
+		
 			<h1 class="row justify-content-center">
 				<a href="${pageContext.request.contextPath}/home">Liste des
 					enchères</a>
@@ -46,74 +50,65 @@
 
 			<h3 class="row justify-content-center">Filtres</h3>
 
-			<form action="${pageContext.request.contextPath}/" method="post" class="row justify-content-around">
-				
-					<!-- Adresse a definir via la servlet -->
+			<form action="${pageContext.request.contextPath}/" method="post"
+				class="row justify-content-around">
+
+				<!-- Adresse a definir via la servlet -->
 
 
-					<input type="search" class="form-control"
-						value="Article à rechercher" style="height: 40px"> <select
-						name="Catégories" class="form-control" style="height: 30px">
-						<option hidden value="0">Selectionner une catégorie</option>
-						<!-- A verifier si la value apparait bien sans conflit avec le nom -->
-						<option value="${Categorie.getLibelle()}">Informatique</option>
-						<option value="${Categorie.getLibelle()}">Ameublement</option>
-						<option value="${Categorie.getLibelle()}">Vêtements</option>
-						<option value="${Categorie.getLibelle()}">Sport et
-							loisirs</option>
-					</select>
-					<c:if test="${!connexion}">
-						<input type="radio" class="form-control" name="commerce" value="achats"
-							checked> Achats
+				<input type="search" class="form-control"
+					value="Article à rechercher" style="height: 40px"> <select
+					name="Catégories" class="form-control" style="height: 30px">
+					<option hidden value="0">Selectionner une catégorie</option>
+					<!-- A verifier si la value apparait bien sans conflit avec le nom -->
+					<option value="${Categorie.getLibelle()}">Informatique</option>
+					<option value="${Categorie.getLibelle()}">Ameublement</option>
+					<option value="${Categorie.getLibelle()}">Vêtements</option>
+					<option value="${Categorie.getLibelle()}">Sport et loisirs</option>
+				</select>
+				<c:if test="${!connexion}">
+					<input type="radio" class="form-control" name="commerce"
+						value="achats" checked> Achats
 				
 					
 					
 							<input type="checkbox" class="form-control" name="enchouverte"
-								checked> <label for="enchouverte">Enchères
-								ouvertes</label>
-						
-						
-							<input type="checkbox" class="form-control" name="enchcours">
-							<label for="enchcours">Enchères en cours</label>
-						
-						
-							<input type="checkbox" class="form-control" name="enchremportes"
-								checked> <label for="enchremportes">Enchères
-								remportées</label>
-						
-				
-				<!-- Fin du bloc 2 (blue) -->
-				<div class="col">
-					<!-- Debut du bloc 2 (blue) -->
-					<input type="radio" class="form-group" name="commerce" value="ventes"
-						checked>Mes ventes
+						checked>
+					<label for="enchouverte">Enchères ouvertes</label>
 
-					
-						<input type="checkbox" class="form-group" name="ventecours"
-							checked> <label for="ventecours">Mes ventes en
-							cours</label>
-					
-					
-						<input type="checkbox" class="form-group" name="ventenondébut">
-						<label for="ventenondébut">Ventes non débutées</label>
-					
-					
-						<input type="checkbox" class="form-group" name="ventetermine"
-							checked> <label for="ventetermine">Ventes
-							terminées</label>
-					
-				</div>
-				<!-- Fin du bloc 2 (blue) -->
-				
+
+					<input type="checkbox" class="form-control" name="enchcours">
+					<label for="enchcours">Enchères en cours</label>
+
+
+					<input type="checkbox" class="form-control" name="enchremportes"
+						checked>
+					<label for="enchremportes">Enchères remportées</label>
+
+
+					<!-- Fin du bloc 2 (blue) -->
+					<div class="col">
+						<!-- Debut du bloc 2 (blue) -->
+						<input type="radio" class="form-group" name="commerce"
+							value="ventes" checked>Mes ventes <input type="checkbox"
+							class="form-group" name="ventecours" checked> <label
+							for="ventecours">Mes ventes en cours</label> <input
+							type="checkbox" class="form-group" name="ventenondébut">
+						<label for="ventenondébut">Ventes non débutées</label> <input
+							type="checkbox" class="form-group" name="ventetermine" checked>
+						<label for="ventetermine">Ventes terminées</label>
+
+					</div>
+					<!-- Fin du bloc 2 (blue) -->
+
 					<!-- Debut du bloc 2 (blue) -->
-					<input type="submit" value="Rechercher"
-						class="form-group" />
-				
-				<!-- Fin du bloc 2 (blue) -->
+					<input type="submit" value="Rechercher" class="form-group" />
+
+					<!-- Fin du bloc 2 (blue) -->
 				</c:if>
-				</form>
+			</form>
 		</div>
-	
+
 	</div>
 
 	<div class="col-4">
@@ -166,7 +161,8 @@
 
 		</div>
 	</div>
-	
+	</div>
+
 	<!--Fin Containeur principal-->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

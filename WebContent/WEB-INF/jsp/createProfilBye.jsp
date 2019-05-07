@@ -75,7 +75,7 @@
 
 		<div class="bloccommerce2">
 			<div class="sousbloc3">
-				<form action="${pageContext.request.contextPath}" method="get">
+				<form action="${pageContext.request.contextPath}/connexionInscription" method="get">
 					<input class type="submit" value="Créer" class="enregistrer"
 						style="height: 100px" name="create" />
 				</form>
