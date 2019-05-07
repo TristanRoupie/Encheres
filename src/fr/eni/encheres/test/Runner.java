@@ -83,7 +83,7 @@ class Runner {
 		categorie = new Categorie("morgo electro");
 		article = new ArticleVendu("seche cheveux termine", "seche super bien les cheveux",
 				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 10)),
-				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 20)), 15, 0, 3, utilisateur, categorie);
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 20)), 15, 0, 2, utilisateur, categorie);
 		artcileDAO = DAOFactory.getArticleVenduDAO();
 		artcileDAO.addArticle(article);
 		System.out.println(article.getNoArticle());
@@ -110,7 +110,7 @@ class Runner {
 		categorie = new Categorie("morgo electro");
 		article = new ArticleVendu("seche cheveux termine6", "seche super bien les cheveux",
 				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 10)),
-				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 20)), 15, 0, 3, utilisateur, categorie);
+				new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 20)), 15, 0, 2, utilisateur, categorie);
 		artcileDAO = DAOFactory.getArticleVenduDAO();
 		artcileDAO.addArticle(article);
 		System.out.println(article.getNoArticle());
@@ -177,6 +177,16 @@ class Runner {
 				
 				// recherche d article avec une enchere de l utilisateur
 				articles2 = artcileDAO.selectArticleEncherEnCours("pseudo6", "",-1);
+				if (articles2 != null) {
+					for (ArticleVendu artcile : articles2) {
+						System.out.println(artcile);
+					}
+				} else {
+					System.out.println("pas de liste");
+				}
+				
+				// recherche d article avec une enchere remportée
+				articles2 = artcileDAO.selectArticleEncherRemporte("pseudo6", "",-1);
 				if (articles2 != null) {
 					for (ArticleVendu artcile : articles2) {
 						System.out.println(artcile);
