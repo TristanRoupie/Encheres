@@ -13,7 +13,7 @@
 <title>Encheres</title>
 </head>
 <body>
-	<div class=""container-fluid"">
+	<div class="container-fluid">
 		<header>
 			<nav>
 				<!-- <c:if test="${utilisateur}"> -->
