@@ -102,12 +102,15 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 					}
 					if (email != null) {
 						Utilisateur utilisateur = utilisateurManager.selectByEmail(email);
+						System.out.println(utilisateur.getPseudo());
+						session.setAttribute("pseudo", utilisateur.getPseudo());
 					}
 					if (motDePasse != null) {
 						Utilisateur utilisateur = utilisateurManager.selectByEmail(motDePasse);
+						System.out.println(utilisateur.getPseudo());
+						session.setAttribute("pseudo", utilisateur.getPseudo());
+
 					}
-					System.out.println(utilisateur.getPseudo());
-					session.setAttribute("pseudo", utilisateur.getPseudo());
 				} catch (BusinessException e) {
 					request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 				}
