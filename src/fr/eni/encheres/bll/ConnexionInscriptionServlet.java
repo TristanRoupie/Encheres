@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.encheres.bo.Utilisateur;
+import fr.eni.encheres.dal.UtilisateurDAO;
 
 /**
  * Servlet implementation class CreaCompteServlet
@@ -95,16 +96,22 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 					email = request.getParameter("email");
 					motDePasse = request.getParameter("mdpnow");
 					UtilisateurManager utilisateurManager = new UtilisateurManager();
-					Utilisateur utilisateur = utilisateurManager
+					BusinessException businessException = new BusinessException();
+					if (email == null || motDePasse == null) {
+						throw businessException;
+					}
+					if (email != null) {
+						Utilisateur utilisateur = utilisateurManager.selectByEmail(email);
+					}
+					if (motDePasse != null) {
+						Utilisateur utilisateur = utilisateurManager.selectByEmail(motDePasse);
+					}
 					System.out.println(utilisateur.getPseudo());
 					session.setAttribute("pseudo", utilisateur.getPseudo());
 				} catch (BusinessException e) {
 					request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 				}
 			}
-		
-		
-	
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/home");
 		rd.forward(request, response);
