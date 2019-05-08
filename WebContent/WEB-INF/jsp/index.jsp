@@ -21,7 +21,7 @@
 				<c:if test="${!empty sessionScope.pseudo}">
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link active"
-							href="${pageContext.request.contextPath}/connexionInscription" name="deconnexion">Déconnexion</a></li>
+							href="${pageContext.request.contextPath}/connexionInscription">Déconnexion</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/monProfil">Mon
 								profil</a></li>

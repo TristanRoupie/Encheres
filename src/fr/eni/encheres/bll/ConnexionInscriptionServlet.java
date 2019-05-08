@@ -34,10 +34,11 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CONNEXIONINSCRIPTION_JSP);
-		rd.forward(request, response);
+			throws ServletException, IOException {	
+			HttpSession session = request.getSession();
+			session.invalidate();
+			RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CONNEXIONINSCRIPTION_JSP);
+			rd.forward(request, response);	
 	}
 
 	/**
