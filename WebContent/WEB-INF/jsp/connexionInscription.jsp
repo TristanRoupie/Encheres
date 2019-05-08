@@ -18,7 +18,7 @@
 			<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
 				<div class="form-group col-sm-6">
 					<div class="form-group row">
-						<label for="login" class="col-sm-3 col-form-label">Identifiant :</label>
+						<label for="login" class="col-sm-3 col-form-label">Pseudo / Email :</label>
 						<input type="text" name="login" id="login" class="form-control col-sm-5" placeholder="Tapez votre identifiant" />					
 					</div>
 					<div class="form-group row">
