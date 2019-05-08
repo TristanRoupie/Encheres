@@ -42,7 +42,7 @@
 		<div class="row ">	
 			<a href="${pageContext.request.contextPath}/home">
 			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
-			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Bien enchères : le site d'enchère qui vous fait gagner des affaires !</h1>
+			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Bien enchères <br>Le site d'enchères qui vous fait gagner des affaires !</h1>
 		</div>
 		<h2>${sessionScope.pseudo}</h2>
 			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
