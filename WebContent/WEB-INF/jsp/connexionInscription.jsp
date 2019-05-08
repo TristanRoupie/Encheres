@@ -19,7 +19,7 @@
 				<div class="form-group col-sm-6">
 					<div class="form-group row">
 						<label for="login" class="col-sm-3 col-form-label">Identifiant :</label>
-						<input type="password" name="login" id="login" class="form-control col-sm-5" placeholder="Tapez votre identifiant" />					
+						<input type="text" name="login" id="login" class="form-control col-sm-5" placeholder="Tapez votre identifiant" />					
 					</div>
 					<div class="form-group row">
 						<label for="mdp" class="col-sm-3 col-form-label">Mot de passe :</label>

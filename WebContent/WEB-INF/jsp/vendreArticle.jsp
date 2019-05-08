@@ -4,12 +4,77 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <title>Vendre Article</title>
 </head>
-<body>
-	<h1>Nouvelle vente</h1>
+<body class="bg-light">
+	<div>
+		<h1 class="text-center mt-3 mb-5">Nouvelle vente</h1>
+			<form action="${pageContext.request.contextPath}/VendreArticleServlet" method="post">
+				<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
+					<div class="form-group col-sm-6">
+						<div class="form-group row">
+							<label for="article" class="col-sm-3 col-form-label">Article :</label>
+							<input type="text" name="article" id="article" class="form-control col-sm-5" />
+						</div>
+						<div class="form-group row">
+							<label for="description" class="col-sm-3 col-form-label">Description :</label>
+							<textarea name="description" id="description" class="form-control col-sm-5"> </textarea>
+						</div>
+						<div class="form-group row">
+							<label for="categories" class="col-sm-3 col-form-label">Catégories : </label>
+					<select name="Catégories" class="form-control col-sm-5" id="categories">
+						<option hidden value="0">Selectionner une catégorie</option>
+						<!-- A verifier si la value apparait bien sans conflit avec le nom -->
+						<option value="${Categorie.getLibelle()}">Informatique</option>
+						<option value="${Categorie.getLibelle()}">Ameublement</option>
+						<option value="${Categorie.getLibelle()}">Vêtements</option>
+						<option value="${Categorie.getLibelle()}">Sport et loisirs</option>
+					</select>
+						</div>
+						<div class="form-group row">
+							<label for="photo" class="col-sm-3 col-form-label">Photo de l'article :</label>
+							<input type="file" name="photo" id="photo" placeholder="uploader"/>
+						</div>
+						<div class="form-group row">
+							<label for="prix" class="col-sm-3 col-form-label">Mise à prix :</label>
+							<input type="number" name="prix" id="prix" min="0" class="form-control col-sm-5" />
+						</div>
+						<div class="form-group row">
+							<label for="debutEnch" class="col-sm-3 col-form-label">Début de l'enchère :</label>
+							<input type="datetime-local" name="debutEnch" id="debutEnch" class="form-control col-sm-5" />
+						</div>
+						<div class="form-group row">
+							<label for="finEnch" class="col-sm-3 col-form-label">Fin de l'enchère :</label>
+							<input type="datetime-local" name="finEnch" id="finEnch" class="form-control col-sm-5" />
+						</div>						
+							<fieldset id="fieldset">
+    							<legend>Retrait</legend>
+    							<div class="form-group row">
+    								<label class="col-sm-3 col-form-label" for="rue">Rue</label>
+    								<input type="text" id="rue" name="rue" value="${requestScope.utilisateur.getRue()}" class="form-control col-sm-5"/>
+    							</div>
+    							<div class="form-group row">
+    								<label class="col-sm-3 col-form-label" for="cp">Code postal</label>
+    								<input type="text" id="cp" name="cp" value="${requestScope.utilisateur.getCodePostal() }" class="form-control col-sm-5"/>
+    							</div>
+    							<div class="form-group row">
+    								<label class="col-sm-3 col-form-label" for="ville">Ville</label>
+    								<input type="text" id="ville" name="ville" value="${requestScope.utilisateur.getVille() }" class="form-control col-sm-5"/>
+ 	   							</div>
+  							</fieldset>
+  						<div class="form-group d-flex justify-content-around  mt-5">						
+							<input type="submit" value="Enregistrer" name="enregistrer" class="form-control btn btn-info col-sm-3" />			
+							<input type="submit" value="Annuler" name="annuler" class="form-control btn btn-info col-sm-3"/>
+						</div>
+					</div>
+				</div>
+			</form>
+	</div>	
+	<%-- 
 	<div class="conteneur">
 	<form action="${pageContext.request.contextPath}/VendreArticleServlet" method="post">
 		<div class="bloccommerce">
@@ -97,7 +162,17 @@
 		</form>
 
 	</div>
-	<!-- fin du conteneur -->
-
+	<!-- fin du conteneur --> --%>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
 </html>
