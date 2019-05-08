@@ -27,7 +27,7 @@
 					</div>
 					<div class="form-group d-flex justify-content-around  mt-5">						
 						<input type="submit" value="connexion" name="connexion" class="form-control btn btn-info col-sm-3" />			
-						<input type="submit" value="annulation" name="annulation" class="form-control btn btn-info col-sm-3"/>
+						<a href="${pageContext.request.contextPath}/home" class="form-control btn btn-info col-sm-3">Annuler</a>
 					</div>
 				</div>			
 			</div>
