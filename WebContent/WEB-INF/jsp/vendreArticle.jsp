@@ -72,7 +72,7 @@
   							</fieldset>
   						<div class="form-group d-flex justify-content-around  mt-5">						
 							<input type="submit" value="Enregistrer" name="enregistrer" class="form-control btn btn-info col-sm-3" />			
-							<input type="submit" value="Annuler" name="annuler" class="form-control btn btn-info col-sm-3"/>
+							<a href="${pageContext.request.contextPath}/home" class="form-control btn btn-info col-sm-3">Annuler</a>
 						</div>
 					</div>
 				</div>
