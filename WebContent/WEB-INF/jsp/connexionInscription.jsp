@@ -6,25 +6,37 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
 <title>Encheres</title>
 </head>
-<body>
-	<div class="conteneur">
-		<h1><a href="${pageContext.request.contextPath}/home"></a>Eni-Enchères</h1>
-		<div class="bloccommerce2">
-			<div class="sousbloc3">
-				<h4>identifiant</h4>
+<body class="bg-light">
+	<div class="container-fluid">
+		<h1 class="text-center mt-3 mb-5"><a href="${pageContext.request.contextPath}/home"></a>Eni-Enchères</h1>
+		<form action="${pageContext.request.contextPath}" method="post">
+			<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
+				<div class="form-group col-sm-6">
+					<div class="form-group row">
+						<label for="login" class="col-sm-3 col-form-label">Identifiant :</label>
+						<input type="password" name="login" id="login" class="form-control col-sm-5" placeholder="Tapez votre identifiant" />					
+					</div>
+					<div class="form-group row">
+						<label for="mdp" class="col-sm-3 col-form-label">Mot de passe :</label>
+						<input type="password" name="mdp" id="mdp" class="form-control col-sm-5" placeholder="Tapez votre mot de passe" />					
+					</div>
+					<div class="form-group d-flex justify-content-around  mt-5">						
+						<input type="submit" value="connexion" name="connexion" class="form-control btn btn-info col-sm-3" />			
+						<input type="submit" value="annulation" name="annulation" class="form-control btn btn-info col-sm-3"/>
+					</div>
+				</div>			
 			</div>
-			<!-- fin du sousbloc -->
-			<div class="soubloc3">
-				<form action="${pageContext.request.contextPath}" method="post">
-					<input class="bloclogin" type="text" name="login" size="15" />
-				</form>
-			</div>
-			<!-- fin du sousbloc -->
-		</div>
+		</form>
+				<%-- <h4>identifiant</h4>			
+			<!-- fin du sousbloc -->				
+					<input class="bloclogin" type="text" name="login" size="15" />			
+			<!-- fin du sousbloc -->		
 		<!-- fin du bloccommerce -->
-
 		<div class="bloccommerce2">
 			<div class="sousbloc3">
 				<h4>Mot de passe</h4>
@@ -49,12 +61,21 @@
 							name="supprimer" />
 						</form>	
 					</div>
-				
+				</form>
 			</div>
-
-		</div>
-
+		</div> --%>
 	</div>
 	<!-- Fin du conteneur -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
 </html>
