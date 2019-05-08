@@ -14,9 +14,10 @@
 </head>
 <body class="bg-light">
 	<div class="container-fluid">
-		<!-- debut du conteneur -->
+		<div class="form-group row">
 		<h1 class="text-center mt-3 mb-5">Mon Profil</h1>
-
+			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-right">
+		</div>
 		<form action="${pageContext.request.contextPath}/connexionInscription"
 			method="post">
 			<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
