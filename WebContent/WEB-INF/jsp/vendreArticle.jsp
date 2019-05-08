@@ -12,7 +12,11 @@
 </head>
 <body class="bg-light">
 	<div>
-		<h1 class="text-center mt-3 mb-5">Nouvelle vente</h1>
+		<div class="row ">	
+			<a href="${pageContext.request.contextPath}/home">
+			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
+			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Nouvelle vente</h1>
+		</div>
 			<form action="${pageContext.request.contextPath}/VendreArticleServlet" method="post">
 				<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
 					<div class="form-group col-sm-6">

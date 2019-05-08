@@ -13,7 +13,11 @@
 </head>
 <body class="bg-light">
 	<div class="container-fluid">
-		<h1 class="text-center mt-3 mb-5"><a href="${pageContext.request.contextPath}/home"></a>Eni-Enchères</h1>
+		<div class="row ">	
+			<a href="${pageContext.request.contextPath}/home">
+			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
+			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Eni Enchères</h1>
+		</div>
 		<form action="${pageContext.request.contextPath}/connexionInscription" method="post">
 			<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
 				<div class="form-group col-sm-6">

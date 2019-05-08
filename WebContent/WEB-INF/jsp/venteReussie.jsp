@@ -11,7 +11,11 @@
 </head>
 <body class="bg-light">	
 		<div class="container-fluid">
-			<h1 class="text-center mt-3 mb-5">Eni Enchères</h1>
+			<div class="row ">	
+			<a href="${pageContext.request.contextPath}/home">
+			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
+			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Bien enchères</h1>
+		</div>
 			<c:choose>
 				<c:when test="${Date > Enchere.article.finEnchere}">
 					<h1 class="text-center mt-3 mb-5">Détail vente</h1>
