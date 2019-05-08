@@ -13,8 +13,8 @@
 </head>
 <body class="bg-light">
 	<div class="container-fluid">
-		<h1 class="text-center mt-3 mb-5"><a href="${pageContext.request.contextPath}/ConnexionInscriptionServlet"></a>Eni-Enchères</h1>
-		<form action="${pageContext.request.contextPath}" method="post">
+		<h1 class="text-center mt-3 mb-5"><a href="${pageContext.request.contextPath}/home"></a>Eni-Enchères</h1>
+		<form action="${pageContext.request.contextPath}/ConnexionInscriptionServlet" method="post">
 			<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
 				<div class="form-group col-sm-6">
 					<div class="form-group row">
