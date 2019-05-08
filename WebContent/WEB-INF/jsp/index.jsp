@@ -106,8 +106,8 @@
 							</div>
 						</div>
 						</c:if>
-						<div class="col-sm-4 mt-3">
-							<input type="submit" value="Rechercher" class="form-control btn btn-secondary btn-lg" name="rechercher"/>
+						<div class="form-group col-sm-3 mt-3">
+							<input type="submit" value="Rechercher" class="form-control btn btn-info" name="rechercher"/>
 						</div>
 					</div>
 				</div>
