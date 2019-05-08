@@ -113,6 +113,8 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 				if (utilisateur != null) {
 					if (utilisateur.getMotDePasse().equals(motDePasse)) {
 						session.setAttribute("pseudo", utilisateur.getPseudo());
+					} else {
+						throw businessException;
 					}
 				}
 
