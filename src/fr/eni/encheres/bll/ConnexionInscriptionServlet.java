@@ -59,6 +59,7 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 			String codePostal = null;
 			String ville = null;
 			String motDePasse = null;
+			String confirmation = null;
 			HttpSession session = request.getSession();
 
 			try {
@@ -72,50 +73,53 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 				codePostal = request.getParameter("codepostal");
 				ville = request.getParameter("ville");
 				motDePasse = request.getParameter("mdpnow");
-				UtilisateurManager utilisateurManager = new UtilisateurManager();
-				Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom, prenom,
-						email, telephone, rue, codePostal, ville, motDePasse);
-				System.out.println(utilisateur.getPseudo());
-				session.setAttribute("pseudo", utilisateur.getPseudo());
+				confirmation = request.getParameter("confirmation");
+				if (motDePasse.equals(confirmation)) {
+					UtilisateurManager utilisateurManager = new UtilisateurManager();
+					Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom, prenom,
+							email, telephone, rue, codePostal, ville, motDePasse);
+					System.out.println(utilisateur.getPseudo());
+					session.setAttribute("pseudo", utilisateur.getPseudo());
+				}
+
 			} catch (BusinessException e) {
 				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 			}
 		}
-		
-		if (request.getParameter("connect") != null) {
+
+		if (request.getParameter("connexion") != null) {
 //			Parameters initialisation
-				int noUtilisateur = 0;
-				String pseudo = null;	
-				String email = null;
-				String motDePasse = null;
-				HttpSession session = request.getSession();
+			int noUtilisateur = 0;
+			String login = null;
+			String motDePasse = null;
+			HttpSession session = request.getSession();
 
-				try {
+			try {
 //				Parameter input fetch
-					pseudo = request.getParameter("pseudo");
-					email = request.getParameter("email");
-					motDePasse = request.getParameter("mdpnow");
-					UtilisateurManager utilisateurManager = new UtilisateurManager();
-					BusinessException businessException = new BusinessException();
-					if (email == null || motDePasse == null) {
-						throw businessException;
-					}
-					if (email != null) {
-						Utilisateur utilisateur = utilisateurManager.selectByEmail(email);
-						System.out.println(utilisateur.getPseudo());
-						session.setAttribute("pseudo", utilisateur.getPseudo());
-					}
-					if (motDePasse != null) {
-						Utilisateur utilisateur = utilisateurManager.selectByEmail(motDePasse);
-						System.out.println(utilisateur.getPseudo());
-						session.setAttribute("pseudo", utilisateur.getPseudo());
-
-					}
-				} catch (BusinessException e) {
-					request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
+				login = request.getParameter("login");
+				motDePasse = request.getParameter("mdp");
+				UtilisateurManager utilisateurManager = new UtilisateurManager();
+				BusinessException businessException = new BusinessException();
+				Utilisateur utilisateur = null;
+				if (login == null || motDePasse == null) {
+					throw businessException;
 				}
+				if (login.indexOf("@") != -1) {
+					utilisateur = utilisateurManager.selectByEmail(login);
+				} else {
+					utilisateur = utilisateurManager.selectByPseudo(login);
+				}
+				if (utilisateur != null) {
+					if (utilisateur.getMotDePasse().equals(motDePasse)) {
+						session.setAttribute("pseudo", utilisateur.getPseudo());
+					}
+				}
+
+			} catch (BusinessException e) {
+				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 			}
-		
+		}
+			
 		RequestDispatcher rd = request.getRequestDispatcher("/home");
 		rd.forward(request, response);
 	}
