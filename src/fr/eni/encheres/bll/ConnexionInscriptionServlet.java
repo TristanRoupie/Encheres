@@ -80,7 +80,8 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 					Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom, prenom,
 							email, telephone, rue, codePostal, ville, motDePasse);
 					System.out.println(utilisateur.getPseudo());
-					session.setAttribute("pseudo", utilisateur.getPseudo());
+					utilisateur.setMotDePasse("");
+					session.setAttribute("utilisateur", utilisateur);
 				}
 
 			} catch (BusinessException e) {
@@ -112,7 +113,8 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 				}
 				if (utilisateur != null) {
 					if (utilisateur.getMotDePasse().equals(motDePasse)) {
-						session.setAttribute("pseudo", utilisateur.getPseudo());
+						utilisateur.setMotDePasse("");
+						session.setAttribute("utilisateur", utilisateur);
 					} else {
 						throw businessException;
 					}

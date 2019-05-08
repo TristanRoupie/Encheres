@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@page import="fr.eni.encheres.bo.Utilisateur"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -27,21 +28,21 @@
 				<div class="form-group col-sm-6">
 					<div class="form-group row">
 						<label for="pseudo" class="col-sm-3 col-form-label">Pseudo :</label>
-						<input type="text" name="pseudo" required class="form-control col-sm-5" value="${requestScope.monprofil.pseudo}" placeholder="Pseudo"/>
+						<input type="text" name="pseudo" value="${empty sessionScope.utilisateur.pseudo ? '' : sessionScope.utilisateur.pseudo }" required class="form-control col-sm-5" value="${requestScope.monprofil.pseudo}" placeholder="Pseudo"/>
 					</div>
 					<div class="form-group row">
 						<label for="prenom" class="col-sm-3 col-form-label">Prénom :</label>
-						<input id="prenom" type="text" name="prenom" class="form-control col-sm-5" value="${requestScope.monprofil.prenom}" placeholder="Prénom" />
+						<input id="prenom" type="text" name="prenom" value="${empty sessionScope.utilisateur.prenom ? '' : sessionScope.utilisateur.prenom }" class="form-control col-sm-5" value="${requestScope.monprofil.prenom}" placeholder="Prénom" />
 					</div>
 					<div class="form-group row">
 						<label for="telephone" class="col-sm-3 col-form-label">Téléphone :</label>
-						<input id="telephone" type="text" name="telephone" class="form-control col-sm-5" value="${requestScope.monprofil.telephone}" placeholder="Téléphone"/>
+						<input id="telephone" type="text" name="telephone" value="${empty sessionScope.utilisateur.telephone ? '' : sessionScope.utilisateur.telephone }" class="form-control col-sm-5" value="${requestScope.monprofil.telephone}" placeholder="Téléphone"/>
 					</div>
 					<div class="form-group row">
 						<label for="codepostal" class="col-sm-3 col-form-label">Code Postal :</label>
 						<input id="codepostal" type="text" pattern="[0-9]{5}" name="codepostal" class="form-control col-sm-5" value="${requestScope.monprofil.codepostal}" placeholder="Code postal" />
 					</div>	 
-					<c:if test="${empty nom}">
+					<c:if test="${empty sessionScope.utilisateur.pseudo}">
 						<!-- si il y a pas de nom -->
 						<div class="form-group row">
 							<label for="mdpnow" class="col-sm-3 col-form-label">Mot de passe :</label>
@@ -49,7 +50,7 @@
 						</div>
 	
 					</c:if>
-					<c:if test="${!empty nom}">
+					<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 						<!-- Mot de passe si connecté -->
 						<div class="form-group">
 							<label for="mdpnow" class="col-sm-3 col-form-label">Mot de passe actuel :</label>
@@ -90,12 +91,12 @@
 			</div>
 		</form>
 
-		<c:if test="${empty nom}">
+		<c:if test="${empty sessionScope.utilisateur.pseudo}">
 			<%-- <form action="${pageContext.request.contextPath}/home" method="get">
 						
 					</form> --%>
 		</c:if>
-		<c:if test="${!empty nom}">
+		<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 			<form
 				action="${pageContext.request.contextPath}/connexionInscription"
 				method="post">

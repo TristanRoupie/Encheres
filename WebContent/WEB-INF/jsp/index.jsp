@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@page import="fr.eni.encheres.bo.Utilisateur"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
 		<!-- Header et navigation haut de page -->
 		<header class="row justify-content-end ">
 			<nav>
-				<c:if test="${!empty sessionScope.pseudo}">
+				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link active"
 							href="${pageContext.request.contextPath}/connexionInscription">Déconnexion</a></li>
@@ -30,7 +31,7 @@
 								un article</a></li>
 					</ul>
 				</c:if>
-				<c:if test="${empty sessionScope.pseudo}">
+				<c:if test="${empty sessionScope.utilisateur.pseudo}">
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/monProfil">Inscription</a></li>
 						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/connexionInscription">Se connecter</a></li>
@@ -44,7 +45,7 @@
 			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
 			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Bien enchères <br>Le site d'enchères qui vous fait gagner des affaires !</h1>
 		</div>
-		<h2>${sessionScope.pseudo}</h2>
+		<h2>${sessionScope.utilisateur.pseudo}</h2>
 			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
 
 			<h3 class="text-center">Filtres</h3>
@@ -66,7 +67,7 @@
 				</div>
 				<div class="container mt-4 mb-4">
 					<div class="row">
-						<c:if test="${!empty sessionScope.pseudo}">
+						<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 						<div class="col-sm-4">
 						<!-- Bloc Achat -->
 							<div class="form-check">
