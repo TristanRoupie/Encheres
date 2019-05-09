@@ -38,6 +38,9 @@
 							class="form-control col-sm-5"
 							placeholder="Tapez votre mot de passe" />
 					</div>
+					<c:if test="${ !empty requestScope.ErreurConnexion}">
+						<p>${ErreurConnexion}</p>
+					</c:if>
 						<div class="form-group d-flex justify-content-around  mt-5">
 							<input type="submit" value="connexion" name="connexion"
 								class="form-control btn btn-info col-sm-3" /> <a

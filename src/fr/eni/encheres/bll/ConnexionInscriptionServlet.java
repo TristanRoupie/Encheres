@@ -123,7 +123,8 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 				BusinessException businessException = new BusinessException();
 				Utilisateur utilisateur = null;
 				if (login == null || motDePasse == null) {
-					throw businessException;
+					System.out.println("Un ou plusieurs champs sont vide(s)");
+//					throw businessException;
 				}
 				if (login.indexOf("@") != -1) {
 					utilisateur = utilisateurManager.selectByEmail(login);
@@ -135,7 +136,10 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 						utilisateur.setMotDePasse("");
 						session.setAttribute("utilisateur", utilisateur);
 					} else {
-						throw businessException;
+						System.out.println("Mot de passe incorrect ou login incorrect");
+						request.setAttribute("ErreurConnexion", "Mot de passe incorrect ou login incorrect");
+						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/connexionInscription.jsp");
+						rd.forward(request, response);
 					}
 				}
 
