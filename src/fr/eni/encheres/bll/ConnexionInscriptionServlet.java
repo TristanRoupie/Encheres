@@ -88,6 +88,11 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 						session.setAttribute("utilisateur", utilisateur);
 						RequestDispatcher rd = request.getRequestDispatcher("/home");
 						rd.forward(request, response);
+					} else {
+						System.out.println("Les champs mot de passe et confirmation doivent être identiques");
+						request.setAttribute("ErreurMDP", "Les champs mot de passe et confirmation doivent être identiques");
+						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
+						rd.forward(request, response);
 					}
 				} else {
 					System.out.println("Le pseudo et/ou l'email existe déjà");
