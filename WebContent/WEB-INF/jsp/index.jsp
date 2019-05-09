@@ -40,8 +40,8 @@
 			</nav>
 		</header>
 		<!-- Header et navigation haut de page -->
-		<div class="row ">	
-			<a href="${pageContext.request.contextPath}/home">
+		<div class="row ">
+			<a href="${pageContext.request.contextPath}/">
 			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
 			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Bien enchères <br>Le site d'enchères qui vous fait gagner des affaires !</h1>
 		</div>

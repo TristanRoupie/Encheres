@@ -16,7 +16,7 @@
 <body class="bg-light">
 	<div class="container-fluid">
 		<div class="row ">	
-			<a href="${pageContext.request.contextPath}/home">
+			<a href="${pageContext.request.contextPath}/">
 			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
 			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Mon Profil</h1>
 		</div>	
