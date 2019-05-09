@@ -42,13 +42,17 @@
 		<!-- Header et navigation haut de page -->
 		<div class="row ">
 			<a href="${pageContext.request.contextPath}/">
-			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
-			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Bien enchères <br>Le site d'enchères qui vous fait gagner des affaires !</h1>
+			<img src="${pageContext.request.contextPath}/images/logo.png" alt="Logo de la société" class="rounded float-left"></a>
+			<div class="row ">
+			<%-- <img src="${pageContext.request.contextPath}/images/titre.png" alt="..." class="text-center col-sm-7 offset-sm-1 mt-3 mb-5"></a> --%>
+			<h1 class="text-center col-sm-7 offset-sm-5 mt-3 text-uppercase">Bien enchères</h1>
+			<h4 class="text-center col-sm-0 offset-sm-5 mt-0 mb-5">Le site d'enchères qui vous fait gagner des affaires !</h4>
+			</div>
 		</div>
 		<h2>${sessionScope.utilisateur.pseudo}</h2>
 			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
 
-			<h3 class="text-center">Filtres</h3>
+			<h3 class="text-left">Filtres</h3>
 
 			<form action="${pageContext.request.contextPath}/" method="post">
 				<div class="form-group col-sm-5">
