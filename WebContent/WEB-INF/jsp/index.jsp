@@ -45,7 +45,7 @@
 		</header>
 		<!-- Header et navigation haut de page -->
 				<%-- <img src="${pageContext.request.contextPath}/images/titre.png" alt="..." class="text-center col-sm-7 offset-sm-1 mt-3 mb-5"></a> --%>
-			<h1 class="text-center text-uppercase">Bien enchères</h1>
+			<h1 class="text-center text-uppercase mt-sm-5">Bien enchères</h1>
 			<h4 class="text-center">Le site d'enchères qui vous fait gagner des affaires !</h4>
 			<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 				<p class="font-italic text-capitalize "> Bienvenue ${sessionScope.utilisateur.pseudo}</p>
@@ -149,9 +149,8 @@
 
 			</c:forEach>
 		</c:if>
-		<footer class="row justify-content-center fixed-bottom" style="background-color: #e3f2fd;">
-		<p> <br> <br> </p>
-		
+		<footer class="row justify-content-center fixed-bottom riri loulou " >
+			<a href="mailto:someone@yoursite.com" class="d-flex align-items-center">Envoyer un mail</a>		
 		</footer>
 
 		</div>

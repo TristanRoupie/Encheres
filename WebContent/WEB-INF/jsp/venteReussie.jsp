@@ -12,11 +12,14 @@
 </head>
 <body class="bg-light">	
 		<div class="container-fluid">
-			<div class="row ">	
-			<a href="${pageContext.request.contextPath}/">
-			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
-			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Bien enchères</h1>
-		</div>
+		<header class="row justify-content-between loulou" >
+			<nav class="navbar col-sm-8 loulou ">
+				<a href="${pageContext.request.contextPath}/">
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="70%" alt="Logo de la société" class="rounded"></a>
+			</nav>			
+		</header>
+		<h1 class="text-center mt-3 mb-5">Bien enchères</h1>
+		
 			<c:choose>
 				<c:when test="${Date > Enchere.article.finEnchere}">
 					<h1 class="text-center mt-3 mb-5">Détail vente</h1>
@@ -36,7 +39,9 @@
 					</c:if>
 				</c:otherwise>
 			</c:choose>
-	
+	<footer class="row justify-content-center fixed-bottom riri loulou " >
+			<a href="mailto:someone@yoursite.com" class="d-flex align-items-center">Envoyer un mail</a>		
+		</footer>
 	</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

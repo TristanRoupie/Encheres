@@ -11,7 +11,13 @@
 <title>Vendre Article</title>
 </head>
 <body class="bg-light">
-	<div>
+	<div class="container-fluid">
+	<header class="row justify-content-between loulou" >
+			<nav class="navbar col-sm-8 loulou ">
+				<a href="${pageContext.request.contextPath}/">
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="70%" alt="Logo de la société" class="rounded"></a>
+			</nav>			
+		</header>
 		<div class="row ">	
 			<a href="${pageContext.request.contextPath}/">
 			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
@@ -72,6 +78,9 @@
 					</div>
 				</div>
 			</form>
+			<footer class="row justify-content-center fixed-bottom riri loulou " >
+			<a href="mailto:someone@yoursite.com" class="d-flex align-items-center">Envoyer un mail</a>		
+		</footer>
 	</div>	
 	
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -15,11 +15,13 @@
 </head>
 <body class="bg-light">
 	<div class="container-fluid">
-		<div class="row ">	
-			<a href="${pageContext.request.contextPath}/">
-			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
-			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Mon Profil</h1>
-		</div>	
+	<header class="row justify-content-between loulou" >
+			<nav class="navbar col-sm-8 loulou ">
+				<a href="${pageContext.request.contextPath}/">
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="70%" alt="Logo de la société" class="rounded"></a>
+			</nav>			
+		</header>
+			<h1 class="text-center mt-3 mb-5">Mon Profil</h1>
 			
 		
 		<form action="${pageContext.request.contextPath}/connexionInscription"
@@ -122,7 +124,9 @@
 		</c:if>
 			</div>
 		</form>
-
+	<footer class="row justify-content-center fixed-bottom riri loulou " >
+			<a href="mailto:someone@yoursite.com" class="d-flex align-items-center">Envoyer un mail</a>		
+		</footer>
 		
 		</div>
 	

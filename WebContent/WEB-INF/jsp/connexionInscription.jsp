@@ -15,25 +15,29 @@
 </head>
 <body class="bg-light">
 	<div class="container-fluid">
-		<div class="row ">
-			<a href="${pageContext.request.contextPath}/"> <img
-				src="${pageContext.request.contextPath}/images/logo.png" alt="..."
-				class="rounded float-left"></a>
-			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Connexion</h1>
-		</div>
+	<header class="row justify-content-between loulou" >
+			<nav class="navbar col-sm-8 loulou ">
+				<a href="${pageContext.request.contextPath}/">
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="70%" alt="Logo de la société" class="rounded"></a>
+			</nav>			
+		</header>
+		
+			
+			<h1 class="text-center mb-sm-5 mt-sm-5">Connexion</h1>
+		
 		<form action="${pageContext.request.contextPath}/connexionInscription"
 			method="post">
 			<div
 				class="form-group row justify-content-around col-sm-10 offset-sm-1">
 				<div class="form-group col-sm-6">
-					<div class="form-group row">
-						<label for="login" class="col-sm-3 col-form-label">Pseudo
+					<div class="form-group row offset-sm-1">
+						<label for="login" class="col-sm-4 col-form-label">Pseudo
 							/ Email :</label> <input type="text" name="login" id="login"
 							class="form-control col-sm-5"
 							placeholder="Tapez votre identifiant" />
 					</div>
-					<div class="form-group row">
-						<label for="mdp" class="col-sm-3 col-form-label">Mot de
+					<div class="form-group row offset-sm-1">
+						<label for="mdp" class="col-sm-4 col-form-label">Mot de
 							passe :</label> <input type="password" name="mdp" id="mdp"
 							class="form-control col-sm-5"
 							placeholder="Tapez votre mot de passe" />
@@ -82,6 +86,9 @@
 				</form>
 			</div>
 		</div> --%>
+		<footer class="row justify-content-center fixed-bottom riri loulou " >
+			<a href="mailto:someone@yoursite.com" class="d-flex align-items-center">Envoyer un mail</a>		
+		</footer>
 	</div>
 	<!-- Fin du conteneur -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

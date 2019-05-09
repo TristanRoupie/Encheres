@@ -1,6 +1,12 @@
 @charset "UTF-8";
 .loulou {
-	background-color: #e3f2fd
+	background-color: #e3f2fd;
+}
+.riri {
+	height: 50px;	
+}
+body {
+	min-height: 100%;
 }
 /*  *{
 	border: 1px solid black;

@@ -13,11 +13,14 @@
 </head>
 <body class="bg-light">
 	<div>
-		<div class="row ">	
-			<a href="${pageContext.request.contextPath}/">
-			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
-			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Nouvelle vente</h1>
-		</div>
+	<header class="row justify-content-between loulou" >
+			<nav class="navbar col-sm-8 loulou ">
+				<a href="${pageContext.request.contextPath}/">
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="70%" alt="Logo de la société" class="rounded"></a>
+			</nav>			
+		</header>
+		
+		<h1 class="text-center mt-3 mb-5">Nouvelle vente</h1>
 			<form action="${pageContext.request.contextPath}/VendreArticleServlet" method="post">
 				<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
 					<div class="form-group col-sm-6">
@@ -71,13 +74,16 @@
     								<input type="text" id="ville" name="ville" value="${requestScope.utilisateur.getVille() }" class="form-control col-sm-5"/>
  	   							</div>
   							</fieldset>
-  						<div class="form-group d-flex justify-content-around  mt-5">						
+  						<div class="form-group d-flex justify-content-around mb-5 mt-5">						
 							<input type="submit" value="Enregistrer" name="enregistrer" class="form-control btn btn-info col-sm-3" />			
 							<a href="${pageContext.request.contextPath}/home" class="form-control btn btn-info col-sm-3">Annuler</a>
 						</div>
 					</div>
 				</div>
 			</form>
+			<footer class="row justify-content-center  riri loulou " >
+			<a href="mailto:someone@yoursite.com" class="d-flex align-items-center">Envoyer un mail</a>		
+		</footer>
 	</div>	
 	<%-- 
 	<div class="conteneur">
