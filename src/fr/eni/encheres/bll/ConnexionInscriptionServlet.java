@@ -47,6 +47,7 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+//		--------------------------------------------   INSCRIPTION  --------------------------------------------------------
 //		If create input
 		if (request.getParameter("create") != null) {
 //		Parameters initialisation
@@ -87,8 +88,11 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 			} catch (BusinessException e) {
 				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 			}
+			RequestDispatcher rd = request.getRequestDispatcher("/home");
+			rd.forward(request, response);
 		}
 
+//		--------------------------------------------   CONNEXION  --------------------------------------------------------
 		if (request.getParameter("connexion") != null) {
 //			Parameters initialisation
 			int noUtilisateur = 0;
@@ -123,10 +127,12 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 			} catch (BusinessException e) {
 				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 			}
+			RequestDispatcher rd = request.getRequestDispatcher("/home");
+			rd.forward(request, response);
 		}
+		
+//		--------------------------------------------   ENREGISTRER  --------------------------------------------------------
 			
-		RequestDispatcher rd = request.getRequestDispatcher("/home");
-		rd.forward(request, response);
 	}
 
 }
