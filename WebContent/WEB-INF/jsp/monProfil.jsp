@@ -93,6 +93,9 @@
 						</div>
 						</c:if>
 				</div>
+				<c:if test="${ !empty requestScope.Erreur}">
+					<p>${Erreur}</p>
+				</c:if>
 				<c:if test="${empty sessionScope.utilisateur.pseudo}">
 				
 				<div class="form-group d-flex justify-content-around col-sm-6 mt-5">

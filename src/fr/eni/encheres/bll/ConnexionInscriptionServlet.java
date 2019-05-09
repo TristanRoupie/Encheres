@@ -94,7 +94,6 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 					request.setAttribute("Erreur", "Le pseudo et/ou l'email existe déjà");
 					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
 					rd.forward(request, response);
-//					response.sendRedirect(request.getContextPath() + "/WEB-INF/jsp/monProfil.jsp");
 				}
 			} catch (BusinessException e) {
 				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
