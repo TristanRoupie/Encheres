@@ -80,12 +80,12 @@
 						<label for="ville" class="col-sm-3 col-form-label">Ville :</label>
 						<input type="text" name="ville" id="ville" class="form-control col-sm-5" value="${empty sessionScope.utilisateur.ville ? '' : sessionScope.utilisateur.ville }" placeholder="Ville" />
 					</div>
-					<c:if test="${empty sessionScope.utilisateur.pseudo}">
+					<%-- <c:if test="${empty sessionScope.utilisateur.pseudo}"> --%>
 					<div class="form-group row">
 						<label for="confirmation" class="col-sm-3 col-form-label">Confirmation :</label>
 						<input type="password" name="confirmation" id="confirmation" class="form-control col-sm-5" placeholder="Confirmer mot de passe" />
 					</div>
-					</c:if>
+					<%-- </c:if> --%>
 					<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 					<div class="form-group row">
 							<label for="newmdp" class="col-sm-3 col-form-label">Nouveau mot de passe :</label>

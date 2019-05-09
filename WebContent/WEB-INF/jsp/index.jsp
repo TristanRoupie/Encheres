@@ -17,8 +17,8 @@
 <body class="bg-light">
 	<div class="container-fluid"> <!--debut Containeur principal-->
 		<!-- Header et navigation haut de page -->
-		<header class="row justify-content-end ">
-			<nav>
+		<header class="row justify-content-end" style="background-color: #e3f2fd;">
+			<nav class="navbar " >
 				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link active"
@@ -151,6 +151,19 @@
 
 			</c:forEach>
 		</c:if>
+		<footer class="row justify-content-center fixed-bottom" style="background-color: #e3f2fd height:">
+		<ul class="nav">
+						<li class="nav-item"><a class="nav-link active"
+							href="${pageContext.request.contextPath}/connexionInscription">Déconnexion</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/monProfil">Mon
+								profil</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/vendreArticle">Vendre
+								un article</a></li>
+					</ul>
+		
+		</footer>
 
 		</div>
 
