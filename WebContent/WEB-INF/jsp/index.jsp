@@ -22,7 +22,7 @@
 				<a href="${pageContext.request.contextPath}/">
 				<img src="${pageContext.request.contextPath}/images/logo.png" width="70%" alt="Logo de la société" class="rounded"></a>
 			</nav>
-			<nav class="navbar col-sm-4 loulou" >
+			<nav class="navbar col-sm-4 loulou justify-content-end">
 				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link active"
@@ -36,7 +36,7 @@
 					</ul>
 				</c:if>
 				<c:if test="${empty sessionScope.utilisateur.pseudo}">
-					<ul class="nav ">
+					<ul class="nav">
 						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/monProfil">Inscription</a></li>
 						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/connexionInscription">Se connecter</a></li>
 					</ul>
