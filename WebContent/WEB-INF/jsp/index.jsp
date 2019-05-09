@@ -151,17 +151,8 @@
 
 			</c:forEach>
 		</c:if>
-		<footer class="row justify-content-center fixed-bottom" style="background-color: #e3f2fd height:">
-		<ul class="nav">
-						<li class="nav-item"><a class="nav-link active"
-							href="${pageContext.request.contextPath}/connexionInscription">Déconnexion</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/monProfil">Mon
-								profil</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/vendreArticle">Vendre
-								un article</a></li>
-					</ul>
+		<footer class="row justify-content-center fixed-bottom" style="background-color: #e3f2fd;">
+		<p> <br> <br> </p>
 		
 		</footer>
 
