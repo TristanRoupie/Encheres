@@ -17,8 +17,12 @@
 <body class="bg-light">
 	<div class="container-fluid"> <!--debut Containeur principal-->
 		<!-- Header et navigation haut de page -->
-		<header class="row justify-content-end" style="background-color: #e3f2fd;">
-			<nav class="navbar " >
+		<header class="row justify-content-between loulou" >
+			<nav class="navbar col-sm-8 loulou ">
+				<a href="${pageContext.request.contextPath}/">
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="70%" alt="Logo de la société" class="rounded"></a>
+			</nav>
+			<nav class="navbar col-sm-4 loulou" >
 				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link active"
@@ -32,7 +36,7 @@
 					</ul>
 				</c:if>
 				<c:if test="${empty sessionScope.utilisateur.pseudo}">
-					<ul class="nav">
+					<ul class="nav ">
 						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/monProfil">Inscription</a></li>
 						<li class="nav-item"><a class="nav-link text-info" href="${pageContext.request.contextPath}/connexionInscription">Se connecter</a></li>
 					</ul>
@@ -40,15 +44,9 @@
 			</nav>
 		</header>
 		<!-- Header et navigation haut de page -->
-		<div class="row ">
-			<a href="${pageContext.request.contextPath}/">
-			<img src="${pageContext.request.contextPath}/images/logo.png" alt="Logo de la société" class="rounded float-left"></a>
-			<div class="row ">
-			<%-- <img src="${pageContext.request.contextPath}/images/titre.png" alt="..." class="text-center col-sm-7 offset-sm-1 mt-3 mb-5"></a> --%>
-			<h1 class="text-center col-sm-7 offset-sm-5 mt-3 text-uppercase">Bien enchères</h1>
-			<h4 class="text-center col-sm-0 offset-sm-5 mt-0 mb-5">Le site d'enchères qui vous fait gagner des affaires !</h4>
-			</div>
-		</div>
+				<%-- <img src="${pageContext.request.contextPath}/images/titre.png" alt="..." class="text-center col-sm-7 offset-sm-1 mt-3 mb-5"></a> --%>
+			<h1 class="text-center text-uppercase">Bien enchères</h1>
+			<h4 class="text-center">Le site d'enchères qui vous fait gagner des affaires !</h4>
 			<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 				<p class="font-italic text-capitalize "> Bienvenue ${sessionScope.utilisateur.pseudo}</p>
 			</c:if>
