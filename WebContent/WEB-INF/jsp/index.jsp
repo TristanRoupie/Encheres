@@ -49,8 +49,9 @@
 			<h4 class="text-center col-sm-0 offset-sm-5 mt-0 mb-5">Le site d'enchères qui vous fait gagner des affaires !</h4>
 			</div>
 		</div>
+		<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 		<p class="font-italic text-capitalize "> Bienvenue ${sessionScope.utilisateur.pseudo}</p>
-			<!-- lien sur le nom du site renvoyant a l'accueil, a modifier sur toutes les jsp -->
+			</c:if>
 
 			<h3 class="text-left">Filtres</h3>
 
