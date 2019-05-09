@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@page import="fr.eni.encheres.bo.Utilisateur"%>
+<%@page import="fr.eni.encheres.bo.Utilisateur"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,30 +15,39 @@
 </head>
 <body class="bg-light">
 	<div class="container-fluid">
-		<div class="row ">	
-			<a href="${pageContext.request.contextPath}/">
-			<img src="${pageContext.request.contextPath}/images/logo.png" alt="..." class="rounded float-left"></a>
+		<div class="row ">
+			<a href="${pageContext.request.contextPath}/"> <img
+				src="${pageContext.request.contextPath}/images/logo.png" alt="..."
+				class="rounded float-left"></a>
 			<h1 class="text-center col-sm-7 offset-sm-1 mt-3 mb-5">Connexion</h1>
 		</div>
-		<form action="${pageContext.request.contextPath}/connexionInscription" method="post">
-			<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
+		<form action="${pageContext.request.contextPath}/connexionInscription"
+			method="post">
+			<div
+				class="form-group row justify-content-around col-sm-10 offset-sm-1">
 				<div class="form-group col-sm-6">
 					<div class="form-group row">
-						<label for="login" class="col-sm-3 col-form-label">Pseudo / Email :</label>
-						<input type="text" name="login" id="login" class="form-control col-sm-5" placeholder="Tapez votre identifiant" />					
+						<label for="login" class="col-sm-3 col-form-label">Pseudo
+							/ Email :</label> <input type="text" name="login" id="login"
+							class="form-control col-sm-5"
+							placeholder="Tapez votre identifiant" />
 					</div>
 					<div class="form-group row">
-						<label for="mdp" class="col-sm-3 col-form-label">Mot de passe :</label>
-						<input type="password" name="mdp" id="mdp" class="form-control col-sm-5" placeholder="Tapez votre mot de passe" />					
+						<label for="mdp" class="col-sm-3 col-form-label">Mot de
+							passe :</label> <input type="password" name="mdp" id="mdp"
+							class="form-control col-sm-5"
+							placeholder="Tapez votre mot de passe" />
 					</div>
-					<div class="form-group d-flex justify-content-around  mt-5">						
-						<input type="submit" value="connexion" name="connexion" class="form-control btn btn-info col-sm-3" />			
-						<a href="${pageContext.request.contextPath}/home" class="form-control btn btn-info col-sm-3">Annuler</a>
-					</div>
-				</div>			
+						<div class="form-group d-flex justify-content-around  mt-5">
+							<input type="submit" value="connexion" name="connexion"
+								class="form-control btn btn-info col-sm-3" /> <a
+								href="${pageContext.request.contextPath}/home"
+								class="form-control btn btn-info col-sm-3">Annuler</a>
+						</div>
+				</div>
 			</div>
 		</form>
-				<%-- <h4>identifiant</h4>			
+		<%-- <h4>identifiant</h4>			
 			<!-- fin du sousbloc -->				
 					<input class="bloclogin" type="text" name="login" size="15" />			
 			<!-- fin du sousbloc -->		

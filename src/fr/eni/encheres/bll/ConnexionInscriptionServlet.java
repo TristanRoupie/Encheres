@@ -34,11 +34,11 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {	
-			HttpSession session = request.getSession();
-			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CONNEXIONINSCRIPTION_JSP);
-			rd.forward(request, response);	
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		RequestDispatcher rd = request.getRequestDispatcher(PATH_TO_CONNEXIONINSCRIPTION_JSP);
+		rd.forward(request, response);
 	}
 
 	/**
@@ -50,12 +50,13 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 //		--------------------------------------------   INSCRIPTION  --------------------------------------------------------
 //		If create input
 		if (request.getParameter("create") != null) {
+			UtilisateurManager utilisateurManager = new UtilisateurManager();
+			String pseudo = request.getParameter("pseudo");
+			String email = request.getParameter("email");
 //		Parameters initialisation
 			int noUtilisateur = 0;
-			String pseudo = null;
 			String nom = null;
 			String prenom = null;
-			String email = null;
 			String telephone = null;
 			String rue = null;
 			String codePostal = null;
@@ -63,37 +64,47 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 			String motDePasse = null;
 			String confirmation = null;
 			HttpSession session = request.getSession();
-
 			try {
-//			Parameter input fetch
-				pseudo = request.getParameter("pseudo");
-				nom = request.getParameter("nom");
-				prenom = request.getParameter("prenom");
-				email = request.getParameter("email");
-				telephone = request.getParameter("telephone");
-				rue = request.getParameter("rue");
-				codePostal = request.getParameter("codepostal");
-				ville = request.getParameter("ville");
-				motDePasse = request.getParameter("mdpnow");
-				confirmation = request.getParameter("confirmation");
-				if (motDePasse.equals(confirmation)) {
-					UtilisateurManager utilisateurManager = new UtilisateurManager();
-					Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom, prenom,
-							email, telephone, rue, codePostal, ville, motDePasse);
-					System.out.println(utilisateur.getPseudo());
-					utilisateur.setMotDePasse("");
-					session.setAttribute("utilisateur", utilisateur);
-				}
+				if (utilisateurManager.selectByPseudo(pseudo) == null
+						&& utilisateurManager.selectByPseudo(email) == null) {
 
+//					Parameter input fetch
+					pseudo = request.getParameter("pseudo");
+					nom = request.getParameter("nom");
+					prenom = request.getParameter("prenom");
+					email = request.getParameter("email");
+					telephone = request.getParameter("telephone");
+					rue = request.getParameter("rue");
+					codePostal = request.getParameter("codepostal");
+					ville = request.getParameter("ville");
+					motDePasse = request.getParameter("mdpnow");
+					confirmation = request.getParameter("confirmation");
+					if (motDePasse.equals(confirmation)) {
+						utilisateurManager = new UtilisateurManager();
+						Utilisateur utilisateur = utilisateurManager.ajouterUtilisateur(noUtilisateur, pseudo, nom,
+								prenom, email, telephone, rue, codePostal, ville, motDePasse);
+						System.out.println(utilisateur.getPseudo());
+						utilisateur.setMotDePasse("");
+						session.setAttribute("utilisateur", utilisateur);
+						RequestDispatcher rd = request.getRequestDispatcher("/home");
+						rd.forward(request, response);
+					}
+				} else {
+					System.out.println("Le pseudo et/ou l'email existe déjà");
+					request.setAttribute("Erreur", "Le pseudo et/ou l'email existe déjà");
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
+					rd.forward(request, response);
+//					response.sendRedirect(request.getContextPath() + "/WEB-INF/jsp/monProfil.jsp");
+				}
 			} catch (BusinessException e) {
 				request.setAttribute("listeCodesErreur", e.getlisteCodesErrors());
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("/home");
-			rd.forward(request, response);
 		}
 
 //		--------------------------------------------   CONNEXION  --------------------------------------------------------
-		if (request.getParameter("connexion") != null) {
+		if (request.getParameter("connexion") != null)
+
+		{
 //			Parameters initialisation
 			int noUtilisateur = 0;
 			String login = null;
@@ -130,9 +141,9 @@ public class ConnexionInscriptionServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/home");
 			rd.forward(request, response);
 		}
-		
+
 //		--------------------------------------------   ENREGISTRER  --------------------------------------------------------
-			
+
 	}
 
 }
