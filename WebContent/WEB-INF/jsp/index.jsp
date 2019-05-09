@@ -65,7 +65,7 @@
 						<option value="${Categorie.getLibelle()}">Sport et loisirs</option>
 					</select>
 				</div>
-				<div class="container mt-4 mb-4">
+				<div class="mt-4 mb-4">
 					<div class="row">
 						<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 						<div class="col-sm-4">
