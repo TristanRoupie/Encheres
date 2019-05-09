@@ -96,6 +96,10 @@
 				<c:if test="${ !empty requestScope.Erreur}">
 					<p class="danger">${Erreur}</p>
 				</c:if>
+				
+				<c:if test="${ !empty requestScope.ErreurMDP}">
+					<p>${ErreurMDP}</p>
+				</c:if>
 				<c:if test="${empty sessionScope.utilisateur.pseudo}">
 				
 				<div class="form-group d-flex justify-content-around col-sm-6 mt-5">
