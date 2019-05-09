@@ -94,7 +94,7 @@
 						</c:if>
 				</div>
 				<c:if test="${ !empty requestScope.Erreur}">
-					<p>${Erreur}</p>
+					<p class="danger">${Erreur}</p>
 				</c:if>
 				<c:if test="${empty sessionScope.utilisateur.pseudo}">
 				

@@ -119,7 +119,7 @@
 				</div>
 			</form>	
 
-	<%-- <c:if test="${listArticle.size()>0}">
+	<c:if test="${listArticle.size()>0}">
 		<c:forEach var="element" items="${listArticle}">
 			<!-- Boucle permettant de chercher l'article dans une liste et de l'afficher apres -->
 			<img src="https://dummyimage.com/200X200/000/fff"
@@ -134,9 +134,9 @@
 
 			</ul>
 		</c:forEach>
-	</c:if> --%>
+	</c:if> 
 
-	<%-- <c:if test="${listArticle.size()>0}">
+	<c:if test="${listArticle.size()>0}">
 			<c:forEach var="element" items="${listArticle}">
 				<img src="https://dummyimage.com/200X200/000/fff"
 					alt="image du produit" class="imageflottante">
@@ -150,7 +150,7 @@
 				</ul>
 
 			</c:forEach>
-		</c:if> --%>
+		</c:if>
 
 		</div>
 
