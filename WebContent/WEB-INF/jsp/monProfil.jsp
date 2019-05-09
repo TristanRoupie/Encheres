@@ -25,7 +25,7 @@
 		<form action="${pageContext.request.contextPath}/connexionInscription"
 			method="post">
 			<div class="form-group row justify-content-around col-sm-10 offset-sm-1">
-				<div class="form-group col-sm-6">
+				<div class="form-group col-sm-6"> <!-- BLOC de Gauche -->
 					<div class="form-group row">
 						<label for="pseudo" class="col-sm-3 col-form-label">Pseudo :</label>
 						<input type="text" name="pseudo" value="${empty sessionScope.utilisateur.pseudo ? '' : sessionScope.utilisateur.pseudo }" required class="form-control col-sm-5" placeholder="Pseudo"/>
@@ -40,76 +40,85 @@
 					</div>
 					<div class="form-group row">
 						<label for="codepostal" class="col-sm-3 col-form-label">Code Postal :</label>
-						<input id="codepostal" type="text" pattern="[0-9]{5}" name="codepostal" ${empty sessionScope.utilisateur.pseudo ? '' : sessionScope.utilisateur.pseudo } class="form-control col-sm-5" placeholder="Code postal" />
+						<input id="codepostal" type="text" pattern="[0-9]{5}" name="codepostal" value="${empty sessionScope.utilisateur.codePostal ? '' : sessionScope.utilisateur.codePostal }" class="form-control col-sm-5" placeholder="Code postal" />
 					</div>	 
 					<c:if test="${empty sessionScope.utilisateur.pseudo}">
 						<!-- si il y a pas de nom -->
 						<div class="form-group row">
 							<label for="mdpnow" class="col-sm-3 col-form-label">Mot de passe :</label>
-							<input id="mdpnow" type="password" name="mdpnow" class="form-control col-sm-5" value="${requestScope.monprofil.mdpnow}" placeholder="Mot de passe" />
-						</div>
-	
+							<input id="mdpnow" type="password" name="mdpnow" class="form-control col-sm-5" value="${empty sessionScope.utilisateur.motDePasse ? '' : sessionScope.utilisateur.motDePasse }" placeholder="Mot de passe" />
+						</div>	
 					</c:if>
 					<c:if test="${!empty sessionScope.utilisateur.pseudo}">
-						<!-- Mot de passe si connecté -->
-						<div class="form-group">
+						<!-- Mot de passe si connecté -->						
+						<div class="form-group row">
 							<label for="mdpnow" class="col-sm-3 col-form-label">Mot de passe actuel :</label>
 							<input id="mdpnow" type="password" name="mdpnow" class="form-control col-sm-5" placeholder="Mot de passe actuel" />
 						</div>
-						<div class="form-group">
-							<label for="newmdp" class="col-sm-3 col-form-label">Nouveau mot de passe :</label>
-							<input id="newmdp" type="password" name="newmdp" class="form-control col-sm-5" placeholder="Nouveau mot de passe" />
-						</div>
-					</c:if>
-				</div>
+						<div class="form-group row">
+						 <p>Votre crédit est : ${empty sessionScope.utilisateur.credit ? '' : sessionScope.utilisateur.credit } </p>
+						
+					</div>
+						</c:if>
+						
+					
+				</div>  <!-- FIN BLOC de Gauche -->
 				<div class="form-group col-sm-6">
 					<div class="form-group row">
 						<label for="nom" class="col-sm-3 col-form-label">Nom :</label>
-						<input type="text" name="nom" id="nom" class="form-control col-sm-5" value="${requestScope.monprofil.nom}" placeholder="Nom" />
+						<input type="text" name="nom" id="nom" class="form-control col-sm-5" value="${empty sessionScope.utilisateur.nom ? '' : sessionScope.utilisateur.nom }" placeholder="Nom" />
 					</div>
 					<div class="form-group row">
 						<label for="email" class="col-sm-3 col-form-label">Email :</label>
-						<input type="email" name="email" id="email" class="form-control col-sm-5" value="${requestScope.monprofil.email}" placeholder="E-mail" />
+						<input type="email" name="email" id="email" class="form-control col-sm-5" value="${empty sessionScope.utilisateur.email ? '' : sessionScope.utilisateur.email }" placeholder="E-mail" />
 					</div>
 					<div class="form-group row">
 						<label for="rue" class="col-sm-3 col-form-label">Rue :</label>
-						<input type="text" name="rue" id="Rue" class="form-control col-sm-5" value="${requestScope.monprofil.Rue}" placeholder="Rue"/>
+						<input type="text" name="rue" id="Rue" class="form-control col-sm-5" value="${empty sessionScope.utilisateur.rue ? '' : sessionScope.utilisateur.rue }" placeholder="Rue"/>
 					</div>
 					<div class="form-group row">
 						<label for="ville" class="col-sm-3 col-form-label">Ville :</label>
-						<input type="text" name="ville" id="ville" class="form-control col-sm-5" value="${requestScope.monprofil.ville}" placeholder="Ville" />
+						<input type="text" name="ville" id="ville" class="form-control col-sm-5" value="${empty sessionScope.utilisateur.ville ? '' : sessionScope.utilisateur.ville }" placeholder="Ville" />
 					</div>
+					<c:if test="${empty sessionScope.utilisateur.pseudo}">
 					<div class="form-group row">
 						<label for="confirmation" class="col-sm-3 col-form-label">Confirmation :</label>
 						<input type="password" name="confirmation" id="confirmation" class="form-control col-sm-5" placeholder="Confirmer mot de passe" />
 					</div>
+					</c:if>
+					<c:if test="${!empty sessionScope.utilisateur.pseudo}">
+					<div class="form-group row">
+							<label for="newmdp" class="col-sm-3 col-form-label">Nouveau mot de passe :</label>
+							<input id="newmdp" type="password" name="newmdp" class="form-control col-sm-5" placeholder="Nouveau mot de passe" />
+						</div>
+						</c:if>
 				</div>
+				<c:if test="${empty sessionScope.utilisateur.pseudo}">
+				
 				<div class="form-group d-flex justify-content-around col-sm-6 mt-5">
 					<input type="submit" value="Créer" class="form-control btn btn-info col-sm-3" name="create" />
 					<a href="${pageContext.request.contextPath}/home" class="form-control btn btn-info col-sm-3">Annuler</a>
 				</div>
+				</c:if>
+				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
+										
+			<div class="form-group d-flex justify-content-around col-sm-6 mt-5">
+				<input type="submit" value="Enregistrer" class="form-control btn btn-info col-sm-3"
+					name="save" />			
+				<input type="submit" value="Supprimer" class="form-control btn btn-info col-sm-3"
+					name="delete" />
+					</div>
+					
+			
+			
+			
+		</c:if>
 			</div>
 		</form>
 
-		<c:if test="${empty sessionScope.utilisateur.pseudo}">
-			<%-- <form action="${pageContext.request.contextPath}/home" method="get">
-						
-					</form> --%>
-		</c:if>
-		<c:if test="${!empty sessionScope.utilisateur.pseudo}">
-			<form
-				action="${pageContext.request.contextPath}/connexionInscription"
-				method="post">
-				<input type="submit" value="Enregistrer" class="enregistrer"
-					name="save" />
-			</form>
-			<form action="${pageContext.request.contextPath}/home" method="post">
-				<input type="submit" value="Supprimer mon compte" class="supprimer"
-					name="delete" />
-			</form>
-			<p>Votre crédit est de :${requestScope.monprofil.credit}</p>
-		</c:if>
-	</div>
+		
+		</div>
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
