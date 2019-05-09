@@ -94,7 +94,7 @@
 						</c:if>
 				</div>
 				<c:if test="${ !empty requestScope.Erreur}">
-					<p class="danger">${Erreur}</p>
+					<p class="text-decoration-danger">${Erreur}</p>
 				</c:if>
 				
 				<c:if test="${ !empty requestScope.ErreurMDP}">
