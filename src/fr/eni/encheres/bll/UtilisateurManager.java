@@ -44,7 +44,7 @@ public class UtilisateurManager {
 			nom = nom.trim();
 			if (nom.length() > 30 || nom == null || nom == "") {
 				System.out.println("Champs nom invalide");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_NOM_ERREUR);
 			} else {
 				utilisateur.setNom(nom);
 			}
@@ -52,7 +52,7 @@ public class UtilisateurManager {
 			prenom = prenom.trim();
 			if (prenom.length() > 30 || prenom == null || prenom == "") {
 				System.out.println("Champs prenom invalide");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_PRENOM_ERREUR);
 			} else {
 				utilisateur.setPrenom(prenom);
 			}
@@ -65,6 +65,7 @@ public class UtilisateurManager {
 				utilisateur.setEmail(email);
 			} else {
 				System.out.println("Email non valide");
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_EMAIL_ERREUR);
 			}
 //			TELEPHONE
 			telephone = telephone.trim();
@@ -75,12 +76,13 @@ public class UtilisateurManager {
 				utilisateur.setTelephone(telephone);
 			} else {
 				System.out.println("Telephone non valide");
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_TELEPHONE_ERREUR);
 			}
 //			RUE
 			rue = rue.trim();
 			if (rue.length() > 30 || rue == null) {
 				System.out.println("Champs rue invalide");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_RUE_ERREUR);
 			} else {
 				utilisateur.setRue(rue);
 			}
@@ -88,7 +90,7 @@ public class UtilisateurManager {
 			codePostal = codePostal.trim();
 			if (codePostal.length() > 5) {
 				System.out.println("Champs code postal invalide");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_CODEPOSTAL_ERREUR);
 			} else {
 				Pattern patternCodePostal = Pattern.compile(regexNumeric);
 //				Create matcher object which is a boolean
@@ -97,13 +99,14 @@ public class UtilisateurManager {
 					utilisateur.setCodePostal(codePostal);
 				} else {
 					System.out.println("Code postal non valide");
+					businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_CODEPOSTAL_ERREUR);
 				}
 			}
 //			VILLE
 			ville = ville.trim();
 			if (ville.length() > 30 || ville == null) {
 				System.out.println("Champs ville invalide");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_VILLE_ERREUR);
 			} else {
 				utilisateur.setVille(ville);
 			}
@@ -111,7 +114,7 @@ public class UtilisateurManager {
 			motDePasse = motDePasse.trim();
 			if (motDePasse == null) {
 				System.out.println("Le mot de passe doit contenir des caractères !");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_UTILISATEUR_ERREUR);
+				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_MOTDEPASSE_ERREUR);
 			} else {
 				utilisateur.setMotDePasse(motDePasse);
 			}
