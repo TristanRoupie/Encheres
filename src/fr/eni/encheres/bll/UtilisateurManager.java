@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.DAOFactory;
-import fr.eni.encheres.dal.UtilisateurDAO;
+import fr.eni.encheres.dal.utilisateur.UtilisateurDAO;
 
 public class UtilisateurManager {
 

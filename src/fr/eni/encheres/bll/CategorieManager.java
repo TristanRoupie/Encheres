@@ -3,8 +3,8 @@ package fr.eni.encheres.bll;
 import java.util.List;
 
 import fr.eni.encheres.bo.Categorie;
-import fr.eni.encheres.dal.CategorieDAO;
 import fr.eni.encheres.dal.DAOFactory;
+import fr.eni.encheres.dal.categorie.CategorieDAO;
 
 public class CategorieManager {
 	

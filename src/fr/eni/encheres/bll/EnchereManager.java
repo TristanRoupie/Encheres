@@ -6,7 +6,7 @@ import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.bo.Enchere;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.DAOFactory;
-import fr.eni.encheres.dal.EnchereDAO;
+import fr.eni.encheres.dal.enchere.EnchereDAO;
 
 public class EnchereManager {
 	private EnchereDAO enchereDAO;

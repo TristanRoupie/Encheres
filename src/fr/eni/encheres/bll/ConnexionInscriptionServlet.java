@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.encheres.bo.Utilisateur;
-import fr.eni.encheres.dal.UtilisateurDAO;
+import fr.eni.encheres.dal.utilisateur.UtilisateurDAO;
 
 /**
  * Servlet implementation class CreaCompteServlet

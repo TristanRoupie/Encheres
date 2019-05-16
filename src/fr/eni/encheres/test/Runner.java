@@ -12,11 +12,11 @@ import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Enchere;
 import fr.eni.encheres.bo.Retrait;
 import fr.eni.encheres.bo.Utilisateur;
-import fr.eni.encheres.dal.ArticleVenduDAO;
 import fr.eni.encheres.dal.DAOFactory;
-import fr.eni.encheres.dal.EnchereDAO;
-import fr.eni.encheres.dal.RetraitDAO;
-import fr.eni.encheres.dal.UtilisateurDAO;
+import fr.eni.encheres.dal.articlevendu.ArticleVenduDAO;
+import fr.eni.encheres.dal.enchere.EnchereDAO;
+import fr.eni.encheres.dal.retrait.RetraitDAO;
+import fr.eni.encheres.dal.utilisateur.UtilisateurDAO;
 
 class Runner {
 
