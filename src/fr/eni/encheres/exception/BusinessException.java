@@ -1,4 +1,4 @@
-package fr.eni.encheres.bll;
+package fr.eni.encheres.exception;
 
 import java.util.ArrayList;
 import java.util.List;

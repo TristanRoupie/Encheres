@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.DAOFactory;
 import fr.eni.encheres.dal.utilisateur.UtilisateurDAO;
+import fr.eni.encheres.exception.BusinessException;
 
 public class UtilisateurManager {
 

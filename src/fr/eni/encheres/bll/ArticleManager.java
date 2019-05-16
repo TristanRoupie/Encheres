@@ -9,6 +9,7 @@ import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.DAOFactory;
 import fr.eni.encheres.dal.articlevendu.ArticleVenduDAO;
+import fr.eni.encheres.exception.BusinessException;
 
 public class ArticleManager {
 	

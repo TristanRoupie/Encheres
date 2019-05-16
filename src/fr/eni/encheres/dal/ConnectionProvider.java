@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import fr.eni.encheres.bll.BusinessException;
+import fr.eni.encheres.exception.BusinessException;
 
 
 /**
@@ -31,7 +31,7 @@ public abstract class ConnectionProvider  {
 	 * @return Session
 	 * @throws SQLException
 	 */
-	public static Session getConnection() {
+	public static Session getConnection() throws SQLException{
 		return sessionFactory.openSession();
 	}
 }

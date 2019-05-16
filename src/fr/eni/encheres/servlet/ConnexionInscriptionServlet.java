@@ -1,4 +1,4 @@
-package fr.eni.encheres.bll;
+package fr.eni.encheres.servlet;
 
 import java.io.IOException;
 
@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.encheres.bll.UtilisateurManager;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.utilisateur.UtilisateurDAO;
+import fr.eni.encheres.exception.BusinessException;
 
 /**
  * Servlet implementation class CreaCompteServlet
