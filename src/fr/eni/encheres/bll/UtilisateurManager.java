@@ -11,7 +11,10 @@ import fr.eni.encheres.exception.BusinessException;
 public class UtilisateurManager {
 
 	private UtilisateurDAO utilisateurDAO;
-
+	private final String  REGEX_ALPHANUMERIC = "^[a-zA-Z0-9]*$";
+	private final String regexNumeric = "^[0-9]*$";
+	
+	
 	public UtilisateurManager() {
 		this.utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
@@ -19,8 +22,7 @@ public class UtilisateurManager {
 	public Utilisateur ajouterUtilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email,
 			String telephone, String rue, String codePostal, String ville, String motDePasse) throws BusinessException {
 
-		String regexAlphanumeric = "^[a-zA-Z0-9]*$";
-		String regexNumeric = "^[0-9]*$";
+		
 
 		BusinessException businessException = new BusinessException();
 
@@ -30,17 +32,9 @@ public class UtilisateurManager {
 			utilisateur = new Utilisateur();
 			utilisateur.setNoUtilisateur(noUtilisateur);
 
-			// PSEUDO
-			pseudo = pseudo.trim();
-			Pattern patternPseudo = Pattern.compile(regexAlphanumeric);
-//			Create matcher object which is a boolean
-			Matcher matcherPseudo = patternPseudo.matcher(pseudo);
-			if (matcherPseudo.matches() == true) {
-				utilisateur.setPseudo(pseudo);
-			} else {
-				System.out.println("Pseudo non valide");
-				throw businessException;
-			}
+			//test pseuo
+			pseudo = validPseudo(pseudo.trim(),businessException);
+			
 //			NOM
 			nom = nom.trim();
 			if (nom.length() > 30 || nom == null || nom == "") {
@@ -126,6 +120,17 @@ public class UtilisateurManager {
 		}
 
 		return utilisateur;
+	}
+
+	private String validPseudo(String pseudo, BusinessException businessException) {
+		Pattern patternPseudo = Pattern.compile(this.REGEX_ALPHANUMERIC);
+//			Create matcher object which is a boolean
+		Matcher matcherPseudo = patternPseudo.matcher(pseudo);
+		if (matcherPseudo.matches() == true) {
+			return pseudo;
+		} else {
+			businessException.ajouterErrors();
+		}
 	}
 
 	public Utilisateur selectById(int noUtilisateur) throws BusinessException {
