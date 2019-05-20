@@ -43,5 +43,11 @@ public abstract class CodesResultsBLL {
 	 */
 	public static final int REGLE_INSCRIPTION_MOTDEPASSE_ERREUR = 20007;
 	
+	
+	/**
+	 * 
+	 */
+	public static final int REGLE_INSCRIPTION_PSEUDO_ERREUR = 20008;
+	
 
 }

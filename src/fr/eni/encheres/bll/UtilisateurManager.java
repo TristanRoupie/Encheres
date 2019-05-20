@@ -11,18 +11,15 @@ import fr.eni.encheres.exception.BusinessException;
 public class UtilisateurManager {
 
 	private UtilisateurDAO utilisateurDAO;
-	private final String  REGEX_ALPHANUMERIC = "^[a-zA-Z0-9]*$";
+	private final String REGEX_ALPHANUMERIC = "^[a-zA-Z0-9]*$";
 	private final String regexNumeric = "^[0-9]*$";
-	
-	
+
 	public UtilisateurManager() {
 		this.utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
 
 	public Utilisateur ajouterUtilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email,
 			String telephone, String rue, String codePostal, String ville, String motDePasse) throws BusinessException {
-
-		
 
 		BusinessException businessException = new BusinessException();
 
@@ -32,17 +29,11 @@ public class UtilisateurManager {
 			utilisateur = new Utilisateur();
 			utilisateur.setNoUtilisateur(noUtilisateur);
 
-			//test pseuo
-			pseudo = validPseudo(pseudo.trim(),businessException);
-			
+			// test pseuo
+			pseudo = validPseudo(pseudo.trim(), businessException);
+
 //			NOM
-			nom = nom.trim();
-			if (nom.length() > 30 || nom == null || nom == "") {
-				System.out.println("Champs nom invalide");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_NOM_ERREUR);
-			} else {
-				utilisateur.setNom(nom);
-			}
+			nom = validNom(nom.trim(), businessException);
 //			PRENOM
 			prenom = prenom.trim();
 			if (prenom.length() > 30 || prenom == null || prenom == "") {
@@ -122,14 +113,40 @@ public class UtilisateurManager {
 		return utilisateur;
 	}
 
+	/***
+	 * Check nom
+	 * @param nom
+	 * @param businessException
+	 * @return String Pseudo
+	 * si le nom n'est pas valide un code erreur est ajouté
+	 * pour être remonté vers la jps
+	 */
+	private String validNom(String nom, BusinessException businessException) {
+		if (nom.length() > 30 || nom == null || nom == "") {
+			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_NOM_ERREUR);
+			return null;
+		} else {
+			return nom;
+		}
+	}
+
+	/***
+	 * Check pseudo
+	 * 
+	 * @param pseudo
+	 * @param businessException
+	 * @return String Pseudo
+	 * si le pseudo n'est pas valide un code erreur est ajouté
+	 * pour être remonté vers la jps
+	 */
 	private String validPseudo(String pseudo, BusinessException businessException) {
 		Pattern patternPseudo = Pattern.compile(this.REGEX_ALPHANUMERIC);
-//			Create matcher object which is a boolean
 		Matcher matcherPseudo = patternPseudo.matcher(pseudo);
-		if (matcherPseudo.matches() == true) {
-			return pseudo;
+		if (matcherPseudo.matches() == false || pseudo.length() > 30) {
+			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_PSEUDO_ERREUR);
+			return null;
 		} else {
-			businessException.ajouterErrors();
+			return pseudo;
 		}
 	}
 
@@ -157,7 +174,7 @@ public class UtilisateurManager {
 			throw businessException;
 		}
 	}
-	
+
 	public void checkUtilisateur(int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateur = selectById(noUtilisateur);
 		BusinessException businessException = new BusinessException();
@@ -166,7 +183,7 @@ public class UtilisateurManager {
 			throw businessException;
 		}
 	}
-	
+
 	// TODO implement method logic
 	public Utilisateur modifierUtilisateur(int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateur = selectById(noUtilisateur);
