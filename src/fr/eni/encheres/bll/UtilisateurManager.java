@@ -132,7 +132,6 @@ public class UtilisateurManager {
 
 	/***
 	 * Check pseudo
-	 * 
 	 * @param pseudo
 	 * @param businessException
 	 * @return String Pseudo
