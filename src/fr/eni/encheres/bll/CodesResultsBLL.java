@@ -45,7 +45,7 @@ public abstract class CodesResultsBLL {
 	
 	
 	/**
-	 * 
+	 * Echec quand le pseudo pour l'inscription ne respecte pas la règle définie
 	 */
 	public static final int REGLE_INSCRIPTION_PSEUDO_ERREUR = 20008;
 	
