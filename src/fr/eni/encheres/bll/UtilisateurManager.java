@@ -34,27 +34,13 @@ public class UtilisateurManager {
 		// test Prenom
 		prenom = validPrenom(prenom.trim(), businessException);
 		// test Email
-		email=validMail(email.trim(), businessException);
+		email = validMail(email.trim(), businessException);
 		// test Telephone
-		telephone=validTelephone(telephone.trim(), businessException);
+		telephone = validTelephone(telephone.trim(), businessException);
 		// test Rue
 		rue = validRue(rue.trim(), businessException);
-		//test codepostal
-		codePostal = codePostal.trim();
-		if (codePostal.length() > 5) {
-			System.out.println("Champs code postal invalide");
-			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_CODEPOSTAL_ERREUR);
-		} else {
-			Pattern patternCodePostal = Pattern.compile(regexNumeric);
-//				Create matcher object which is a boolean
-			Matcher matcherCodePostal = patternCodePostal.matcher(codePostal);
-			if (matcherCodePostal.matches() == true) {
-				utilisateur.setCodePostal(codePostal);
-			} else {
-				System.out.println("Code postal non valide");
-				businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_CODEPOSTAL_ERREUR);
-			}
-		}
+		// test codepostal
+		codePostal = validAdresse(codePostal.trim(), businessException);
 //			VILLE
 		ville = ville.trim();
 		if (ville.length() > 30 || ville == null) {
@@ -71,10 +57,7 @@ public class UtilisateurManager {
 		} else {
 			utilisateur.setMotDePasse(motDePasse);
 		}
-		
-		
-		
-		
+
 		if (!businessException.hasErrors()) {
 			utilisateur = new Utilisateur(pseudo, nom, prenom, email, rue, codePostal, ville, motDePasse);
 			this.utilisateurDAO.addUtilisateur(utilisateur);
@@ -84,9 +67,6 @@ public class UtilisateurManager {
 
 		return utilisateur;
 	}
-
-	
-
 
 	/***
 	 * Check pseudo
@@ -122,7 +102,7 @@ public class UtilisateurManager {
 	 *         </p>
 	 */
 	private String validNom(String nom, BusinessException businessException) {
-		if (nom.length() > 30 || nom == "") {
+		if (nom == null || nom.length() > 30 || nom == "") {
 			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_NOM_ERREUR);
 			return null;
 		} else {
@@ -142,7 +122,7 @@ public class UtilisateurManager {
 	 *         </p>
 	 */
 	private String validPrenom(String prenom, BusinessException businessException) {
-		if (prenom.length() > 30 || prenom == "") {
+		if (prenom == null || prenom.length() > 30 || prenom == "") {
 			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_PRENOM_ERREUR);
 			return null;
 		} else {
@@ -164,15 +144,14 @@ public class UtilisateurManager {
 	private String validMail(String email, BusinessException businessException) {
 		Pattern patternEmail = Pattern.compile(REGEX_EMAIL);
 		Matcher matcherEmail = patternEmail.matcher(email);
-		if (matcherEmail.matches() == false || email.length() > 50) {
+		if (email == null || email.length() > 50 || email == ""|| matcherEmail.matches() == false) {
 			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_EMAIL_ERREUR);
 			return null;
 		} else {
 			return email;
 		}
 	}
-	
-	
+
 	/***
 	 * Check telephone
 	 * 
@@ -187,11 +166,11 @@ public class UtilisateurManager {
 	private String validTelephone(String telephone, BusinessException businessException) {
 		Pattern patternTelephone = Pattern.compile(REGEX_NUMERIC);
 		Matcher matcherTelephone = patternTelephone.matcher(telephone);
-		if (matcherTelephone.matches() == false || telephone.length()>30) {
+		if (telephone == null || telephone.length() > 30 || matcherTelephone.matches() == false) {
 			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_TELEPHONE_ERREUR);
 			return null;
 		} else {
-			return telephone;		
+			return telephone;
 		}
 	}
 
@@ -207,11 +186,34 @@ public class UtilisateurManager {
 	 *         </p>
 	 */
 	private String validRue(String rue, BusinessException businessException) {
-		if (rue.length() > 30 || rue == null) {
+		if (rue == null || rue.length() > 30) {
 			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_RUE_ERREUR);
 			return null;
 		} else {
 			return rue;
+		}
+	}
+
+	/***
+	 * Check code postal
+	 * 
+	 * @param code              postal
+	 * @param businessException
+	 * @return String code postal
+	 *         <p>
+	 *         si le code postal n'est pas valide un code erreur est ajouté pour
+	 *         être remonté vers la jps
+	 *         </p>
+	 */
+	private String validAdresse(String codePostal, BusinessException businessException) {
+		Pattern patternCodePostal = Pattern.compile(REGEX_NUMERIC);
+		Matcher matcherCodePostal = patternCodePostal.matcher(codePostal);
+		if ((codePostal == null) || (codePostal.length() > 5) || (matcherCodePostal.matches() == false)) {
+			System.out.println("Champs code postal invalide");
+			businessException.ajouterErrors(CodesResultsBLL.REGLE_INSCRIPTION_CODEPOSTAL_ERREUR);
+			return null;
+		} else {
+			return codePostal;
 		}
 	}
 
