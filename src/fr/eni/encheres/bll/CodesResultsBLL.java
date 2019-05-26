@@ -49,5 +49,10 @@ public abstract class CodesResultsBLL {
 	 */
 	public static final int REGLE_INSCRIPTION_PSEUDO_ERREUR = 20008;
 	
+	/**
+	 * Echec quand le pseuod ou le mot de passe déja utilisé
+	 */
+	public static final int PSEUDO_EMAIL_DEJA_UTILISE = 20009;
+	
 
 }
